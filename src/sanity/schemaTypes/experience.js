@@ -17,6 +17,13 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'featured',
+      title: 'Featured on Homepage',
+      type: 'boolean',
+      description: 'Check this to feature this experience on the homepage',
+      initialValue: false,
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',

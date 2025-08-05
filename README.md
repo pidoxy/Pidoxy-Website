@@ -1,34 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pidoxy Portfolio Website
 
-## Getting Started
+A modern portfolio website built with Next.js and Sanity CMS to showcase projects, experience, and research.
 
-First, run the development server:
+## 🏠 Homepage Featured Content
+
+Your homepage now dynamically showcases your best work. Here's how to control what gets featured:
+
+### How to Feature Content
+
+1. **Go to your Sanity Studio** at `http://localhost:3000/studio` (or your deployed URL + `/studio`)
+
+2. **For Projects:**
+   - Edit any project
+   - Check the **"Featured on Homepage"** checkbox
+   - Save the project
+   - Up to 3 featured projects will appear on the homepage
+
+3. **For Experiences:**
+   - Edit any experience
+   - Check the **"Featured on Homepage"** checkbox
+   - Save the experience
+   - Up to 2 featured experiences will appear on the homepage
+
+4. **For Research:**
+   - Edit any research item
+   - Check the **"Featured on Homepage"** checkbox
+   - Save the research
+   - Up to 2 featured research items will appear on the homepage
+
+### Automatic Fallbacks
+
+If you haven't marked anything as featured, the homepage will automatically show:
+- **Latest 3 projects** (by creation date)
+- **Latest 2 experiences** (by start date)
+- **Latest 2 research items** (by creation date)
+
+## 🚀 Getting Started
 
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
+
+# Start Sanity Studio
+npm run dev
+# Then go to http://localhost:3000/studio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Project Structure
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+├── pages/               # Next.js pages
+├── components/          # Reusable components
+├── lib/                # Sanity client configuration
+├── src/sanity/         # Sanity schemas and config
+├── styles/             # Global styles
+└── public/             # Static assets
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 🎨 Features
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- **Dynamic Homepage** with featured content
+- **Project Showcases** with live previews, GitHub links, and YouTube demos
+- **Experience Timeline** with company logos and descriptions
+- **Research Portfolio** with papers and presentations
+- **Responsive Design** that works on all devices
+- **SEO Optimized** with proper meta tags
+- **Fast Performance** with static generation and ISR
 
-## Learn More
+## 🛠 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** Next.js 14
+- **CMS:** Sanity.io
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
+- **Languages:** JavaScript, React
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Content Management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+All content is managed through Sanity Studio:
+- **Projects:** Add your applications, websites, and software projects
+- **Experience:** Document your work history, internships, and roles
+- **Research:** Showcase your academic work, papers, and studies
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Built with ❤️ by Pidoxy
