@@ -1,377 +1,127 @@
 [
-  {
-    "id": "401da5a4-47b9-4e36-89bd-63c2153f746f",
-    "title": "Zuri Chat",
-    "slug": "zuri-chat",
-    "description": "ZuriChat is an open source workspace app that provides the opportunity for people to network, collaborate, educate and learn remotely.",
-    "tags": [],
-    "featured": false,
-    "liveUrl": null,
-    "codeUrl": "https://github.com/zurichat/zc_main",
-    "youtubeUrl": null,
-    "body": []
-  },
-  {
-    "id": "044072ac-c017-4cf9-8c2a-f9f58f139ed9",
-    "title": "PheraCam",
-    "slug": "pheracam",
-    "description": "\nPheraCAM is an AI-based security and protection System that uses facial recognition and edge computing to alert you when an unregistered face is detected, causing you to take necessary actions when your property is posed to a threat.",
-    "tags": [],
-    "featured": false,
-    "liveUrl": "https://phera-cam.vercel.app/",
-    "codeUrl": "https://github.com/pidoxy/pheraCAM",
-    "youtubeUrl": "https://www.youtube.com/watch?v=bUmzASxRi6E",
-    "body": [
-      {
-        "_key": "7768a0eee790",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "f575eadcb152",
-            "_type": "span",
-            "marks": [],
-            "text": "# PheraCam"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
+    {
+      "id": "pheracam",
+      "title": "PheraCam",
+      "description": "Real-time face recognition system using Edge AI. 1st Runner Up at HackLab Nigeria Hackathon.",
+      "tech": ["Python", "Azure", "OpenCV", "Edge Computing"],
+      "links": {
+        "demo": "https://phera-cam.vercel.app/",
+        "video": "https://www.youtube.com/watch?v=2022-06-12",
+        "github": "https://github.com/pidoxy/pheraCAM"
       },
-      {
-        "_key": "dc16c07fd146",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "100db68682ee",
-            "_type": "span",
-            "marks": [],
-            "text": "[live demo](https://www.youtube.com/watch?v=bUmzASxRi6E)"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "0bd4fe192fd7",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "1e3faa111c13",
-            "_type": "span",
-            "marks": [],
-            "text": "## Problem Statement\nThe insecurity in Nigeria is increasing exponentially with each passing day.\nInsecurity and terrorism have been a major challenge for the Nigerians and\nthe government lately, each of which leads to the loss of properties and the\ndestruction of properties. Lack of working systems has led to high crime rate\nwithout penalty for crimes ,there are even cases of the wrong individual\naccused for crimes they did not commit."
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "5f449b9e7735",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "775ab2db69da",
-            "_type": "span",
-            "marks": [],
-            "text": "Which brings us to the big question"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "580b23fddd3c",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "a91e83de28ff",
-            "_type": "span",
-            "marks": [],
-            "text": "How might we us solve Insecurity?"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "0617a26e773c",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "fb090ab5d343",
-            "_type": "span",
-            "marks": [],
-            "text": "## Concept"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "470f9b96b696",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "e288db2b8bc4",
-            "_type": "span",
-            "marks": [],
-            "text": "Our concept is based on"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "973df35ffb03",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "6ef2830b6d2c",
-            "_type": "span",
-            "marks": [],
-            "text": "* THEME: Accelerating Artificial Intelligence & big data through edge computing <img width=\"1440\" alt=\"Screenshot 2022-06-11 at 20 42 16\" src=\"https://user-images.githubusercontent.com/56538561/173213046-5249e165-b28b-4a21-868d-5cc202f365e6.png\">"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "9365619e4923",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "8b2daed4da38",
-            "_type": "span",
-            "marks": [],
-            "text": "and"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "56a5910ec5c6",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "8ca560442ac3",
-            "_type": "span",
-            "marks": [],
-            "text": "* SUB THEME: Internet of things at the edge"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "c0a87d1e7213",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "b989caa9e5e5",
-            "_type": "span",
-            "marks": [],
-            "text": "### Our Solution"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "958184fe8eb7",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "f26cd28101dd",
-            "_type": "span",
-            "marks": [],
-            "text": "PheraCAM is an AI-Based Security and protection System that uses\nfacial recognition and edge computing to alert you when\nan unregistered face is detected, causing you to make\nnecessary actions when your property is pose to a threat."
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "89340c1e9f44",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "6cb1384b57f3",
-            "_type": "span",
-            "marks": [],
-            "text": "Everyone wants to be secured or let’s say have some sort\nof security including our users.\nOur users build wealth to be able to have some level of\nsecurity and we are using this product to give our users\nby exploring the effective use of face recognition in our day\nto day to protect your property against theft and crime."
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "88b4a75107a1",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "345e4ee680c7",
-            "_type": "span",
-            "marks": [],
-            "text": "Hence, we can make our users sleep better at night."
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "5bdaa3e1100d",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "9d4f661a6e29",
-            "_type": "span",
-            "marks": [],
-            "text": "## How The Solution Works"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "830478f1eeb9",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "15d088956066",
-            "_type": "span",
-            "marks": [],
-            "text": "A basic flow is our cameras(sensors) pick up raw data and transact with the cloud\nfor edge speed processing and then return data to the web app where the user can\naccess"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "49afd6bc49e3",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "42e3724185f0",
-            "_type": "span",
-            "marks": [],
-            "text": "## Tech Stack\n* Figma: https://www.figma.com/file/rvSBK8LCxLlWcfIAJjv2kb/pheraCAM?node-id=267%3A705\n* React\n* Python\n* Azure\n* Netlify"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "3fc0fb8ba17b",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "5c1f6a4c5436",
-            "_type": "span",
-            "marks": [],
-            "text": "## Team Members"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "92fd953dff11",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "a690fa8d5b4c",
-            "_type": "span",
-            "marks": [],
-            "text": "* Joy\n* Sarah\n* Pidoxy"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "a4eabf7c1a1b",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "70303db8d8e1",
-            "_type": "span",
-            "marks": [],
-            "text": "## Demo"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "6e95d38cc802",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "bdd76cf89444",
-            "_type": "span",
-            "marks": [],
-            "text": "<img width=\"1440\" alt=\"Screenshot 2022-06-11 at 21 08 46\" src=\"https://user-images.githubusercontent.com/56538561/173212999-266399cd-aa92-42c7-8f35-255fc4bc37dd.png\">"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "28105f37c6a9",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "9909276dd28f",
-            "_type": "span",
-            "marks": [],
-            "text": "<img width=\"1440\" alt=\"Screenshot 2022-06-11 at 20 33 36\" src=\"https://user-images.githubusercontent.com/56538561/173212983-4b14b1b5-fff8-4abb-8106-a10c9150d9a1.png\">"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "fa3f32ead09f",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "adf046134f22",
-            "_type": "span",
-            "marks": [],
-            "text": "<img width=\"1440\" alt=\"Screenshot 2022-06-11 at 20 34 18\" src=\"https://user-images.githubusercontent.com/56538561/173212975-eac3658b-a65b-4cf0-8cf3-f8599e056533.png\">"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "98b31fe41be2",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "16a47a1a0844",
-            "_type": "span",
-            "marks": [],
-            "text": "<img width=\"1440\" alt=\"Screenshot 2022-06-11 at 20 33 04\" src=\"https://user-images.githubusercontent.com/56538561/173213121-188f200e-4ecb-48e9-8d78-46dd85f96f62.png\">"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
-      },
-      {
-        "_key": "e9c0715a80bc",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "94ecc88940d5",
-            "_type": "span",
-            "marks": [],
-            "text": "<img width=\"1277\" alt=\"Screenshot 2022-06-11 at 20 37 22\" src=\"https://user-images.githubusercontent.com/56538561/173213101-3cc4ae74-4d0f-49e3-bcdd-760c50f86b3d.png\">\n"
-          }
-        ],
-        "markDefs": [],
-        "style": "normal"
+      "details": {
+        "tagline": "Securing spaces with Edge AI and Real-time Facial Recognition.",
+        "problem": "Traditional security cameras are passive recording devices that fail to prevent intrusion in real-time.",
+        "solution": "PheraCam uses edge computing to process video feeds locally, distinguishing between 'Registered' family members and 'Unregistered' threats instantly (<150ms).",
+        "features": [
+          { "title": "Major Win", "desc": "1st Runner Up (2nd Place) at HackLab Nigeria Hackathon (₦500k Grant)." },
+          { "title": "Latency", "desc": "Optimized response time to under 150ms using Edge AI." },
+          { "title": "Accuracy", "desc": "Achieved >95% recognition accuracy on test sets." }
+        ]
       }
-    ]
-  }
-]
+    },
+    {
+      "id": "coffee-break",
+      "title": "Coffee_Break",
+      "description": "A hybrid-work social platform helping remote teams bond. Winner at Hybrid Work Hackathon.",
+      "tech": ["React", "WebRTC", "Socket.io", "Node.js"],
+      "links": {
+        "demo": "https://devpost.com/software/coffee_break",
+        "github": "#"
+      },
+      "details": {
+        "tagline": "Bringing the 'Water Cooler' moments to remote teams.",
+        "problem": "Working in a hybrid company can be isolating. Spontaneous social interactions are lost.",
+        "solution": "A virtual break room that uses spatial audio and gamified icebreakers to connect colleagues.",
+        "features": [
+           { "title": "Award Winner", "desc": "Recognized for Best Social Impact in Hybrid Work." },
+           { "title": "Spatial Audio", "desc": "Proximity-based voice chat for natural mingling." }
+        ]
+      }
+    },
+    {
+      "id": "amala-atlas",
+      "title": "Amala Atlas",
+      "description": "Crowdsourced discovery platform for hyper-local food spots and cultural mapping.",
+      "tech": ["React", "Google Maps API", "Firebase", "Crowdsourcing"],
+      "links": {
+        "demo": "https://amala-atlas.web.app",
+        "video": "https://www.youtube.com/watch?v=amala-hackathon-finale",
+        "github": "https://github.com/gdg-lagos/amala-atlas"
+      },
+      "details": {
+        "tagline": "Mapping our culture, one bowl at a time.",
+        "problem": "Authentic local food spots are often unlisted on major map platforms.",
+        "solution": "A community-driven map where users can pin, review, and discover hidden local gems.",
+        "features": [
+          { "title": "Community Driven", "desc": "Users contribute data to build a living map of local culture." },
+          { "title": "Hyper-local", "desc": "Focuses on authentic, street-level food vendors." }
+        ]
+      }
+    },
+    {
+      "id": "coeus-quiz",
+      "title": "Coeus",
+      "description": "AI-powered quiz platform that generates questions from your notes to boost memory retention.",
+      "tech": ["OpenAI API", "Next.js", "Tailwind CSS"],
+      "links": {
+        "demo": "https://devpost.com/software/coeus",
+        "github": "#"
+      },
+      "details": {
+        "tagline": "Your memories matter. Study smarter with AI.",
+        "problem": "Creating flashcards and quizzes manually is time-consuming.",
+        "solution": "Upload your notes, and Coeus uses NLP to generate active recall quizzes instantly.",
+        "features": [
+          { "title": "Instant Generation", "desc": "Turn raw notes into quizzes in seconds." },
+          { "title": "Active Recall", "desc": "Proven study method automated by AI." }
+        ]
+      }
+    },
+    {
+      "id": "todosay",
+      "title": "TodoSay",
+      "description": "Voice-activated productivity app. Just speak to add tasks.",
+      "tech": ["React", "Web Speech API", "Natural Language Processing"],
+      "links": {
+        "demo": "https://devpost.com/software/todosay",
+        "github": "#"
+      },
+      "details": {
+        "tagline": "You tell it what you want, it does the rest.",
+        "problem": "Typing todo lists on mobile can be frictionless.",
+        "solution": "A hands-free interface that parses spoken commands into organized tasks.",
+        "features": []
+      }
+    },
+    {
+      "id": "flower-classifier",
+      "title": "Flower Image Classifier",
+      "description": "Deep learning model for image classification trained on 102 distinct flower categories.",
+      "tech": ["PyTorch", "Python", "CNN"],
+      "links": {
+        "github": "https://github.com/pidoxy/AWS-AI-ML-FINAL-PROJECT"
+      },
+      "details": {
+        "tagline": "Computer Vision model for botanical classification.",
+        "problem": "Accurately classifying flora requires specialized botanical knowledge.",
+        "solution": "A Convolutional Neural Network (CNN) trained on the Oxford Flowers 102 dataset using Transfer Learning (VGG19).",
+        "features": []
+      }
+    },
+    {
+      "id": "cloud-warriors",
+      "title": "Cloud Warriors",
+      "description": "Automated cloud infrastructure deployment using Terraform and Docker.",
+      "tech": ["Terraform", "Docker", "AWS"],
+      "links": {
+        "github": "https://github.com/pidoxy/cloud-warriors-project-2"
+      },
+      "details": {
+        "tagline": "Infrastructure as Code (IaC) for scalable deployments.",
+        "problem": "Manual server provisioning is slow and error-prone.",
+        "solution": "Fully automated deployment pipeline.",
+        "features": []
+      }
+    }
+  ]

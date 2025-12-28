@@ -1,59 +1,29 @@
 [
-  {
-    "id": "sharpxr",
-    "title": "SharpXR: Structure-Aware Denoising for Pediatric Chest X-Rays",
-    "slug": "sharpxr",
-    "summary": "Pediatric chest X-ray imaging is essential for early diagnosis, particularly in low-resource settings where advanced imaging modalities are often inaccessible. Low-dose protocols reduce radiation exposure in children but introduce substantial noise that can obscure critical anatomical details. Conventional denoising methods often degrade fine details, compromising diagnostic accuracy. In this paper, we present SharpXR, a structure-aware dual-decoder U-Net designed to denoise low-dose pediatric X-rays while preserving diagnostically relevant features.",
-    "image": null,
-    "paperUrl": null,
-    "arxivUrl": "https://arxiv.org/abs/2508.08518",
-    "presentationUrl": null,
-    "isPublication": true,
-    "authors": [
-      "Ilerioluwakiiye Abolade",
-      "Emmanuel Idoko",
-      "Solomon Odelola",
-      "Promise Omoigui",
-      "Adetola Adebanwo",
-      "Aondana Iorumbur",
-      "Udunna Anazodo",
-      "Alessandro Crimi",
-      "Raymond Confidence"
-    ],
-    "venue": "MICCAI 2025 MIRASOL Workshop",
-    "publicationDate": "2025-08-11",
-    "featured": true,
-    "body": [
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "Pediatric chest X-ray imaging is essential for early diagnosis, particularly in low-resource settings where advanced imaging modalities are often inaccessible. Low-dose protocols reduce radiation exposure in children but introduce substantial noise that can obscure critical anatomical details. Conventional denoising methods often degrade fine details, compromising diagnostic accuracy."
-          }
-        ]
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "In this paper, we present SharpXR, a structure-aware dual-decoder U-Net designed to denoise low-dose pediatric X-rays while preserving diagnostically relevant features. SharpXR combines a Laplacian-guided edge-preserving decoder with a learnable fusion module that adaptively balances noise suppression and structural detail retention."
-          }
-        ]
-      },
-      {
-        "_type": "block",
-        "style": "normal",
-        "children": [
-          {
-            "_type": "span",
-            "text": "To address the scarcity of paired training data, we simulate realistic Poisson-Gaussian noise on the Pediatric Pneumonia Chest X-ray dataset. SharpXR outperforms state-of-the-art baselines across all evaluation metrics while maintaining computational efficiency suitable for resource-constrained settings. SharpXR-denoised images improved downstream pneumonia classification accuracy from 88.8% to 92.5%, underscoring its diagnostic value in low-resource pediatric care."
-          }
-        ]
-      }
-    ]
-  }
-]
+    {
+      "id": "sharpxr",
+      "title": "SharpXR: Structure-Aware Denoising for Pediatric Chest X-Rays",
+      "venue": "MICCAI 2025 MIRASOL Workshop (Accepted)",
+      "summary": "Proposed a structure-aware dual-decoder U-Net (SharpXR) that combines a Laplacian-guided edge-preserving decoder with a learnable fusion module. The model outperforms state-of-the-art baselines in denoising low-dose pediatric X-rays while preserving diagnostically relevant features, improving downstream pneumonia classification accuracy from 88.8% to 92.5%.",
+      "date": "Aug 2025",
+      "url": "https://arxiv.org/abs/2508.08518",
+      "tags": ["Medical Imaging", "Computer Vision", "Denoising", "Published"]
+    },
+    {
+      "id": "cross-modality",
+      "title": "Cross-Modality Attention Fusion for Chest X-ray Diagnosis",
+      "venue": "Ongoing Research",
+      "summary": "Investigating whether fusing features from chest X-ray images and corresponding textual radiology reports can improve diagnostic accuracy. Designing a cross-attention transformer model to learn joint representations of visual and textual data, exploring its effectiveness in identifying subtle pathologies missed by image-only models.",
+      "date": "In Progress",
+      "url": "#",
+      "tags": ["Multi-Modal", "Transformers", "Clinical NLP", "Ongoing"]
+    },
+    {
+      "id": "vamae",
+      "title": "VAMAE: Vessel-Aware Masked Autoencoders for OCT-Angiography",
+      "venue": "Ongoing Research",
+      "summary": "Developing a self-supervised pre-training method for OCT-A image analysis. Proposing a masked autoencoder (MAE) variant with a vessel-aware loss function that prioritizes the reconstruction of fine vascular structures to improve vessel segmentation and disease classification with limited labeled data.",
+      "date": "In Progress",
+      "url": "#",
+      "tags": ["Self-Supervised Learning", "Medical Imaging", "MAE", "Ongoing"]
+    }
+  ]

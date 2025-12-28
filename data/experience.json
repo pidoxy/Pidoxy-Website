@@ -1,0 +1,38 @@
+[
+    {
+      "company": "AidCare",
+      "role": "Founder & AI Research Lead",
+      "period": "May 2025 - Present",
+      "description": "Architected a dual-mode RAG system for clinical decision support. Engineered a semantic search pipeline using Sentence Transformers and FAISS. Integrated Whisper AI for voice-based clinical guidance and deployed on DigitalOcean with RBAC."
+    },
+    {
+      "company": "ML Collective",
+      "role": "Independent Researcher",
+      "period": "Sep 2024 - Present",
+      "description": "Engaged in critical analysis of clinical NLP and medical imaging papers. Collaborating within focus groups to identify open research questions and design experimental protocols for computer vision projects."
+    },
+    {
+      "company": "HabariPay (GTCO)",
+      "role": "Software Engineer Intern",
+      "period": "Apr 2025 - Jun 2025",
+      "description": "Built a full-stack vendor guide app (Next.js, PostgreSQL) used by 260+ attendees. Implemented a TF-IDF recommendation engine and Gemini-powered summaries, improving user click-through rates by 7%."
+    },
+    {
+      "company": "Wema Bank",
+      "role": "Data & AI Intern",
+      "period": "Sep 2024 - Dec 2024",
+      "description": "Built a governance-compliant pipeline to analyze Play Store reviews. Contributed to an AI-powered Microsoft Teams chatbot enabling 2,000+ staff to instantly access process information."
+    },
+    {
+      "company": "NexaScale",
+      "role": "Cloud Engineer Intern",
+      "period": "Feb 2023 - May 2023",
+      "description": "Automated deployment of 30+ AWS resources using Terraform, reducing manual setup by 75%. Containerized Node.js microservices with Docker and deployed to AKS."
+    },
+    {
+      "company": "Zuri Chat",
+      "role": "Software Engineer Lead",
+      "period": "Jul 2021 - Oct 2021",
+      "description": "Led a team to ship real-time music/chess rooms using WebRTC, boosting engagement by 20%. Improved backend performance by 50% through caching and refactoring."
+    }
+  ]
