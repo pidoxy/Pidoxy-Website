@@ -3,10 +3,11 @@
       "id": "pheracam",
       "title": "PheraCam",
       "description": "Real-time face recognition system using Edge AI. 1st Runner Up at HackLab Nigeria Hackathon.",
+      "image": "/projects/pheracam.png",
+      "video": "https://www.youtube.com/watch?v=bUmzASxRi6E", 
       "tech": ["Python", "Azure", "OpenCV", "Edge Computing"],
       "links": {
         "demo": "https://phera-cam.vercel.app/",
-        "video": "https://www.youtube.com/watch?v=2022-06-12",
         "github": "https://github.com/pidoxy/pheraCAM"
       },
       "details": {
@@ -21,9 +22,33 @@
       }
     },
     {
+      "id": "amala-atlas",
+      "title": "Amala Atlas",
+      "description": "The Intelligent, Global Map for Amala Discovery. GDG Lagos' first open-source project.",
+      "image": "/projects/amala-atlas.png",
+      "video": "https://www.youtube.com/watch?v=rnla6FqpDug&t=48s",
+      "tech": ["Next.js", "Firebase", "Puppeteer", "Google Maps"],
+      "links": {
+        "demo": "https://amala-atlas-oon3.vercel.app",
+        "github": "https://github.com/gdg-lagos/amala-atlas"
+      },
+      "details": {
+        "tagline": "Finding Home, One Amala Wrap at a Time.",
+        "problem": "Finding authentic Amala spots is a quest relying on luck and guesswork, with no centralized data.",
+        "solution": "An intelligent ecosystem featuring an Autonomous Discovery Agent that scrapes food blogs and a crowdsourced map for community verification.",
+        "features": [
+          { "title": "Autonomous Agent", "desc": "Built a web scraper that scans global food blogs to auto-populate the map." },
+          { "title": "Open Source", "desc": "The first open-source project by Google Developer Group (GDG) Lagos." },
+          { "title": "Intelligent Geosearch", "desc": "Instantly converts scraped addresses into precise latitude/longitude coordinates." }
+        ]
+      }
+    },
+    {
       "id": "coffee-break",
       "title": "Coffee_Break",
       "description": "A hybrid-work social platform helping remote teams bond. Winner at Hybrid Work Hackathon.",
+      "image": "/projects/coffee-break.png",
+      "video": "",
       "tech": ["React", "WebRTC", "Socket.io", "Node.js"],
       "links": {
         "demo": "https://devpost.com/software/coffee_break",
@@ -40,22 +65,44 @@
       }
     },
     {
-      "id": "amala-atlas",
-      "title": "Amala Atlas",
-      "description": "Crowdsourced discovery platform for hyper-local food spots and cultural mapping.",
-      "tech": ["React", "Google Maps API", "Firebase", "Crowdsourcing"],
+      "id": "medity",
+      "title": "Medity",
+      "description": "Health information app bridging the gap for under-resourced regions during pandemics.",
+      "image": "/projects/medity.png",
+      "video": "https://www.youtube.com/watch?v=6wUNXkcQV7M&t=4s",
+      "tech": ["React", "KendoReact", "Netlify"],
       "links": {
-        "demo": "https://amala-atlas.web.app",
-        "video": "https://www.youtube.com/watch?v=amala-hackathon-finale",
-        "github": "https://github.com/gdg-lagos/amala-atlas"
+        "demo": "https://medity-app.netlify.app",
+        "github": "https://github.com/pidoxy/medity"
       },
       "details": {
-        "tagline": "Mapping our culture, one bowl at a time.",
-        "problem": "Authentic local food spots are often unlisted on major map platforms.",
-        "solution": "A community-driven map where users can pin, review, and discover hidden local gems.",
+        "tagline": "Taking data and info to the uttermost parts of the globe.",
+        "problem": "Developing nations often lack centralized, accurate, and accessible information during global health crises.",
+        "solution": "A lightweight, mobile-first application that aggregates real-time disease stats, news, and regional regulations.",
         "features": [
-          { "title": "Community Driven", "desc": "Users contribute data to build a living map of local culture." },
-          { "title": "Hyper-local", "desc": "Focuses on authentic, street-level food vendors." }
+          { "title": "Real-Time Data", "desc": "Centralized dashboard for COVID-19, Ebola, and Influenza statistics." },
+          { "title": "Mobile First", "desc": "Optimized for low-bandwidth environments common in developing regions." }
+        ]
+      }
+    },
+    {
+      "id": "todosay",
+      "title": "TodoSay",
+      "description": "Voice-activated productivity app designed for accessibility.",
+      "image": "/projects/todosay.png",
+      "video": "",
+      "tech": ["React", "MongoDB", "Node.js", "Web Speech API"],
+      "links": {
+        "demo": "https://todosay.netlify.app",
+        "github": "https://github.com/pidoxy/TodoSay"
+      },
+      "details": {
+        "tagline": "You tell it what you want, it does the rest.",
+        "problem": "Traditional todo apps are difficult for users with motor disabilities or those experiencing typing fatigue.",
+        "solution": "A hands-free productivity tool that uses the Web Speech API to parse voice commands into organized tasks.",
+        "features": [
+          { "title": "Accessibility First", "desc": "Designed specifically for users who cannot type easily." },
+          { "title": "Voice Parsing", "desc": "Intelligently converts natural speech into actionable items." }
         ]
       }
     },
@@ -63,6 +110,8 @@
       "id": "coeus-quiz",
       "title": "Coeus",
       "description": "AI-powered quiz platform that generates questions from your notes to boost memory retention.",
+      "image": "/projects/coeus.png",
+      "video": "",
       "tech": ["OpenAI API", "Next.js", "Tailwind CSS"],
       "links": {
         "demo": "https://devpost.com/software/coeus",
@@ -79,25 +128,11 @@
       }
     },
     {
-      "id": "todosay",
-      "title": "TodoSay",
-      "description": "Voice-activated productivity app. Just speak to add tasks.",
-      "tech": ["React", "Web Speech API", "Natural Language Processing"],
-      "links": {
-        "demo": "https://devpost.com/software/todosay",
-        "github": "#"
-      },
-      "details": {
-        "tagline": "You tell it what you want, it does the rest.",
-        "problem": "Typing todo lists on mobile can be frictionless.",
-        "solution": "A hands-free interface that parses spoken commands into organized tasks.",
-        "features": []
-      }
-    },
-    {
       "id": "flower-classifier",
       "title": "Flower Image Classifier",
       "description": "Deep learning model for image classification trained on 102 distinct flower categories.",
+      "image": "/projects/flower-classifier.png",
+      "video": "",
       "tech": ["PyTorch", "Python", "CNN"],
       "links": {
         "github": "https://github.com/pidoxy/AWS-AI-ML-FINAL-PROJECT"
@@ -113,6 +148,8 @@
       "id": "cloud-warriors",
       "title": "Cloud Warriors",
       "description": "Automated cloud infrastructure deployment using Terraform and Docker.",
+      "image": "/projects/cloud-warriors.png",
+      "video": "",
       "tech": ["Terraform", "Docker", "AWS"],
       "links": {
         "github": "https://github.com/pidoxy/cloud-warriors-project-2"
