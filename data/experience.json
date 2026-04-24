@@ -3,36 +3,54 @@
       "company": "AidCare",
       "role": "Founder & AI Research Lead",
       "period": "May 2025 - Present",
+      "focus": "Clinical AI Systems",
+      "stack": ["Python", "RAG", "FAISS", "Whisper", "RBAC"],
+      "highlights": ["Dual-mode retrieval architecture", "Voice-guided clinical workflows", "Production deployment on DigitalOcean"],
       "description": "Architected a dual-mode RAG system for clinical decision support. Engineered a semantic search pipeline using Sentence Transformers and FAISS. Integrated Whisper AI for voice-based clinical guidance and deployed on DigitalOcean with RBAC."
     },
     {
       "company": "ML Collective",
       "role": "Independent Researcher",
       "period": "Sep 2024 - Present",
+      "focus": "Medical Imaging Research",
+      "stack": ["Clinical NLP", "Computer Vision", "Experiment Design"],
+      "highlights": ["Paper analysis and replication", "Open question discovery", "Protocol design for CV studies"],
       "description": "Engaged in critical analysis of clinical NLP and medical imaging papers. Collaborating within focus groups to identify open research questions and design experimental protocols for computer vision projects."
     },
     {
       "company": "HabariPay (GTCO)",
       "role": "Software Engineer Intern",
       "period": "Apr 2025 - Jun 2025",
+      "focus": "Product Engineering",
+      "stack": ["Next.js", "PostgreSQL", "TF-IDF", "Gemini"],
+      "highlights": ["260+ event attendees served", "7% CTR improvement", "Full-stack product delivery"],
       "description": "Built a full-stack vendor guide app (Next.js, PostgreSQL) used by 260+ attendees. Implemented a TF-IDF recommendation engine and Gemini-powered summaries, improving user click-through rates by 7%."
     },
     {
       "company": "Wema Bank",
       "role": "Data & AI Intern",
       "period": "Sep 2024 - Dec 2024",
+      "focus": "Enterprise AI",
+      "stack": ["NLP", "Analytics Pipelines", "Microsoft Teams", "Governance"],
+      "highlights": ["Internal assistant for 2,000+ staff", "Governance-compliant analytics", "Operational knowledge access"],
       "description": "Built a governance-compliant pipeline to analyze Play Store reviews. Contributed to an AI-powered Microsoft Teams chatbot enabling 2,000+ staff to instantly access process information."
     },
     {
       "company": "NexaScale",
       "role": "Cloud Engineer Intern",
       "period": "Feb 2023 - May 2023",
+      "focus": "Cloud Infrastructure",
+      "stack": ["Terraform", "AWS", "Docker", "AKS"],
+      "highlights": ["30+ AWS resources automated", "75% reduction in manual setup", "Containerized microservices delivery"],
       "description": "Automated deployment of 30+ AWS resources using Terraform, reducing manual setup by 75%. Containerized Node.js microservices with Docker and deployed to AKS."
     },
     {
       "company": "Zuri Chat",
       "role": "Software Engineer Lead",
       "period": "Jul 2021 - Oct 2021",
+      "focus": "Real-time Product Systems",
+      "stack": ["WebRTC", "Realtime Collaboration", "Caching", "Backend Performance"],
+      "highlights": ["Led delivery across a team", "20% engagement lift", "50% backend performance improvement"],
       "description": "Led a team to ship real-time music/chess rooms using WebRTC, boosting engagement by 20%. Improved backend performance by 50% through caching and refactoring."
     }
   ]

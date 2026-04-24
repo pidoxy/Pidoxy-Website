@@ -1,38 +1,26 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import ProjectMedia from "@/components/ProjectMedia";
 import projectData from "@/data/projects.json";
 import { ArrowLeft, Github, ExternalLink, Zap, Shield, Cpu, PlayCircle } from "lucide-react";
+import { hasUsableUrl } from "@/lib/content";
+import type { Project } from "@/types";
+
+const projects = projectData as Project[];
 
 export function generateStaticParams() {
-  return projectData.map((project) => ({ slug: project.id }));
+  return projects.map((project) => ({ slug: project.id }));
 }
 
-// HELPER: Convert standard YouTube links to Embed links automatically
-const getEmbedUrl = (url: string) => {
-    if (!url) return null;
-    let videoId = "";
-    
-    if (url.includes("v=")) {
-      videoId = url.split("v=")[1].split("&")[0];
-    } else if (url.includes("youtu.be/")) {
-      videoId = url.split("youtu.be/")[1].split("?")[0];
-    }
-    
-    return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
-  };
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.id === slug);
 
-  export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    const project = projectData.find((p) => p.id === slug);
-  
-    if (!project) notFound();
-  
-    const videoUrl = project.video ? getEmbedUrl(project.video) : null;
-  
-    return (
-      <main className="min-h-screen bg-white">
+  if (!project) notFound();
+
+  return (
+    <main className="min-h-screen bg-white">
       <Navbar />
 
       <div className="mx-auto max-w-4xl px-6 py-32">
@@ -48,27 +36,13 @@ const getEmbedUrl = (url: string) => {
 
         {/* MEDIA SECTION (Video Priority) */}
         <div className="rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 aspect-video relative mb-12 shadow-lg">
-            {videoUrl ? (
-                 <iframe 
-                   src={videoUrl} 
-                   className="absolute inset-0 w-full h-full"
-                   title="Project Demo"
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                   allowFullScreen
-                 />
-            ) : project.image ? (
-                <Image 
-                  src={project.image} 
-                  alt={project.title} 
-                  fill 
-                  className="object-cover"
-                />
-            ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-500 bg-slate-100">
-                    <PlayCircle size={48} className="mb-2 opacity-50"/>
-                    <p>No Media Available</p>
-                </div>
-            )}
+          <ProjectMedia
+            title={project.title}
+            tagline={project.details.tagline}
+            tech={project.tech}
+            image={project.image}
+            video={project.video}
+          />
         </div>
 
         {/* Tech & Links Bar */}
@@ -79,13 +53,13 @@ const getEmbedUrl = (url: string) => {
             ))}
           </div>
           <div className="flex gap-4">
-            {project.links.demo && (
-              <a href={project.links.demo} target="_blank" className="flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600">
+            {hasUsableUrl(project.links.demo) && (
+              <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600">
                 <ExternalLink size={16} /> Live Demo
               </a>
             )}
-            {project.links.github && (
-              <a href={project.links.github} target="_blank" className="flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600">
+            {hasUsableUrl(project.links.github) && (
+              <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600">
                 <Github size={16} /> View Code
               </a>
             )}
@@ -132,6 +106,12 @@ const getEmbedUrl = (url: string) => {
               <ul className="space-y-3 text-sm text-slate-600">
                 <li className="flex gap-2"><Zap size={16} className="text-slate-400 shrink-0"/><span>High Performance</span></li>
                 <li className="flex gap-2"><Shield size={16} className="text-slate-400 shrink-0"/><span>Secure Architecture</span></li>
+                {!hasUsableUrl(project.links.github) && (
+                  <li className="flex gap-2">
+                    <PlayCircle size={16} className="text-slate-400 shrink-0"/>
+                    <span>Built for showcase even when source is private.</span>
+                  </li>
+                )}
               </ul>
             </div>
           </div>

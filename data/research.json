@@ -14,7 +14,6 @@
       "venue": "Ongoing Research",
       "summary": "Investigating whether fusing features from chest X-ray images and corresponding textual radiology reports can improve diagnostic accuracy. Designing a cross-attention transformer model to learn joint representations of visual and textual data, exploring its effectiveness in identifying subtle pathologies missed by image-only models.",
       "date": "In Progress",
-      "url": "#",
       "tags": ["Multi-Modal", "Transformers", "Clinical NLP", "Ongoing"]
     },
     {
@@ -23,7 +22,6 @@
       "venue": "Ongoing Research",
       "summary": "Developing a self-supervised pre-training method for OCT-A image analysis. Proposing a masked autoencoder (MAE) variant with a vessel-aware loss function that prioritizes the reconstruction of fine vascular structures to improve vessel segmentation and disease classification with limited labeled data.",
       "date": "In Progress",
-      "url": "#",
       "tags": ["Self-Supervised Learning", "Medical Imaging", "MAE", "Ongoing"]
     }
   ]

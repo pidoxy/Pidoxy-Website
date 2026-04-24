@@ -1,4 +1,4 @@
-import { Trophy, Users, Star, Award } from "lucide-react";
+import { Trophy, Users, Star } from "lucide-react";
 import data from "@/data/awards.json";
 
 export default function Awards() {

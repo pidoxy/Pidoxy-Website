@@ -18,19 +18,22 @@ export interface Project {
     };
   }
   
-  export interface Experience {
+export interface Experience {
     company: string;
     role: string;
     period: string;
     description: string;
+    focus?: string;
+    stack?: string[];
+    highlights?: string[];
   }
   
-  export interface ResearchPaper {
+export interface ResearchPaper {
     id: string;
     title: string;
     venue: string;
     summary: string;
     date: string;
-    url: string;
+    url?: string;
     tags: string[];
   }

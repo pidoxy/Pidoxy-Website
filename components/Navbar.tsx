@@ -2,18 +2,29 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const navItems = [
-  { name: "Home", path: "/" },
-  { name: "Work", path: "#work" },
-  { name: "Research", path: "#research" },
-  { name: "Experience", path: "#experience" },
+  { name: "Home", href: "/" },
+  { name: "Work", href: "/#work" },
+  { name: "Research", href: "/#research" },
+  { name: "Experience", href: "/#experience" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const syncHash = () => setHash(window.location.hash);
+
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, [pathname]);
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center py-6">
@@ -24,12 +35,13 @@ export default function Navbar() {
         className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-2 py-2 backdrop-blur-md shadow-sm"
       >
         {navItems.map((item) => {
-          const isActive = pathname === item.path;
+          const isActive =
+            pathname === "/" ? item.href === `/${hash}` || (!hash && item.href === "/") : false;
           
           return (
             <Link
-              key={item.path}
-              href={item.path}
+              key={item.href}
+              href={item.href}
               className={`relative px-4 py-2 text-sm font-medium transition-colors hover:text-black ${
                 isActive ? "text-black" : "text-neutral-500"
               }`}

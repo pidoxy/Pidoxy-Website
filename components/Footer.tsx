@@ -33,6 +33,7 @@ function SocialIcon({ href, icon }: { href: string; icon: React.ReactNode }) {
     <a 
       href={href} 
       target="_blank" 
+      rel="noopener noreferrer"
       className="text-slate-400 hover:text-blue-600 transition-colors"
     >
       {icon}

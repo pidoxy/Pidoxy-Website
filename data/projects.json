@@ -3,7 +3,6 @@
       "id": "pheracam",
       "title": "PheraCam",
       "description": "Real-time face recognition system using Edge AI. 1st Runner Up at HackLab Nigeria Hackathon.",
-      "image": "/projects/pheracam.png",
       "video": "https://www.youtube.com/watch?v=bUmzASxRi6E", 
       "tech": ["Python", "Azure", "OpenCV", "Edge Computing"],
       "links": {
@@ -25,7 +24,6 @@
       "id": "amala-atlas",
       "title": "Amala Atlas",
       "description": "The Intelligent, Global Map for Amala Discovery. GDG Lagos' first open-source project.",
-      "image": "/projects/amala-atlas.png",
       "video": "https://www.youtube.com/watch?v=rnla6FqpDug&t=48s",
       "tech": ["Next.js", "Firebase", "Puppeteer", "Google Maps"],
       "links": {
@@ -47,12 +45,10 @@
       "id": "coffee-break",
       "title": "Coffee_Break",
       "description": "A hybrid-work social platform helping remote teams bond. Winner at Hybrid Work Hackathon.",
-      "image": "/projects/coffee-break.png",
       "video": "",
       "tech": ["React", "WebRTC", "Socket.io", "Node.js"],
       "links": {
-        "demo": "https://devpost.com/software/coffee_break",
-        "github": "#"
+        "demo": "https://devpost.com/software/coffee_break"
       },
       "details": {
         "tagline": "Bringing the 'Water Cooler' moments to remote teams.",
@@ -68,7 +64,6 @@
       "id": "medity",
       "title": "Medity",
       "description": "Health information app bridging the gap for under-resourced regions during pandemics.",
-      "image": "/projects/medity.png",
       "video": "https://www.youtube.com/watch?v=6wUNXkcQV7M&t=4s",
       "tech": ["React", "KendoReact", "Netlify"],
       "links": {
@@ -89,7 +84,6 @@
       "id": "todosay",
       "title": "TodoSay",
       "description": "Voice-activated productivity app designed for accessibility.",
-      "image": "/projects/todosay.png",
       "video": "",
       "tech": ["React", "MongoDB", "Node.js", "Web Speech API"],
       "links": {
@@ -110,12 +104,10 @@
       "id": "coeus-quiz",
       "title": "Coeus",
       "description": "AI-powered quiz platform that generates questions from your notes to boost memory retention.",
-      "image": "/projects/coeus.png",
       "video": "",
       "tech": ["OpenAI API", "Next.js", "Tailwind CSS"],
       "links": {
-        "demo": "https://devpost.com/software/coeus",
-        "github": "#"
+        "demo": "https://devpost.com/software/coeus"
       },
       "details": {
         "tagline": "Your memories matter. Study smarter with AI.",
@@ -131,7 +123,6 @@
       "id": "flower-classifier",
       "title": "Flower Image Classifier",
       "description": "Deep learning model for image classification trained on 102 distinct flower categories.",
-      "image": "/projects/flower-classifier.png",
       "video": "",
       "tech": ["PyTorch", "Python", "CNN"],
       "links": {
@@ -148,7 +139,6 @@
       "id": "cloud-warriors",
       "title": "Cloud Warriors",
       "description": "Automated cloud infrastructure deployment using Terraform and Docker.",
-      "image": "/projects/cloud-warriors.png",
       "video": "",
       "tech": ["Terraform", "Docker", "AWS"],
       "links": {
