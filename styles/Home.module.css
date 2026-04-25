@@ -1,0 +1,730 @@
+/* ─── Page Shell ──────────────────────────────────────────────────────────── */
+
+.page {
+  background: #ffffff;
+  color: #030213;
+}
+
+.page main {
+  width: min(1216px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.hero,
+.section {
+  padding: 80px 0;
+}
+
+/* ─── Hero ────────────────────────────────────────────────────────────────── */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to bottom right, #ffffff 0%, #ffffff 50%, #ececf0 100%);
+  margin-inline: calc(50% - 50vw);
+  padding-inline: calc(50vw - 50%);
+}
+
+.avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 999px;
+  background: linear-gradient(to bottom right, #030213 0%, #717182 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 46px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.name {
+  margin: 24px 0 8px;
+  font-size: clamp(32px, 3.5vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+.role {
+  margin: 0;
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.55;
+  color: #6b7080;
+}
+
+.bio {
+  width: min(680px, 100%);
+  margin: 20px auto 0;
+  font-size: clamp(16px, 1.3vw, 17px);
+  line-height: 1.75;
+  color: #6b7080;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+
+.heroActions,
+.iconLinks,
+.tagRow,
+.linkRow,
+.publicationMeta,
+.publicationLink,
+.scholarLink,
+.primaryButton,
+.secondaryButton,
+.skillHeader {
+  display: inline-flex;
+  align-items: center;
+}
+
+.heroActions {
+  gap: 12px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  gap: 8px;
+  transition: opacity 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.primaryButton {
+  background: #030213;
+  color: #ffffff;
+}
+
+.primaryButton:hover {
+  opacity: 0.88;
+}
+
+.secondaryButton {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #030213;
+}
+
+.secondaryButton:hover {
+  background: #f5f5f8;
+}
+
+/* ─── Icon sizes ──────────────────────────────────────────────────────────── */
+
+.buttonIcon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.socialIcon {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.inlineIcon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.publicationIcon {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.skillIcon {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.contactIcon {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.scrollIcon {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+
+/* ─── Social / Scroll ─────────────────────────────────────────────────────── */
+
+.iconLinks {
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.iconLinks a {
+  color: #8b8fa8;
+  transition: color 150ms ease;
+}
+
+.iconLinks a:hover {
+  color: #030213;
+}
+
+.scrollHint {
+  margin-top: 56px;
+  color: #8b8fa8;
+}
+
+/* ─── Section titles ──────────────────────────────────────────────────────── */
+
+.sectionTitleOnly,
+.sectionIntro {
+  text-align: center;
+}
+
+.sectionTitleOnly {
+  margin-bottom: 48px;
+}
+
+.sectionIntro {
+  margin-bottom: 48px;
+}
+
+.sectionTitleOnly h2,
+.sectionIntro h2 {
+  margin: 0;
+  font-size: clamp(26px, 2.2vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  color: #030213;
+}
+
+.sectionIntro p {
+  width: min(640px, 100%);
+  margin: 14px auto 0;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.7;
+  color: #6b7080;
+}
+
+/* ─── Tinted sections ─────────────────────────────────────────────────────── */
+
+.tintedSection {
+  background: rgba(236, 236, 240, 0.35);
+  margin-inline: calc(50% - 50vw);
+  padding-inline: calc(50vw - 50%);
+}
+
+/* ─── About ───────────────────────────────────────────────────────────────── */
+
+.aboutGrid,
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.aboutColumn h3 {
+  margin: 0 0 20px;
+  font-size: clamp(18px, 1.4vw, 22px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  color: #030213;
+}
+
+.aboutColumn p {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #6b7080;
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timelineItem {
+  padding-left: 18px;
+  border-left: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.timelineItem h4 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.3;
+  letter-spacing: normal;
+  font-weight: 500;
+  color: #030213;
+}
+
+.timelineOrg {
+  margin: 5px 0 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6b7080;
+}
+
+.timelineItem p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #6b7080;
+}
+
+/* ─── Cards ───────────────────────────────────────────────────────────────── */
+
+.card,
+.publicationCard,
+.skillCard,
+.contactPanel {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.card {
+  padding: 24px;
+  transition: box-shadow 180ms ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.card h3,
+.publicationBody h3,
+.skillCard h3,
+.contactCard h3,
+.contactPanel h3 {
+  margin: 0;
+  font-size: clamp(18px, 1.4vw, 20px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  color: #030213;
+}
+
+/* ─── Badges / Tags ───────────────────────────────────────────────────────── */
+
+.statusBadge,
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  background: #ececf0;
+  color: #50536b;
+}
+
+.statusBadge {
+  margin-top: 12px;
+  padding: 5px 12px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.cardSummary {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #6b7080;
+}
+
+.tagRow {
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tag {
+  padding: 5px 11px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.linkRow {
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.linkRow a,
+.publicationLink,
+.scholarLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b7080;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  transition: color 150ms ease;
+}
+
+.linkRow a:hover,
+.publicationLink:hover,
+.scholarLink:hover {
+  color: #030213;
+}
+
+/* ─── Talks ───────────────────────────────────────────────────────────────── */
+
+.talkList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.talkCard {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 24px;
+  transition: box-shadow 180ms ease;
+}
+
+.talkCard:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.talkHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.talkHeader h3 {
+  margin: 0;
+  font-size: clamp(17px, 1.3vw, 19px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  color: #030213;
+}
+
+.talkIconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  background: rgba(3, 2, 19, 0.07);
+  border-radius: 8px;
+}
+
+.talkIcon {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.talkMeta {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8b8fa8;
+}
+
+.talkRole {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  background: #ececf0;
+  color: #50536b;
+  padding: 5px 12px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+/* ─── Publications ────────────────────────────────────────────────────────── */
+
+.pubList {
+  display: flex;
+  flex-direction: column;
+}
+
+.pubRow {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+.pubRow:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+.pubYear {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8b8fa8;
+  padding-top: 3px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pubTitle {
+  margin: 0;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #030213;
+}
+
+.pubAuthors {
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6b7080;
+}
+
+.pubVenue {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8b8fa8;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", monospace;
+}
+
+.pillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  color: #030213;
+  background: #ffffff;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.pill:hover {
+  background: #f5f5f8;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.publicationIconWrap,
+.skillIconWrap,
+.contactIconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 2, 19, 0.07);
+  border-radius: 8px;
+}
+
+.scholarLink {
+  margin-top: 28px;
+}
+
+/* ─── Skills ──────────────────────────────────────────────────────────────── */
+
+.skillCard {
+  padding: 24px;
+  transition: box-shadow 180ms ease;
+}
+
+.skillCard:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.skillHeader {
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.skillIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.skillCard ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.skillCard li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6b7080;
+}
+
+/* ─── Contact ─────────────────────────────────────────────────────────────── */
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.contactCard {
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.contactIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  margin: 0 auto 14px;
+}
+
+.contactCard h3 {
+  margin-bottom: 8px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+.contactCard p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #6b7080;
+}
+
+.contactPanel {
+  padding: 48px 32px;
+  background: linear-gradient(to right, rgba(3, 2, 19, 0.05), rgba(236, 236, 240, 0.45));
+  text-align: center;
+  border: none;
+}
+
+.contactPanel h3 {
+  margin-bottom: 14px;
+}
+
+.contactPanel p {
+  width: min(640px, 100%);
+  margin: 0 auto 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #6b7080;
+}
+
+/* ─── Footer ──────────────────────────────────────────────────────────────── */
+
+.footer {
+  background: #030213;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 28px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.footerLinks a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 150ms ease;
+}
+
+.footerLinks a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 980px) {
+  .page main {
+    width: min(1216px, calc(100% - 32px));
+  }
+
+  .hero,
+  .section {
+    padding: 72px 0;
+  }
+
+  .aboutGrid,
+  .cardGrid,
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pubRow {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page main {
+    width: min(1216px, calc(100% - 20px));
+  }
+
+  .hero,
+  .section {
+    padding: 56px 0;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    font-size: 34px;
+  }
+
+  .name {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+
+  .heroActions {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contactPanel {
+    padding: 36px 20px;
+  }
+}
