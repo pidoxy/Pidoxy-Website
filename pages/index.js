@@ -302,7 +302,7 @@ const publications = [
     venue: "MIRASOL Workshop, MICCAI 2025",
     year: "2025",
     status: "Accepted",
-    links: { arxiv: "https://arxiv.org/abs/2508.08518" },
+    links: { arxiv: "https://arxiv.org/abs/2508.08518", pdf: "https://arxiv.org/pdf/2508.08518" },
   },
   {
     title: "VAMAE: Vessel-Aware Masked Autoencoders for OCT-Angiography",
@@ -310,7 +310,7 @@ const publications = [
     venue: "ICPR 2026 — 28th Int'l Conference on Pattern Recognition",
     year: "2026",
     status: "Accepted",
-    links: {},
+    links: { arxiv: "https://arxiv.org/abs/2604.06583", pdf: "https://arxiv.org/pdf/2604.06583" },
   },
   {
     title: "Cross-Modality Attention Fusion for Chest X-ray Diagnosis",
