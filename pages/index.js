@@ -404,28 +404,35 @@ const press = [
 // A lightweight proof-of-recency layer, not a general social feed.
 const milestones = [
   {
+    category: "Poster Presentation",
+    title: "Presented the SharpXR poster at MIRG-ICAIR 2025",
+    note: "Presented our pediatric chest X-ray denoising work to researchers at the MIRG-ICAIR conference, University of Lagos.",
+    links: [
+      { label: "Post", href: "https://x.com/pidoxy_/status/1991873231876395334", type: "twitter" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/posts/emmanuelidoko_two-weeks-ago-i-had-the-pleasure-of-presenting-activity-7397637497679167488-rftR",
+        type: "linkedin",
+      },
+    ],
+  },
+  {
     category: "Research Milestone",
-    platform: "twitter",
-    handle: "@pidoxy_",
     title: "SharpXR accepted to the MIRASOL Workshop at MICCAI",
     note: "Announcing my first paper — structure-aware denoising for pediatric chest X-rays — accepted at a MICCAI workshop.",
-    href: "https://x.com/pidoxy_/status/1956482610974048601",
+    links: [{ label: "Post", href: "https://x.com/pidoxy_/status/1956482610974048601", type: "twitter" }],
   },
   {
     category: "Talk",
-    platform: "twitter",
-    handle: "@pidoxy_",
     title: "Attention Is All You Need — paper walkthrough session",
     note: "Facilitating a Transformer paper walkthrough for early student researchers.",
-    href: "https://x.com/pidoxy_/status/2017238883054878853",
+    links: [{ label: "Photos", href: "https://x.com/pidoxy_/status/2017238883054878853", type: "twitter" }],
   },
   {
     category: "Reflection",
-    platform: "twitter",
-    handle: "@pidoxy_",
     title: "On pushing past your limits",
     note: "A short reflection on growth after a debate — the mindset behind the work.",
-    href: "https://x.com/pidoxy_/status/1867597674410615178",
+    links: [{ label: "Post", href: "https://x.com/pidoxy_/status/1867597674410615178", type: "twitter" }],
   },
 ];
 
@@ -1107,21 +1114,24 @@ export default function Home({ gallery = [] }) {
 
             <div className={styles.cardGrid}>
               {milestones.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.socialCard}
-                >
+                <div key={item.title} className={styles.socialCard}>
                   <div className={styles.socialCardHeader}>
-                    <Icon kind={item.platform === "twitter" ? "twitter" : "external"} className={styles.socialCardIcon} />
-                    <span className={styles.socialHandle}>{item.handle}</span>
                     <span className={styles.socialCategory}>{item.category}</span>
                   </div>
                   <h3 className={styles.socialTitle}>{item.title}</h3>
                   <p className={styles.cardSummary}>{item.note}</p>
-                </a>
+                  <div className={styles.linkRow}>
+                    {item.links.map((link) => (
+                      <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                        <Icon
+                          kind={link.type === "linkedin" ? "linkedin" : link.type === "twitter" ? "twitter" : "external"}
+                          className={styles.inlineIcon}
+                        />
+                        <span>{link.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </section>
@@ -1214,7 +1224,7 @@ export default function Home({ gallery = [] }) {
   );
 }
 
-const CLOUDINARY_CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "";
+const CLOUDINARY_CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "pidoxy";
 const CLOUDINARY_TAG = process.env.CLOUDINARY_GALLERY_TAG || "portfolio";
 
 function humanizeName(name) {
