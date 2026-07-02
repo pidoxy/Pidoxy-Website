@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+import { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
@@ -15,10 +18,12 @@ const profile = {
   institution: "University of Lagos · B.Sc. Computer Science",
   github: "https://github.com/pidoxy",
   linkedin: "https://www.linkedin.com/in/emmanuelidoko/",
+  twitter: "https://x.com/pidoxy_",
   devpost: "https://devpost.com/pidoxy",
   youtube: "https://www.youtube.com/@pidoxy",
-  scholar:
-    "https://scholar.google.com/citations?view_op=new_articles&hl=en&imq=Emmanuel+Idoko",
+  huggingface: "https://huggingface.co/Pidoxy",
+  scholar: "https://scholar.google.com/citations?hl=en&user=hHEK0h0AAAAJ",
+  siteUrl: "https://pidoxy.com",
 };
 
 const experienceSnapshot = [
@@ -298,23 +303,31 @@ const talks = [
 const publications = [
   {
     title: "SharpXR: Structure-Aware Denoising for Pediatric Chest X-Rays",
-    authors: "Emmanuel Idoko et al.",
+    authors:
+      "I. Abolade, E. Idoko, S. Odelola, P. Omoigui, A. Adebanwo, A. M. Iorumbur, U. Anazodo, A. Crimi, R. Confidence",
     venue: "MIRASOL Workshop, MICCAI 2025",
     year: "2025",
-    status: "Accepted",
-    links: { arxiv: "https://arxiv.org/abs/2508.08518" },
+    status: "Published · pp. 83–92",
+    links: {
+      arxiv: "https://arxiv.org/abs/2508.08518",
+      pdf: "https://arxiv.org/pdf/2508.08518",
+      doi: "https://doi.org/10.1007/978-3-032-13654-1_9",
+      code: "https://github.com/ileri-oluwa-kiiye/SharpXR",
+      announcement: "https://x.com/pidoxy_/status/1956482610974048601",
+    },
   },
   {
-    title: "VAMAE: Vessel-Aware Masked Autoencoders for OCT-Angiography",
-    authors: "Emmanuel Idoko",
+    title: "VAMAE: Vessel-Aware Masked Autoencoders for OCT Angiography",
+    authors:
+      "I. Abolade, P. Mireku, K. Chibundu, P. Ododo, E. Idoko, P. Omoigui, S. Odelola",
     venue: "ICPR 2026 — 28th Int'l Conference on Pattern Recognition",
     year: "2026",
     status: "Accepted",
-    links: {},
+    links: { arxiv: "https://arxiv.org/abs/2604.06583", pdf: "https://arxiv.org/pdf/2604.06583" },
   },
   {
     title: "Cross-Modality Attention Fusion for Chest X-ray Diagnosis",
-    authors: "Emmanuel Idoko",
+    authors: "E. Idoko et al.",
     venue: "Ongoing Research",
     year: "In Progress",
     status: "Working Paper",
@@ -322,11 +335,105 @@ const publications = [
   },
   {
     title: "SharpXR Research Poster Presentation",
-    authors: "Emmanuel Idoko",
+    authors: "E. Idoko",
     venue: "MIRG-ICAIR 2025 — Machine Intelligence Research Group Conference",
     year: "2025",
     status: "Poster",
     links: {},
+  },
+];
+
+// Hackathon wins & honors. Verified entries seeded below — add/adjust freely.
+const honors = [
+  {
+    title: "HackZurich 2021 — Hybrid Team Award",
+    org: "HackZurich · Europe's largest hackathon",
+    year: "2021",
+    result: "Winner",
+    detail:
+      "Won the Hybrid Team Award for Coffee_Break, a virtual break-room bringing spontaneous 'water-cooler' moments to remote teams via spatial audio.",
+    link: "https://devpost.com/software/coffee_break",
+  },
+  {
+    title: "HackOR 2021 — Finalist & Winner",
+    org: "HackOR",
+    year: "2021",
+    result: "Winner",
+    detail:
+      "Built Foodify, a food-sharing platform that lets people share and receive surplus food to reduce waste.",
+    link: "https://devpost.com/pidoxy",
+  },
+  {
+    title: "HackLab Nigeria 2022 — 1st Runner-Up",
+    org: "HackLab Foundation · Africa FinTech Foundry",
+    year: "2022",
+    result: "2nd Place · ₦300k grant",
+    detail:
+      "PheraCam, a real-time facial-recognition security camera, placed 1st runner-up among 800+ participants and was featured in national tech coverage.",
+    link: "https://www.myjoyonline.com/hacklab-nigeria-ends-12-scalable-ai-big-data-edge-solutions/",
+  },
+  {
+    title: "Virtue Foundation Intelligence Platform — 2nd Place",
+    org: "Databricks × Hack-Nation Global AI Hackathon",
+    year: "2026",
+    result: "2nd Place",
+    detail:
+      "Agentic AI platform mapping healthcare gaps across 797 Ghana facilities, surfacing 10 medical deserts and 43 data anomalies.",
+    link: "https://www.youtube.com/watch?v=4w29E3NGFV0",
+  },
+];
+
+// Press & media coverage. Seeded with verified coverage of Emmanuel's projects.
+const press = [
+  {
+    outlet: "MyJoyOnline",
+    title: "HackLab Nigeria ends: 12 scalable AI, Big Data & Edge solutions",
+    note: "National coverage of the HackLab Nigeria 2022 finale where PheraCam placed 1st runner-up.",
+    date: "2022",
+    href: "https://www.myjoyonline.com/hacklab-nigeria-ends-12-scalable-ai-big-data-edge-solutions/",
+  },
+  {
+    outlet: "BusinessDay",
+    title: "HackLab Foundation partners BlueAfric Media on HackLab Hackathon Nigeria 2022",
+    note: "Coverage of the hackathon where PheraCam was recognised.",
+    date: "2022",
+    href: "https://businessday.ng/companies/article/hacklab-foundation-partners-blueafric-media-on-hacklab-hackathon-nigeria-2022/",
+  },
+];
+
+// Curated milestones — research acceptances, talks, and reflections shared publicly.
+// A lightweight proof-of-recency layer, not a general social feed.
+const milestones = [
+  {
+    category: "Poster Presentation",
+    title: "Presented the SharpXR poster at MIRG-ICAIR 2025",
+    note: "Presented our pediatric chest X-ray denoising work to researchers at the MIRG-ICAIR conference, University of Lagos.",
+    links: [
+      { label: "Post", href: "https://x.com/pidoxy_/status/1991873231876395334", type: "twitter" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/posts/emmanuelidoko_two-weeks-ago-i-had-the-pleasure-of-presenting-activity-7397637497679167488-rftR",
+        type: "linkedin",
+      },
+    ],
+  },
+  {
+    category: "Research Milestone",
+    title: "SharpXR accepted to the MIRASOL Workshop at MICCAI",
+    note: "Announcing my first paper — structure-aware denoising for pediatric chest X-rays — accepted at a MICCAI workshop.",
+    links: [{ label: "Post", href: "https://x.com/pidoxy_/status/1956482610974048601", type: "twitter" }],
+  },
+  {
+    category: "Talk",
+    title: "Attention Is All You Need — paper walkthrough session",
+    note: "Facilitating a Transformer paper walkthrough for early student researchers.",
+    links: [{ label: "Photos", href: "https://x.com/pidoxy_/status/2017238883054878853", type: "twitter" }],
+  },
+  {
+    category: "Reflection",
+    title: "On pushing past your limits",
+    note: "A short reflection on growth after a debate — the mindset behind the work.",
+    links: [{ label: "Post", href: "https://x.com/pidoxy_/status/1867597674410615178", type: "twitter" }],
   },
 ];
 
@@ -551,6 +658,38 @@ function Icon({ kind, className }) {
     );
   }
 
+  if (kind === "twitter") {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className={className} aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+      </svg>
+    );
+  }
+
+  if (kind === "trophy") {
+    return (
+      <svg {...commonProps}>
+        <path d="M8 21h8" />
+        <path d="M12 17v4" />
+        <path d="M7 4h10v5a5 5 0 0 1-10 0z" />
+        <path d="M7 4H4v2a3 3 0 0 0 3 3" />
+        <path d="M17 4h3v2a3 3 0 0 1-3 3" />
+      </svg>
+    );
+  }
+
+  if (kind === "newspaper") {
+    return (
+      <svg {...commonProps}>
+        <path d="M4 4h13v16H5a1 1 0 0 1-1-1z" />
+        <path d="M17 8h3v10a2 2 0 0 1-2 2" />
+        <path d="M8 8h5" />
+        <path d="M8 12h5" />
+        <path d="M8 16h5" />
+      </svg>
+    );
+  }
+
   return null;
 }
 
@@ -561,16 +700,221 @@ function LinkIcon({ external = false, type = null }) {
   return <Icon kind={external ? "external" : "github"} className={styles.inlineIcon} />;
 }
 
-export default function Home() {
+// Renders a comma-separated author list, bolding Emmanuel's name.
+function renderAuthors(authors) {
+  return authors.split(", ").map((author, i, arr) => {
+    const isMe = author.includes("Idoko");
+    return (
+      <span key={`${author}-${i}`}>
+        {isMe ? <strong>{author}</strong> : author}
+        {i < arr.length - 1 ? ", " : ""}
+      </span>
+    );
+  });
+}
+
+// Event-grouped gallery with a full-screen lightbox (keyboard + arrow nav).
+function Gallery({ gallery }) {
+  const [index, setIndex] = useState(-1);
+  const open = index >= 0;
+
+  const close = useCallback(() => setIndex(-1), []);
+  const prev = useCallback(
+    () => setIndex((i) => (i - 1 + gallery.length) % gallery.length),
+    [gallery.length]
+  );
+  const next = useCallback(
+    () => setIndex((i) => (i + 1) % gallery.length),
+    [gallery.length]
+  );
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open, close, prev, next]);
+
+  if (!gallery.length) return null;
+
+  // Group photos by album slug, preserving first-seen order.
+  const groups = [];
+  const bySlug = new Map();
+  gallery.forEach((photo, i) => {
+    const slug = photo.album || "";
+    if (!bySlug.has(slug)) {
+      const group = { slug, items: [] };
+      bySlug.set(slug, group);
+      groups.push(group);
+    }
+    bySlug.get(slug).items.push({ ...photo, i });
+  });
+  const flat = groups.length === 1 && groups[0].slug === "";
+  const active = open ? gallery[index] : null;
+
+  return (
+    <section className={styles.section} id="gallery">
+      <div className={styles.sectionIntro}>
+        <h2>Gallery</h2>
+        <p>Moments from talks, conferences, and the communities I build with.</p>
+      </div>
+
+      {groups.map((group) => {
+        const meta = galleryAlbums[group.slug] || {};
+        const title = meta.title || (group.slug ? humanizeName(group.slug) : "");
+        const sub = [meta.date, meta.description].filter(Boolean).join(" · ");
+        return (
+          <div key={group.slug || "_default"} className={styles.album}>
+            {!flat && title && (
+              <div className={styles.albumHeader}>
+                <h3>{title}</h3>
+                {sub && <p>{sub}</p>}
+              </div>
+            )}
+            <div className={styles.galleryGrid}>
+              {group.items.map((photo) => (
+                <button
+                  key={photo.src}
+                  type="button"
+                  className={styles.galleryItem}
+                  onClick={() => setIndex(photo.i)}
+                  aria-label={`Open image: ${photo.alt}`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={photo.thumb || photo.src} alt={photo.alt} loading="lazy" />
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+
+      {active && (
+        <div className={styles.lightbox} role="dialog" aria-modal="true" onClick={close}>
+          <button className={styles.lightboxClose} onClick={close} aria-label="Close">
+            ×
+          </button>
+          {gallery.length > 1 && (
+            <button
+              className={`${styles.lightboxNav} ${styles.lightboxPrev}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                prev();
+              }}
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+          )}
+          <figure className={styles.lightboxFigure} onClick={(e) => e.stopPropagation()}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={active.src} alt={active.alt} />
+            {(active.caption || active.alt) && <figcaption>{active.caption || active.alt}</figcaption>}
+          </figure>
+          {gallery.length > 1 && (
+            <button
+              className={`${styles.lightboxNav} ${styles.lightboxNext}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                next();
+              }}
+              aria-label="Next image"
+            >
+              ›
+            </button>
+          )}
+        </div>
+      )}
+    </section>
+  );
+}
+
+export default function Home({ gallery = [] }) {
   return (
     <div className={styles.page}>
       <Head>
         <title>Emmanuel Idoko — Software Engineer & AI Researcher</title>
         <meta
           name="description"
-          content="Portfolio of Emmanuel Idoko — software engineer, AI/ML engineer, and researcher building clinical AI systems, agentic pipelines, and full-stack products."
+          content="Portfolio of Emmanuel Idoko (Pidoxy) — software engineer, AI/ML engineer, and researcher building clinical AI systems, agentic pipelines, and full-stack products. Published at MICCAI and ICPR."
         />
+        <link rel="canonical" href={profile.siteUrl} />
         <link rel="icon" href="/favicon.ico" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Emmanuel Idoko" />
+        <meta property="og:title" content="Emmanuel Idoko — Software Engineer & AI Researcher" />
+        <meta
+          property="og:description"
+          content="Building clinical AI systems, agentic pipelines, and full-stack products across medical imaging, retrieval, and applied research. Published at MICCAI and ICPR."
+        />
+        <meta property="og:url" content={profile.siteUrl} />
+        <meta property="og:image" content={`${profile.siteUrl}/og.png`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@pidoxy_" />
+        <meta name="twitter:creator" content="@pidoxy_" />
+        <meta name="twitter:title" content="Emmanuel Idoko — Software Engineer & AI Researcher" />
+        <meta
+          name="twitter:description"
+          content="Building clinical AI systems, agentic pipelines, and full-stack products. Published at MICCAI and ICPR."
+        />
+        <meta name="twitter:image" content={`${profile.siteUrl}/og.png`} />
+
+        {/* JSON-LD structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Emmanuel Idoko",
+              alternateName: "Pidoxy",
+              url: profile.siteUrl,
+              image: `${profile.siteUrl}/og.png`,
+              jobTitle: "Software Engineer & AI Researcher",
+              email: `mailto:${profile.email}`,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Lagos",
+                addressCountry: "NG",
+              },
+              alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "University of Lagos",
+              },
+              knowsAbout: [
+                "Artificial Intelligence",
+                "Deep Learning",
+                "Medical Imaging",
+                "Computer Vision",
+                "Retrieval-Augmented Generation",
+                "Full-Stack Engineering",
+              ],
+              sameAs: [
+                profile.github,
+                profile.linkedin,
+                profile.twitter,
+                profile.devpost,
+                profile.youtube,
+                profile.huggingface,
+                profile.scholar,
+              ],
+            }),
+          }}
+        />
       </Head>
 
       <main>
@@ -598,8 +942,14 @@ export default function Home() {
             <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <Icon kind="linkedin" className={styles.socialIcon} />
             </a>
+            <a href={profile.twitter} target="_blank" rel="noreferrer" aria-label="X (Twitter)">
+              <Icon kind="twitter" className={styles.socialIcon} />
+            </a>
             <a href={profile.youtube} target="_blank" rel="noreferrer" aria-label="YouTube">
               <Icon kind="youtube" className={styles.socialIcon} />
+            </a>
+            <a href={profile.devpost} target="_blank" rel="noreferrer" aria-label="Devpost">
+              <Icon kind="external" className={styles.socialIcon} />
             </a>
             <a href={`mailto:${profile.email}`} aria-label="Email">
               <Icon kind="mail" className={styles.socialIcon} />
@@ -682,6 +1032,45 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Honors & Hackathons ── */}
+        <section className={styles.section} id="honors">
+          <div className={styles.sectionIntro}>
+            <h2>Honors & Hackathons</h2>
+            <p>
+              Selected wins and podium finishes from 23+ hackathons — from HackZurich in Europe
+              to Nigeria&apos;s HackLab and global AI hackathons.
+            </p>
+          </div>
+
+          <div className={styles.honorList}>
+            {honors.map((honor) => (
+              <div key={honor.title} className={styles.honorCard}>
+                <div className={styles.honorIconWrap}>
+                  <Icon kind="trophy" className={styles.honorIcon} />
+                </div>
+                <div className={styles.honorBody}>
+                  <div className={styles.honorTop}>
+                    <h3>{honor.title}</h3>
+                    <span className={styles.honorResult}>{honor.result}</span>
+                  </div>
+                  <p className={styles.honorOrg}>
+                    {honor.org} · {honor.year}
+                  </p>
+                  <p className={styles.cardSummary}>{honor.detail}</p>
+                  {honor.link && (
+                    <div className={styles.linkRow}>
+                      <a href={honor.link} target="_blank" rel="noreferrer">
+                        <Icon kind="external" className={styles.inlineIcon} />
+                        <span>Details</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── Talks & Sessions ── */}
         <section className={`${styles.section} ${styles.tintedSection}`} id="talks">
           <div className={styles.sectionIntro}>
@@ -735,14 +1124,19 @@ export default function Home() {
             <p>Research spanning medical imaging, multimodal learning, and applied AI systems.</p>
           </div>
 
-          <div className={styles.pubList}>
+          <div className={styles.publicationList}>
             {publications.map((pub) => (
-              <div key={pub.title} className={styles.pubRow}>
-                <div className={styles.pubYear}>{pub.year}</div>
-                <div className={styles.pubContent}>
-                  <h3 className={styles.pubTitle}>{pub.title}</h3>
-                  <p className={styles.pubAuthors}>{pub.authors}</p>
-                  <p className={styles.pubVenue}>{pub.venue} · {pub.status}</p>
+              <article key={pub.title} className={styles.publicationCard}>
+                <div className={styles.publicationIconWrap}>
+                  <Icon kind="document" className={styles.publicationIcon} />
+                </div>
+                <div className={styles.publicationBody}>
+                  <h3>{pub.title}</h3>
+                  <p className={styles.publicationAuthors}>{renderAuthors(pub.authors)}</p>
+                  <div className={styles.publicationMeta}>
+                    <span>{pub.venue}</span>
+                    <span>{pub.status}</span>
+                  </div>
                   {Object.keys(pub.links).length > 0 && (
                     <div className={styles.pillRow}>
                       {pub.links.pdf && (
@@ -751,13 +1145,19 @@ export default function Home() {
                       {pub.links.arxiv && (
                         <a href={pub.links.arxiv} target="_blank" rel="noreferrer" className={styles.pill}>arXiv</a>
                       )}
+                      {pub.links.doi && (
+                        <a href={pub.links.doi} target="_blank" rel="noreferrer" className={styles.pill}>DOI</a>
+                      )}
                       {pub.links.code && (
                         <a href={pub.links.code} target="_blank" rel="noreferrer" className={styles.pill}>Code</a>
+                      )}
+                      {pub.links.announcement && (
+                        <a href={pub.links.announcement} target="_blank" rel="noreferrer" className={styles.pill}>Announcement</a>
                       )}
                     </div>
                   )}
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
@@ -771,6 +1171,79 @@ export default function Home() {
             <Icon kind="external" className={styles.inlineIcon} />
           </a>
         </section>
+
+        {/* ── Press & Media ── */}
+        {press.length > 0 && (
+          <section className={`${styles.section} ${styles.tintedSection}`} id="press">
+            <div className={styles.sectionIntro}>
+              <h2>Press & Media</h2>
+              <p>Coverage of my projects and the events I&apos;ve competed in.</p>
+            </div>
+
+            <div className={styles.cardGrid}>
+              {press.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.pressCard}
+                >
+                  <div className={styles.pressHeader}>
+                    <span className={styles.pressIconWrap}>
+                      <Icon kind="newspaper" className={styles.pressIcon} />
+                    </span>
+                    <div>
+                      <span className={styles.pressOutlet}>{item.outlet}</span>
+                      <span className={styles.pressDate}>{item.date}</span>
+                    </div>
+                  </div>
+                  <h3 className={styles.pressTitle}>{item.title}</h3>
+                  <p className={styles.cardSummary}>{item.note}</p>
+                  <span className={styles.pressLink}>
+                    Read <Icon kind="external" className={styles.inlineIcon} />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Media Gallery ── */}
+        <Gallery gallery={gallery} />
+
+        {/* ── Recent Milestones ── */}
+        {milestones.length > 0 && (
+          <section className={styles.section} id="milestones">
+            <div className={styles.sectionIntro}>
+              <h2>Recent Milestones</h2>
+              <p>Curated signals — research acceptances, talks, and reflections shared along the way.</p>
+            </div>
+
+            <div className={styles.cardGrid}>
+              {milestones.map((item) => (
+                <div key={item.title} className={styles.socialCard}>
+                  <div className={styles.socialCardHeader}>
+                    <span className={styles.socialCategory}>{item.category}</span>
+                  </div>
+                  <h3 className={styles.socialTitle}>{item.title}</h3>
+                  <p className={styles.cardSummary}>{item.note}</p>
+                  <div className={styles.linkRow}>
+                    {item.links.map((link) => (
+                      <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                        <Icon
+                          kind={link.type === "linkedin" ? "linkedin" : link.type === "twitter" ? "twitter" : "external"}
+                          className={styles.inlineIcon}
+                        />
+                        <span>{link.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* ── Skills ── */}
         <section className={`${styles.section} ${styles.tintedSection}`} id="skills">
@@ -857,4 +1330,197 @@ export default function Home() {
       </footer>
     </div>
   );
+}
+
+const CLOUDINARY_CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "pidoxy";
+const CLOUDINARY_TAG = process.env.CLOUDINARY_GALLERY_TAG || "portfolio";
+// Optional Cloudinary folder the gallery images live in. Stripped from the
+// public_id before album parsing, so a photo at "portfolio/mirg-icair-2025/x"
+// groups under the album "mirg-icair-2025" (not "portfolio").
+const CLOUDINARY_BASE_FOLDER = (process.env.CLOUDINARY_BASE_FOLDER || "portfolio").replace(/^\/+|\/+$/g, "");
+// Server-only Admin API credentials (never NEXT_PUBLIC — never sent to the browser).
+const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY || "";
+const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET || "";
+
+function humanizeName(name) {
+  return name
+    .split("/")
+    .pop()
+    .replace(/\.[^.]+$/, "")
+    .replace(/^[\d\s_-]+/, "")
+    .replace(/[-_]+/g, " ")
+    .trim();
+}
+
+// Turns a filename segment into a caption, but returns "" for opaque
+// auto-generated IDs (mixed upper/lower + digits, e.g. "G6SOG7DXkAAOOh9")
+// so random Cloudinary/Twitter names never show as captions.
+function readableCaption(segment) {
+  if (!segment) return "";
+  const base = segment.replace(/\.[^.]+$/, "");
+  const looksRandom = /[A-Z]/.test(base) && /[a-z]/.test(base) && /\d/.test(base);
+  if (looksRandom) return "";
+  return base.replace(/^[\d\s_-]+/, "").replace(/[-_]+/g, " ").trim();
+}
+
+// Optional pretty titles/dates for gallery albums, keyed by album slug.
+// A photo joins an album when its Cloudinary folder or filename prefix matches
+// the slug (e.g. folder "mirg-icair-2025/…" or file "mirg-icair-2025__caption").
+// Adding photos to an existing album needs no code; a brand-new album only
+// needs an entry here if you want a nice title/date (otherwise the slug is used).
+const galleryAlbums = {
+  "mirg-icair-2025": {
+    title: "MIRG-ICAIR 2025 — SharpXR Poster",
+    date: "Nov 2025",
+    description: "Presenting our pediatric chest X-ray denoising research at the University of Lagos.",
+  },
+};
+
+// Derives an album slug + caption from a Cloudinary public_id or a filename.
+// Supports "album-slug/photo" (folder) and "album-slug__caption" conventions.
+function parseAlbum(id) {
+  const name = id.replace(/\.[^.]+$/, "");
+  let albumSlug = "";
+  let rest = name;
+  if (name.includes("/")) {
+    const parts = name.split("/");
+    albumSlug = parts[0];
+    rest = parts.slice(1).join("/");
+  } else if (name.includes("__")) {
+    const parts = name.split("__");
+    albumSlug = parts[0];
+    rest = parts.slice(1).join(" ");
+  }
+  const caption = rest.replace(/^[\d\s_-]+/, "").replace(/[-_]+/g, " ").trim();
+  return { albumSlug, caption };
+}
+
+function cloudinaryUrls(publicId, version, format) {
+  const base = `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/upload`;
+  const v = version ? `v${version}/` : "";
+  return {
+    // full-size for the lightbox; f_auto/q_auto = automatic format + quality
+    src: `${base}/f_auto,q_auto,c_limit,w_1600/${v}${publicId}.${format}`,
+    // uniform, cropped thumbnail for the grid tile
+    thumb: `${base}/f_auto,q_auto,c_fill,g_auto,w_640,h_480/${v}${publicId}.${format}`,
+  };
+}
+
+// Preferred source: Cloudinary Admin API (reliable on all account types).
+// Reads images tagged CLOUDINARY_TAG, deriving the album from the asset's
+// folder and the caption from its context metadata or display name — so albums
+// and captions are fully managed from the Cloudinary dashboard, no code.
+// Needs CLOUDINARY_API_KEY/SECRET (server-only Vercel env vars).
+async function galleryFromCloudinaryAdmin() {
+  const auth = Buffer.from(`${CLOUDINARY_API_KEY}:${CLOUDINARY_API_SECRET}`).toString("base64");
+  const url = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/resources/image/tags/${CLOUDINARY_TAG}?max_results=100&context=true`;
+  const res = await fetch(url, { headers: { Authorization: `Basic ${auth}` } });
+  if (!res.ok) throw new Error(`Cloudinary Admin ${res.status}`);
+  const data = await res.json();
+  return (data.resources || [])
+    .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0))
+    .map((r) => {
+      // Album from the folder (asset_folder in dynamic mode, else the public_id path).
+      let folder =
+        r.asset_folder ||
+        (r.public_id.includes("/") ? r.public_id.split("/").slice(0, -1).join("/") : "");
+      if (CLOUDINARY_BASE_FOLDER && folder.startsWith(CLOUDINARY_BASE_FOLDER)) {
+        folder = folder.slice(CLOUDINARY_BASE_FOLDER.length).replace(/^\/+/, "");
+      }
+      const albumSlug = folder.split("/")[0] || "";
+      const ctx = (r.context && r.context.custom) || {};
+      const lastSegment = r.public_id.split("/").pop();
+      // Prefer dashboard-set caption/alt/name; otherwise derive from the filename,
+      // but suppress opaque auto-generated IDs (mixed case + digits, no words).
+      const caption =
+        ctx.caption || ctx.alt || r.display_name || readableCaption(lastSegment);
+      const albumTitle = (galleryAlbums[albumSlug] || {}).title;
+      const urls = cloudinaryUrls(r.public_id, r.version, r.format);
+      return {
+        ...urls,
+        alt: caption || albumTitle || "Gallery photo",
+        caption,
+        album: albumSlug,
+      };
+    });
+}
+
+// Legacy source: public keyless tag-list endpoint. Deprecated on newer Cloudinary
+// accounts (returns 404), so this is only a secondary attempt.
+async function galleryFromCloudinary() {
+  const url = `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/list/${CLOUDINARY_TAG}.json`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Cloudinary list ${res.status}`);
+  const data = await res.json();
+  const base = `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/upload`;
+  return (data.resources || [])
+    .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0))
+    .map((r) => {
+      let relId = r.public_id;
+      if (CLOUDINARY_BASE_FOLDER && relId.startsWith(`${CLOUDINARY_BASE_FOLDER}/`)) {
+        relId = relId.slice(CLOUDINARY_BASE_FOLDER.length + 1);
+      }
+      const { albumSlug, caption } = parseAlbum(relId);
+      const label = caption || humanizeName(relId);
+      return {
+        // full-size for the lightbox; f_auto/q_auto = automatic format + quality
+        src: `${base}/f_auto,q_auto,c_limit,w_1600/v${r.version}/${r.public_id}.${r.format}`,
+        // uniform, cropped thumbnail for the grid tile
+        thumb: `${base}/f_auto,q_auto,c_fill,g_auto,w_640,h_480/v${r.version}/${r.public_id}.${r.format}`,
+        alt: label,
+        caption: caption || "",
+        album: albumSlug,
+      };
+    });
+}
+
+// Fallback source: local /public/gallery folder, auto-discovered at build time.
+// Captions/alt optional via /public/gallery/captions.json.
+function galleryFromFolder() {
+  const galleryDir = path.join(process.cwd(), "public", "gallery");
+  const imageExts = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"]);
+  let captions = {};
+  const captionsPath = path.join(galleryDir, "captions.json");
+  if (fs.existsSync(captionsPath)) {
+    captions = JSON.parse(fs.readFileSync(captionsPath, "utf-8"));
+  }
+  return fs
+    .readdirSync(galleryDir)
+    .filter((file) => imageExts.has(path.extname(file).toLowerCase()))
+    .sort()
+    .reverse() // newest-first when files are date-prefixed (e.g. 2026-06-...)
+    .map((file) => {
+      const meta = captions[file] || {};
+      const { albumSlug, caption } = parseAlbum(file);
+      return {
+        src: `/gallery/${file}`,
+        thumb: `/gallery/${file}`,
+        alt: meta.alt || meta.caption || caption || humanizeName(file),
+        caption: meta.caption || caption || "",
+        album: albumSlug,
+      };
+    });
+}
+
+export async function getStaticProps() {
+  let gallery = [];
+  try {
+    if (CLOUDINARY_API_KEY && CLOUDINARY_API_SECRET) {
+      gallery = await galleryFromCloudinaryAdmin(); // reliable, dashboard-driven
+    } else if (CLOUDINARY_CLOUD) {
+      gallery = await galleryFromCloudinary(); // legacy keyless endpoint
+    } else {
+      gallery = galleryFromFolder();
+    }
+  } catch {
+    // Any Cloudinary error → try the local folder; if that also fails, hide section.
+    try {
+      gallery = galleryFromFolder();
+    } catch {
+      gallery = [];
+    }
+  }
+
+  // Revalidate every 60s so new Cloudinary uploads appear without a redeploy.
+  return { props: { gallery }, revalidate: 60 };
 }

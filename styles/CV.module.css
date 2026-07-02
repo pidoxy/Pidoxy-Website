@@ -67,6 +67,44 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }
 
+.resumeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.resumeButton,
+.resumeButtonAlt {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  transition: opacity 150ms ease, background-color 150ms ease;
+}
+
+.resumeButton {
+  background: #030213;
+  color: #ffffff;
+}
+
+.resumeButton:hover {
+  opacity: 0.88;
+}
+
+.resumeButtonAlt {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #030213;
+}
+
+.resumeButtonAlt:hover {
+  background: #f5f5f8;
+}
+
 .header h1 {
   margin: 0;
   font-size: clamp(28px, 3vw, 40px);
