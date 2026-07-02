@@ -165,9 +165,9 @@ const projects = [
   },
   {
     title: "Amala Atlas",
-    status: "Open Source Project",
+    status: "Amala Hackathon Winner · ₦2M",
     summary:
-      "Crowdsourced global map for discovering authentic Amala spots, with an autonomous agent that scans food blogs daily. Features user reviews with Google auth, Google Maps integration, and an admin moderation panel.",
+      "Winner of GDG Lagos' Amala Hackathon (₦2,000,000, winner-takes-all) as Team PRL lead. A crowdsourced global map for discovering authentic Amala spots, with an autonomous agent that scans food blogs daily — user reviews with Google auth, Google Maps integration, and an admin moderation panel. Open-sourced for the community.",
     tags: ["Next.js", "Firebase", "Google Maps", "Cheerio", "Vercel"],
     links: [
       {
@@ -346,6 +346,15 @@ const publications = [
 // Hackathon wins & honors. Verified entries seeded below — add/adjust freely.
 const honors = [
   {
+    title: "Amala Hackathon 2025 — Winner (₦2M)",
+    org: "GDG Lagos · winner-takes-all",
+    year: "2025",
+    result: "Winner · ₦2,000,000",
+    detail:
+      "Led Team PRL to win GDG Lagos' Amala Hackathon with Amala Atlas — an open-source, crowdsourced map that auto-discovers and community-verifies Amala spots.",
+    link: "https://www.youtube.com/watch?v=eUpADlc2aVk&t=5s",
+  },
+  {
     title: "HackZurich 2021 — Hybrid Team Award",
     org: "HackZurich · Europe's largest hackathon",
     year: "2021",
@@ -380,6 +389,24 @@ const honors = [
     detail:
       "Agentic AI platform mapping healthcare gaps across 797 Ghana facilities, surfacing 10 medical deserts and 43 data anomalies.",
     link: "https://www.youtube.com/watch?v=4w29E3NGFV0",
+  },
+  {
+    title: "AccessLearn — 2nd Place",
+    org: "Afretec UNILAG Inclusion Team Innovation Challenge",
+    year: "2025",
+    result: "2nd Place",
+    detail:
+      "Mentored a student team and built AccessLearn, an accessible learning platform with read-aloud in English, Nigerian languages and Pidgin, AI translation, a fingerspelling tool for Deaf and hard-of-hearing learners, and a document-based AI tutor.",
+    link: "",
+  },
+  {
+    title: "ACVSS 2026 — Accepted with Full Grant",
+    org: "African Computer Vision Summer School · Google AI Community Center, Accra",
+    year: "2026",
+    result: "Accepted · Full Grant",
+    detail:
+      "Selected as 1 of 31 from 312 applicants for the African Computer Vision Summer School — intensive lectures, mentoring, and research with 15+ scientists across advanced vision, diffusion, self-supervised, and multimodal learning.",
+    link: "https://www.acvss.ai/",
   },
 ];
 
@@ -847,7 +874,6 @@ export default function Home({ gallery = [] }) {
           content="Portfolio of Emmanuel Idoko (Pidoxy) — software engineer, AI/ML engineer, and researcher building clinical AI systems, agentic pipelines, and full-stack products. Published at MICCAI and ICPR."
         />
         <link rel="canonical" href={profile.siteUrl} />
-        <link rel="icon" href="/favicon.ico" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
