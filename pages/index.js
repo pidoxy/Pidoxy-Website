@@ -310,6 +310,7 @@ const publications = [
       pdf: "https://arxiv.org/pdf/2508.08518",
       doi: "https://doi.org/10.1007/978-3-032-13654-1_9",
       code: "https://github.com/ileri-oluwa-kiiye/SharpXR",
+      announcement: "https://x.com/pidoxy_/status/1956482610974048601",
     },
   },
   {
@@ -397,14 +398,32 @@ const press = [
   },
 ];
 
-// Social mentions / community highlights. Add tweets, LinkedIn posts, reposts, etc.
-const socialMentions = [
+// Curated milestones — research acceptances, talks, and reflections shared publicly.
+// A lightweight proof-of-recency layer, not a general social feed.
+const milestones = [
   {
+    category: "Research Milestone",
+    platform: "twitter",
+    handle: "@pidoxy_",
+    title: "SharpXR accepted to the MIRASOL Workshop at MICCAI",
+    note: "Announcing my first paper — structure-aware denoising for pediatric chest X-rays — accepted at a MICCAI workshop.",
+    href: "https://x.com/pidoxy_/status/1956482610974048601",
+  },
+  {
+    category: "Talk",
     platform: "twitter",
     handle: "@pidoxy_",
     title: "Attention Is All You Need — paper walkthrough session",
-    note: "Photos from facilitating a Transformer paper walkthrough for early student researchers.",
+    note: "Facilitating a Transformer paper walkthrough for early student researchers.",
     href: "https://x.com/pidoxy_/status/2017238883054878853",
+  },
+  {
+    category: "Reflection",
+    platform: "twitter",
+    handle: "@pidoxy_",
+    title: "On pushing past your limits",
+    note: "A short reflection on growth after a debate — the mindset behind the work.",
+    href: "https://x.com/pidoxy_/status/1867597674410615178",
   },
 ];
 
@@ -1003,6 +1022,9 @@ export default function Home() {
                       {pub.links.code && (
                         <a href={pub.links.code} target="_blank" rel="noreferrer" className={styles.pill}>Code</a>
                       )}
+                      {pub.links.announcement && (
+                        <a href={pub.links.announcement} target="_blank" rel="noreferrer" className={styles.pill}>Announcement</a>
+                      )}
                     </div>
                   )}
                 </div>
@@ -1078,16 +1100,16 @@ export default function Home() {
           </section>
         )}
 
-        {/* ── Social Mentions ── */}
-        {socialMentions.length > 0 && (
-          <section className={styles.section} id="social">
+        {/* ── Recent Milestones ── */}
+        {milestones.length > 0 && (
+          <section className={styles.section} id="milestones">
             <div className={styles.sectionIntro}>
-              <h2>From the Community</h2>
-              <p>Talks, threads, and highlights shared across social platforms.</p>
+              <h2>Recent Milestones</h2>
+              <p>Curated signals — research acceptances, talks, and reflections shared along the way.</p>
             </div>
 
             <div className={styles.cardGrid}>
-              {socialMentions.map((item) => (
+              {milestones.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
@@ -1098,6 +1120,7 @@ export default function Home() {
                   <div className={styles.socialCardHeader}>
                     <Icon kind={item.platform === "twitter" ? "twitter" : "external"} className={styles.socialCardIcon} />
                     <span className={styles.socialHandle}>{item.handle}</span>
+                    <span className={styles.socialCategory}>{item.category}</span>
                   </div>
                   <h3 className={styles.socialTitle}>{item.title}</h3>
                   <p className={styles.cardSummary}>{item.note}</p>
