@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
@@ -712,6 +713,130 @@ function renderAuthors(authors) {
   });
 }
 
+// Event-grouped gallery with a full-screen lightbox (keyboard + arrow nav).
+function Gallery({ gallery }) {
+  const [index, setIndex] = useState(-1);
+  const open = index >= 0;
+
+  const close = useCallback(() => setIndex(-1), []);
+  const prev = useCallback(
+    () => setIndex((i) => (i - 1 + gallery.length) % gallery.length),
+    [gallery.length]
+  );
+  const next = useCallback(
+    () => setIndex((i) => (i + 1) % gallery.length),
+    [gallery.length]
+  );
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open, close, prev, next]);
+
+  if (!gallery.length) return null;
+
+  // Group photos by album slug, preserving first-seen order.
+  const groups = [];
+  const bySlug = new Map();
+  gallery.forEach((photo, i) => {
+    const slug = photo.album || "";
+    if (!bySlug.has(slug)) {
+      const group = { slug, items: [] };
+      bySlug.set(slug, group);
+      groups.push(group);
+    }
+    bySlug.get(slug).items.push({ ...photo, i });
+  });
+  const flat = groups.length === 1 && groups[0].slug === "";
+  const active = open ? gallery[index] : null;
+
+  return (
+    <section className={styles.section} id="gallery">
+      <div className={styles.sectionIntro}>
+        <h2>Gallery</h2>
+        <p>Moments from talks, conferences, and the communities I build with.</p>
+      </div>
+
+      {groups.map((group) => {
+        const meta = galleryAlbums[group.slug] || {};
+        const title = meta.title || (group.slug ? humanizeName(group.slug) : "");
+        const sub = [meta.date, meta.description].filter(Boolean).join(" · ");
+        return (
+          <div key={group.slug || "_default"} className={styles.album}>
+            {!flat && title && (
+              <div className={styles.albumHeader}>
+                <h3>{title}</h3>
+                {sub && <p>{sub}</p>}
+              </div>
+            )}
+            <div className={styles.galleryGrid}>
+              {group.items.map((photo) => (
+                <button
+                  key={photo.src}
+                  type="button"
+                  className={styles.galleryItem}
+                  onClick={() => setIndex(photo.i)}
+                  aria-label={`Open image: ${photo.alt}`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={photo.thumb || photo.src} alt={photo.alt} loading="lazy" />
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+
+      {active && (
+        <div className={styles.lightbox} role="dialog" aria-modal="true" onClick={close}>
+          <button className={styles.lightboxClose} onClick={close} aria-label="Close">
+            ×
+          </button>
+          {gallery.length > 1 && (
+            <button
+              className={`${styles.lightboxNav} ${styles.lightboxPrev}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                prev();
+              }}
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+          )}
+          <figure className={styles.lightboxFigure} onClick={(e) => e.stopPropagation()}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={active.src} alt={active.alt} />
+            {(active.caption || active.alt) && <figcaption>{active.caption || active.alt}</figcaption>}
+          </figure>
+          {gallery.length > 1 && (
+            <button
+              className={`${styles.lightboxNav} ${styles.lightboxNext}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                next();
+              }}
+              aria-label="Next image"
+            >
+              ›
+            </button>
+          )}
+        </div>
+      )}
+    </section>
+  );
+}
+
 export default function Home({ gallery = [] }) {
   return (
     <div className={styles.page}>
@@ -1085,24 +1210,7 @@ export default function Home({ gallery = [] }) {
         )}
 
         {/* ── Media Gallery ── */}
-        {gallery.length > 0 && (
-          <section className={styles.section} id="gallery">
-            <div className={styles.sectionIntro}>
-              <h2>Gallery</h2>
-              <p>Moments from talks, hackathons, and the communities I build with.</p>
-            </div>
-
-            <div className={styles.galleryGrid}>
-              {gallery.map((shot) => (
-                <figure key={shot.src} className={styles.galleryItem}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={shot.src} alt={shot.alt} loading="lazy" />
-                  {shot.caption && <figcaption>{shot.caption}</figcaption>}
-                </figure>
-              ))}
-            </div>
-          </section>
-        )}
+        <Gallery gallery={gallery} />
 
         {/* ── Recent Milestones ── */}
         {milestones.length > 0 && (
@@ -1237,6 +1345,38 @@ function humanizeName(name) {
     .trim();
 }
 
+// Optional pretty titles/dates for gallery albums, keyed by album slug.
+// A photo joins an album when its Cloudinary folder or filename prefix matches
+// the slug (e.g. folder "mirg-icair-2025/…" or file "mirg-icair-2025__caption").
+// Adding photos to an existing album needs no code; a brand-new album only
+// needs an entry here if you want a nice title/date (otherwise the slug is used).
+const galleryAlbums = {
+  "mirg-icair-2025": {
+    title: "MIRG-ICAIR 2025 — SharpXR Poster",
+    date: "Nov 2025",
+    description: "Presenting our pediatric chest X-ray denoising research at the University of Lagos.",
+  },
+};
+
+// Derives an album slug + caption from a Cloudinary public_id or a filename.
+// Supports "album-slug/photo" (folder) and "album-slug__caption" conventions.
+function parseAlbum(id) {
+  const name = id.replace(/\.[^.]+$/, "");
+  let albumSlug = "";
+  let rest = name;
+  if (name.includes("/")) {
+    const parts = name.split("/");
+    albumSlug = parts[0];
+    rest = parts.slice(1).join("/");
+  } else if (name.includes("__")) {
+    const parts = name.split("__");
+    albumSlug = parts[0];
+    rest = parts.slice(1).join(" ");
+  }
+  const caption = rest.replace(/^[\d\s_-]+/, "").replace(/[-_]+/g, " ").trim();
+  return { albumSlug, caption };
+}
+
 // Preferred source: Cloudinary. Photos tagged CLOUDINARY_TAG in the Cloudinary
 // dashboard appear here automatically — no code, no redeploy (ISR revalidates).
 // Uses the public tag-list delivery endpoint, so no API keys are needed.
@@ -1245,15 +1385,20 @@ async function galleryFromCloudinary() {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Cloudinary list ${res.status}`);
   const data = await res.json();
+  const base = `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/upload`;
   return (data.resources || [])
     .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0))
     .map((r) => {
-      const caption = humanizeName(r.public_id);
+      const { albumSlug, caption } = parseAlbum(r.public_id);
+      const label = caption || humanizeName(r.public_id);
       return {
-        // f_auto/q_auto = automatic format + quality; c_limit,w_1400 caps size
-        src: `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/upload/f_auto,q_auto,c_limit,w_1400/v${r.version}/${r.public_id}.${r.format}`,
-        alt: caption,
-        caption: "",
+        // full-size for the lightbox; f_auto/q_auto = automatic format + quality
+        src: `${base}/f_auto,q_auto,c_limit,w_1600/v${r.version}/${r.public_id}.${r.format}`,
+        // uniform, cropped thumbnail for the grid tile
+        thumb: `${base}/f_auto,q_auto,c_fill,g_auto,w_640,h_480/v${r.version}/${r.public_id}.${r.format}`,
+        alt: label,
+        caption: caption || "",
+        album: albumSlug,
       };
     });
 }
@@ -1275,10 +1420,13 @@ function galleryFromFolder() {
     .reverse() // newest-first when files are date-prefixed (e.g. 2026-06-...)
     .map((file) => {
       const meta = captions[file] || {};
+      const { albumSlug, caption } = parseAlbum(file);
       return {
         src: `/gallery/${file}`,
-        alt: meta.alt || meta.caption || humanizeName(file),
-        caption: meta.caption || "",
+        thumb: `/gallery/${file}`,
+        alt: meta.alt || meta.caption || caption || humanizeName(file),
+        caption: meta.caption || caption || "",
+        album: albumSlug,
       };
     });
 }
