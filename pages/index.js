@@ -874,7 +874,6 @@ export default function Home({ gallery = [] }) {
           content="Portfolio of Emmanuel Idoko (Pidoxy) — software engineer, AI/ML engineer, and researcher building clinical AI systems, agentic pipelines, and full-stack products. Published at MICCAI and ICPR."
         />
         <link rel="canonical" href={profile.siteUrl} />
-        <link rel="icon" href="/favicon.ico" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />

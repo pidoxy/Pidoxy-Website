@@ -8,8 +8,13 @@ export const metadata: Metadata = {
   title: "Emmanuel Idoko | Software Engineer & AI Researcher",
   description: "Portfolio of Emmanuel Idoko (Pidoxy). AI/ML engineer and researcher specializing in clinical AI, medical imaging, agentic pipelines, and full-stack systems.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
