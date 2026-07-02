@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
@@ -427,11 +429,6 @@ const milestones = [
   },
 ];
 
-// Media gallery. Drop images into /public/gallery and reference them here.
-const gallery = [
-  // { src: "/gallery/example.jpg", alt: "Speaking at ...", caption: "..." },
-];
-
 const skills = [
   {
     title: "Machine Learning & AI",
@@ -708,7 +705,7 @@ function renderAuthors(authors) {
   });
 }
 
-export default function Home() {
+export default function Home({ gallery = [] }) {
   return (
     <div className={styles.page}>
       <Head>
@@ -1215,4 +1212,44 @@ export default function Home() {
       </footer>
     </div>
   );
+}
+
+// Auto-discovers the gallery at build time: drop images into /public/gallery
+// and they appear on the next build. Captions/alt text are optional and live
+// in /public/gallery/captions.json — no code changes needed to add images.
+export async function getStaticProps() {
+  const galleryDir = path.join(process.cwd(), "public", "gallery");
+  const imageExts = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"]);
+
+  let gallery = [];
+  try {
+    let captions = {};
+    const captionsPath = path.join(galleryDir, "captions.json");
+    if (fs.existsSync(captionsPath)) {
+      captions = JSON.parse(fs.readFileSync(captionsPath, "utf-8"));
+    }
+
+    gallery = fs
+      .readdirSync(galleryDir)
+      .filter((file) => imageExts.has(path.extname(file).toLowerCase()))
+      .sort()
+      .reverse() // newest-first when files are date-prefixed (e.g. 2026-06-...)
+      .map((file) => {
+        const meta = captions[file] || {};
+        const derived = file
+          .replace(/\.[^.]+$/, "")
+          .replace(/^[\d\s_-]+/, "")
+          .replace(/[-_]+/g, " ")
+          .trim();
+        return {
+          src: `/gallery/${file}`,
+          alt: meta.alt || meta.caption || derived,
+          caption: meta.caption || "",
+        };
+      });
+  } catch {
+    gallery = []; // folder missing or unreadable — section simply hides
+  }
+
+  return { props: { gallery } };
 }

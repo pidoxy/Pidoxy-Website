@@ -1,0 +1,4 @@
+{
+  "__note": "Optional captions. Any image dropped into this folder appears automatically. To set a caption/alt text, add an entry keyed by the exact filename. Images without an entry still show, with a caption derived from the filename. Delete this __note key or leave it — it is ignored.",
+  "example.jpg": { "caption": "Speaking at GDG Lagos", "alt": "Emmanuel presenting on stage at GDG Lagos" }
+}
