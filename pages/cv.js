@@ -9,7 +9,7 @@ const cv = {
   location: "Lagos, Nigeria",
   github: "https://github.com/pidoxy",
   linkedin: "https://www.linkedin.com/in/emmanuelidoko/",
-  scholar: "https://scholar.google.com/citations?view_op=new_articles&hl=en&imq=Emmanuel+Idoko",
+  scholar: "https://scholar.google.com/citations?hl=en&user=hHEK0h0AAAAJ",
 
   education: [
     {
@@ -131,15 +131,21 @@ const cv = {
   publications: [
     {
       title: "SharpXR: Structure-Aware Denoising for Pediatric Chest X-Rays",
-      authors: "Emmanuel Idoko et al.",
+      authors:
+        "I. Abolade, E. Idoko, S. Odelola, P. Omoigui, A. Adebanwo, A. M. Iorumbur, U. Anazodo, A. Crimi, R. Confidence",
       venue: "MIRASOL Workshop, MICCAI 2025",
       year: "2025",
-      status: "Accepted",
-      links: { arxiv: "https://arxiv.org/abs/2508.08518", pdf: "https://arxiv.org/pdf/2508.08518" },
+      status: "Published · pp. 83–92",
+      links: {
+        arxiv: "https://arxiv.org/abs/2508.08518",
+        pdf: "https://arxiv.org/pdf/2508.08518",
+        doi: "https://doi.org/10.1007/978-3-032-13654-1_9",
+      },
     },
     {
-      title: "VAMAE: Vessel-Aware Masked Autoencoders for OCT-Angiography",
-      authors: "Emmanuel Idoko",
+      title: "VAMAE: Vessel-Aware Masked Autoencoders for OCT Angiography",
+      authors:
+        "I. Abolade, P. Mireku, K. Chibundu, P. Ododo, E. Idoko, P. Omoigui, S. Odelola",
       venue: "ICPR 2026 — 28th Int'l Conference on Pattern Recognition",
       year: "2026",
       status: "Accepted",
@@ -147,7 +153,7 @@ const cv = {
     },
     {
       title: "Cross-Modality Attention Fusion for Chest X-ray Diagnosis",
-      authors: "Emmanuel Idoko",
+      authors: "E. Idoko et al.",
       venue: "Ongoing Research",
       year: "In Progress",
       status: "Working Paper",
@@ -155,7 +161,7 @@ const cv = {
     },
     {
       title: "SharpXR Research Poster Presentation",
-      authors: "Emmanuel Idoko",
+      authors: "E. Idoko",
       venue: "MIRG-ICAIR 2025 — Machine Intelligence Research Group Conference",
       year: "2025",
       status: "Poster",
@@ -198,6 +204,18 @@ const cv = {
   ],
 };
 
+function renderAuthors(authors) {
+  return authors.split(", ").map((author, i, arr) => {
+    const isMe = author.includes("Idoko");
+    return (
+      <span key={`${author}-${i}`}>
+        {isMe ? <strong>{author}</strong> : author}
+        {i < arr.length - 1 ? ", " : ""}
+      </span>
+    );
+  });
+}
+
 export default function CV() {
   return (
     <div className={styles.page}>
@@ -231,6 +249,14 @@ export default function CV() {
             <a href={cv.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
             <span>·</span>
             <a href={cv.scholar} target="_blank" rel="noreferrer">Scholar</a>
+          </div>
+          <div className={styles.resumeRow}>
+            <a href="/resume_swe.pdf" target="_blank" rel="noreferrer" className={styles.resumeButton}>
+              Download SWE Résumé
+            </a>
+            <a href="/resume_research.pdf" target="_blank" rel="noreferrer" className={styles.resumeButtonAlt}>
+              Download Research Résumé
+            </a>
           </div>
         </header>
 
@@ -274,12 +300,13 @@ export default function CV() {
               <div className={styles.rowLeft}>{pub.year}</div>
               <div className={styles.rowRight}>
                 <div className={styles.rowTitle}>{pub.title}</div>
-                <div className={styles.rowOrg}>{pub.authors}</div>
+                <div className={styles.rowOrg}>{renderAuthors(pub.authors)}</div>
                 <div className={styles.rowVenue}>{pub.venue} · {pub.status}</div>
                 {Object.keys(pub.links).length > 0 && (
                   <div className={styles.pills}>
                     {pub.links.pdf && <a href={pub.links.pdf} target="_blank" rel="noreferrer" className={styles.pill}>PDF</a>}
                     {pub.links.arxiv && <a href={pub.links.arxiv} target="_blank" rel="noreferrer" className={styles.pill}>arXiv</a>}
+                    {pub.links.doi && <a href={pub.links.doi} target="_blank" rel="noreferrer" className={styles.pill}>DOI</a>}
                     {pub.links.code && <a href={pub.links.code} target="_blank" rel="noreferrer" className={styles.pill}>Code</a>}
                   </div>
                 )}

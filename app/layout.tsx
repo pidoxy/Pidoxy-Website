@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer"; // Import Footer
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Emmanuel Idoko | Software Engineer & Researcher",
-  description: "Portfolio of Emmanuel Idoko (Pidoxy). AI Researcher and Full Stack Engineer specializing in Computer Vision, Edge Computing, and Distributed Systems.",
+  title: "Emmanuel Idoko | Software Engineer & AI Researcher",
+  description: "Portfolio of Emmanuel Idoko (Pidoxy). AI/ML engineer and researcher specializing in clinical AI, medical imaging, agentic pipelines, and full-stack systems.",
   icons: {
-    icon: "/favicon.ico", // You can add a favicon later
+    icon: "/favicon.ico",
   },
 };
 
@@ -22,7 +21,6 @@ export default function RootLayout({
     <html lang="en" className="light">
       <body className={`${inter.variable} antialiased bg-white text-slate-900`}>
         {children}
-        <Footer /> {/* Footer now appears on all pages */}
       </body>
     </html>
   );

@@ -15,10 +15,12 @@ const profile = {
   institution: "University of Lagos · B.Sc. Computer Science",
   github: "https://github.com/pidoxy",
   linkedin: "https://www.linkedin.com/in/emmanuelidoko/",
+  twitter: "https://x.com/pidoxy_",
   devpost: "https://devpost.com/pidoxy",
   youtube: "https://www.youtube.com/@pidoxy",
-  scholar:
-    "https://scholar.google.com/citations?view_op=new_articles&hl=en&imq=Emmanuel+Idoko",
+  huggingface: "https://huggingface.co/Pidoxy",
+  scholar: "https://scholar.google.com/citations?hl=en&user=hHEK0h0AAAAJ",
+  siteUrl: "https://pidoxy.com",
 };
 
 const experienceSnapshot = [
@@ -298,15 +300,22 @@ const talks = [
 const publications = [
   {
     title: "SharpXR: Structure-Aware Denoising for Pediatric Chest X-Rays",
-    authors: "Emmanuel Idoko et al.",
+    authors:
+      "I. Abolade, E. Idoko, S. Odelola, P. Omoigui, A. Adebanwo, A. M. Iorumbur, U. Anazodo, A. Crimi, R. Confidence",
     venue: "MIRASOL Workshop, MICCAI 2025",
     year: "2025",
-    status: "Accepted",
-    links: { arxiv: "https://arxiv.org/abs/2508.08518", pdf: "https://arxiv.org/pdf/2508.08518" },
+    status: "Published · pp. 83–92",
+    links: {
+      arxiv: "https://arxiv.org/abs/2508.08518",
+      pdf: "https://arxiv.org/pdf/2508.08518",
+      doi: "https://doi.org/10.1007/978-3-032-13654-1_9",
+      code: "https://github.com/ileri-oluwa-kiiye/SharpXR",
+    },
   },
   {
-    title: "VAMAE: Vessel-Aware Masked Autoencoders for OCT-Angiography",
-    authors: "Emmanuel Idoko",
+    title: "VAMAE: Vessel-Aware Masked Autoencoders for OCT Angiography",
+    authors:
+      "I. Abolade, P. Mireku, K. Chibundu, P. Ododo, E. Idoko, P. Omoigui, S. Odelola",
     venue: "ICPR 2026 — 28th Int'l Conference on Pattern Recognition",
     year: "2026",
     status: "Accepted",
@@ -314,7 +323,7 @@ const publications = [
   },
   {
     title: "Cross-Modality Attention Fusion for Chest X-ray Diagnosis",
-    authors: "Emmanuel Idoko",
+    authors: "E. Idoko et al.",
     venue: "Ongoing Research",
     year: "In Progress",
     status: "Working Paper",
@@ -322,12 +331,86 @@ const publications = [
   },
   {
     title: "SharpXR Research Poster Presentation",
-    authors: "Emmanuel Idoko",
+    authors: "E. Idoko",
     venue: "MIRG-ICAIR 2025 — Machine Intelligence Research Group Conference",
     year: "2025",
     status: "Poster",
     links: {},
   },
+];
+
+// Hackathon wins & honors. Verified entries seeded below — add/adjust freely.
+const honors = [
+  {
+    title: "HackZurich 2021 — Hybrid Team Award",
+    org: "HackZurich · Europe's largest hackathon",
+    year: "2021",
+    result: "Winner",
+    detail:
+      "Won the Hybrid Team Award for Coffee_Break, a virtual break-room bringing spontaneous 'water-cooler' moments to remote teams via spatial audio.",
+    link: "https://devpost.com/software/coffee_break",
+  },
+  {
+    title: "HackOR 2021 — Finalist & Winner",
+    org: "HackOR",
+    year: "2021",
+    result: "Winner",
+    detail:
+      "Built Foodify, a food-sharing platform that lets people share and receive surplus food to reduce waste.",
+    link: "https://devpost.com/pidoxy",
+  },
+  {
+    title: "HackLab Nigeria 2022 — 1st Runner-Up",
+    org: "HackLab Foundation · Africa FinTech Foundry",
+    year: "2022",
+    result: "2nd Place · ₦300k grant",
+    detail:
+      "PheraCam, a real-time facial-recognition security camera, placed 1st runner-up among 800+ participants and was featured in national tech coverage.",
+    link: "https://www.myjoyonline.com/hacklab-nigeria-ends-12-scalable-ai-big-data-edge-solutions/",
+  },
+  {
+    title: "Virtue Foundation Intelligence Platform — 2nd Place",
+    org: "Databricks × Hack-Nation Global AI Hackathon",
+    year: "2026",
+    result: "2nd Place",
+    detail:
+      "Agentic AI platform mapping healthcare gaps across 797 Ghana facilities, surfacing 10 medical deserts and 43 data anomalies.",
+    link: "https://www.youtube.com/watch?v=4w29E3NGFV0",
+  },
+];
+
+// Press & media coverage. Seeded with verified coverage of Emmanuel's projects.
+const press = [
+  {
+    outlet: "MyJoyOnline",
+    title: "HackLab Nigeria ends: 12 scalable AI, Big Data & Edge solutions",
+    note: "National coverage of the HackLab Nigeria 2022 finale where PheraCam placed 1st runner-up.",
+    date: "2022",
+    href: "https://www.myjoyonline.com/hacklab-nigeria-ends-12-scalable-ai-big-data-edge-solutions/",
+  },
+  {
+    outlet: "BusinessDay",
+    title: "HackLab Foundation partners BlueAfric Media on HackLab Hackathon Nigeria 2022",
+    note: "Coverage of the hackathon where PheraCam was recognised.",
+    date: "2022",
+    href: "https://businessday.ng/companies/article/hacklab-foundation-partners-blueafric-media-on-hacklab-hackathon-nigeria-2022/",
+  },
+];
+
+// Social mentions / community highlights. Add tweets, LinkedIn posts, reposts, etc.
+const socialMentions = [
+  {
+    platform: "twitter",
+    handle: "@pidoxy_",
+    title: "Attention Is All You Need — paper walkthrough session",
+    note: "Photos from facilitating a Transformer paper walkthrough for early student researchers.",
+    href: "https://x.com/pidoxy_/status/2017238883054878853",
+  },
+];
+
+// Media gallery. Drop images into /public/gallery and reference them here.
+const gallery = [
+  // { src: "/gallery/example.jpg", alt: "Speaking at ...", caption: "..." },
 ];
 
 const skills = [
@@ -551,6 +634,38 @@ function Icon({ kind, className }) {
     );
   }
 
+  if (kind === "twitter") {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className={className} aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+      </svg>
+    );
+  }
+
+  if (kind === "trophy") {
+    return (
+      <svg {...commonProps}>
+        <path d="M8 21h8" />
+        <path d="M12 17v4" />
+        <path d="M7 4h10v5a5 5 0 0 1-10 0z" />
+        <path d="M7 4H4v2a3 3 0 0 0 3 3" />
+        <path d="M17 4h3v2a3 3 0 0 1-3 3" />
+      </svg>
+    );
+  }
+
+  if (kind === "newspaper") {
+    return (
+      <svg {...commonProps}>
+        <path d="M4 4h13v16H5a1 1 0 0 1-1-1z" />
+        <path d="M17 8h3v10a2 2 0 0 1-2 2" />
+        <path d="M8 8h5" />
+        <path d="M8 12h5" />
+        <path d="M8 16h5" />
+      </svg>
+    );
+  }
+
   return null;
 }
 
@@ -561,6 +676,19 @@ function LinkIcon({ external = false, type = null }) {
   return <Icon kind={external ? "external" : "github"} className={styles.inlineIcon} />;
 }
 
+// Renders a comma-separated author list, bolding Emmanuel's name.
+function renderAuthors(authors) {
+  return authors.split(", ").map((author, i, arr) => {
+    const isMe = author.includes("Idoko");
+    return (
+      <span key={`${author}-${i}`}>
+        {isMe ? <strong>{author}</strong> : author}
+        {i < arr.length - 1 ? ", " : ""}
+      </span>
+    );
+  });
+}
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -568,9 +696,77 @@ export default function Home() {
         <title>Emmanuel Idoko — Software Engineer & AI Researcher</title>
         <meta
           name="description"
-          content="Portfolio of Emmanuel Idoko — software engineer, AI/ML engineer, and researcher building clinical AI systems, agentic pipelines, and full-stack products."
+          content="Portfolio of Emmanuel Idoko (Pidoxy) — software engineer, AI/ML engineer, and researcher building clinical AI systems, agentic pipelines, and full-stack products. Published at MICCAI and ICPR."
         />
+        <link rel="canonical" href={profile.siteUrl} />
         <link rel="icon" href="/favicon.ico" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Emmanuel Idoko" />
+        <meta property="og:title" content="Emmanuel Idoko — Software Engineer & AI Researcher" />
+        <meta
+          property="og:description"
+          content="Building clinical AI systems, agentic pipelines, and full-stack products across medical imaging, retrieval, and applied research. Published at MICCAI and ICPR."
+        />
+        <meta property="og:url" content={profile.siteUrl} />
+        <meta property="og:image" content={`${profile.siteUrl}/og.png`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@pidoxy_" />
+        <meta name="twitter:creator" content="@pidoxy_" />
+        <meta name="twitter:title" content="Emmanuel Idoko — Software Engineer & AI Researcher" />
+        <meta
+          name="twitter:description"
+          content="Building clinical AI systems, agentic pipelines, and full-stack products. Published at MICCAI and ICPR."
+        />
+        <meta name="twitter:image" content={`${profile.siteUrl}/og.png`} />
+
+        {/* JSON-LD structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Emmanuel Idoko",
+              alternateName: "Pidoxy",
+              url: profile.siteUrl,
+              image: `${profile.siteUrl}/og.png`,
+              jobTitle: "Software Engineer & AI Researcher",
+              email: `mailto:${profile.email}`,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Lagos",
+                addressCountry: "NG",
+              },
+              alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "University of Lagos",
+              },
+              knowsAbout: [
+                "Artificial Intelligence",
+                "Deep Learning",
+                "Medical Imaging",
+                "Computer Vision",
+                "Retrieval-Augmented Generation",
+                "Full-Stack Engineering",
+              ],
+              sameAs: [
+                profile.github,
+                profile.linkedin,
+                profile.twitter,
+                profile.devpost,
+                profile.youtube,
+                profile.huggingface,
+                profile.scholar,
+              ],
+            }),
+          }}
+        />
       </Head>
 
       <main>
@@ -598,8 +794,14 @@ export default function Home() {
             <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <Icon kind="linkedin" className={styles.socialIcon} />
             </a>
+            <a href={profile.twitter} target="_blank" rel="noreferrer" aria-label="X (Twitter)">
+              <Icon kind="twitter" className={styles.socialIcon} />
+            </a>
             <a href={profile.youtube} target="_blank" rel="noreferrer" aria-label="YouTube">
               <Icon kind="youtube" className={styles.socialIcon} />
+            </a>
+            <a href={profile.devpost} target="_blank" rel="noreferrer" aria-label="Devpost">
+              <Icon kind="external" className={styles.socialIcon} />
             </a>
             <a href={`mailto:${profile.email}`} aria-label="Email">
               <Icon kind="mail" className={styles.socialIcon} />
@@ -682,6 +884,45 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Honors & Hackathons ── */}
+        <section className={styles.section} id="honors">
+          <div className={styles.sectionIntro}>
+            <h2>Honors & Hackathons</h2>
+            <p>
+              Selected wins and podium finishes from 23+ hackathons — from HackZurich in Europe
+              to Nigeria&apos;s HackLab and global AI hackathons.
+            </p>
+          </div>
+
+          <div className={styles.honorList}>
+            {honors.map((honor) => (
+              <div key={honor.title} className={styles.honorCard}>
+                <div className={styles.honorIconWrap}>
+                  <Icon kind="trophy" className={styles.honorIcon} />
+                </div>
+                <div className={styles.honorBody}>
+                  <div className={styles.honorTop}>
+                    <h3>{honor.title}</h3>
+                    <span className={styles.honorResult}>{honor.result}</span>
+                  </div>
+                  <p className={styles.honorOrg}>
+                    {honor.org} · {honor.year}
+                  </p>
+                  <p className={styles.cardSummary}>{honor.detail}</p>
+                  {honor.link && (
+                    <div className={styles.linkRow}>
+                      <a href={honor.link} target="_blank" rel="noreferrer">
+                        <Icon kind="external" className={styles.inlineIcon} />
+                        <span>Details</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── Talks & Sessions ── */}
         <section className={`${styles.section} ${styles.tintedSection}`} id="talks">
           <div className={styles.sectionIntro}>
@@ -735,14 +976,19 @@ export default function Home() {
             <p>Research spanning medical imaging, multimodal learning, and applied AI systems.</p>
           </div>
 
-          <div className={styles.pubList}>
+          <div className={styles.publicationList}>
             {publications.map((pub) => (
-              <div key={pub.title} className={styles.pubRow}>
-                <div className={styles.pubYear}>{pub.year}</div>
-                <div className={styles.pubContent}>
-                  <h3 className={styles.pubTitle}>{pub.title}</h3>
-                  <p className={styles.pubAuthors}>{pub.authors}</p>
-                  <p className={styles.pubVenue}>{pub.venue} · {pub.status}</p>
+              <article key={pub.title} className={styles.publicationCard}>
+                <div className={styles.publicationIconWrap}>
+                  <Icon kind="document" className={styles.publicationIcon} />
+                </div>
+                <div className={styles.publicationBody}>
+                  <h3>{pub.title}</h3>
+                  <p className={styles.publicationAuthors}>{renderAuthors(pub.authors)}</p>
+                  <div className={styles.publicationMeta}>
+                    <span>{pub.venue}</span>
+                    <span>{pub.status}</span>
+                  </div>
                   {Object.keys(pub.links).length > 0 && (
                     <div className={styles.pillRow}>
                       {pub.links.pdf && (
@@ -751,13 +997,16 @@ export default function Home() {
                       {pub.links.arxiv && (
                         <a href={pub.links.arxiv} target="_blank" rel="noreferrer" className={styles.pill}>arXiv</a>
                       )}
+                      {pub.links.doi && (
+                        <a href={pub.links.doi} target="_blank" rel="noreferrer" className={styles.pill}>DOI</a>
+                      )}
                       {pub.links.code && (
                         <a href={pub.links.code} target="_blank" rel="noreferrer" className={styles.pill}>Code</a>
                       )}
                     </div>
                   )}
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
@@ -771,6 +1020,92 @@ export default function Home() {
             <Icon kind="external" className={styles.inlineIcon} />
           </a>
         </section>
+
+        {/* ── Press & Media ── */}
+        {press.length > 0 && (
+          <section className={`${styles.section} ${styles.tintedSection}`} id="press">
+            <div className={styles.sectionIntro}>
+              <h2>Press & Media</h2>
+              <p>Coverage of my projects and the events I&apos;ve competed in.</p>
+            </div>
+
+            <div className={styles.cardGrid}>
+              {press.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.pressCard}
+                >
+                  <div className={styles.pressHeader}>
+                    <span className={styles.pressIconWrap}>
+                      <Icon kind="newspaper" className={styles.pressIcon} />
+                    </span>
+                    <div>
+                      <span className={styles.pressOutlet}>{item.outlet}</span>
+                      <span className={styles.pressDate}>{item.date}</span>
+                    </div>
+                  </div>
+                  <h3 className={styles.pressTitle}>{item.title}</h3>
+                  <p className={styles.cardSummary}>{item.note}</p>
+                  <span className={styles.pressLink}>
+                    Read <Icon kind="external" className={styles.inlineIcon} />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Media Gallery ── */}
+        {gallery.length > 0 && (
+          <section className={styles.section} id="gallery">
+            <div className={styles.sectionIntro}>
+              <h2>Gallery</h2>
+              <p>Moments from talks, hackathons, and the communities I build with.</p>
+            </div>
+
+            <div className={styles.galleryGrid}>
+              {gallery.map((shot) => (
+                <figure key={shot.src} className={styles.galleryItem}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={shot.src} alt={shot.alt} loading="lazy" />
+                  {shot.caption && <figcaption>{shot.caption}</figcaption>}
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Social Mentions ── */}
+        {socialMentions.length > 0 && (
+          <section className={styles.section} id="social">
+            <div className={styles.sectionIntro}>
+              <h2>From the Community</h2>
+              <p>Talks, threads, and highlights shared across social platforms.</p>
+            </div>
+
+            <div className={styles.cardGrid}>
+              {socialMentions.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.socialCard}
+                >
+                  <div className={styles.socialCardHeader}>
+                    <Icon kind={item.platform === "twitter" ? "twitter" : "external"} className={styles.socialCardIcon} />
+                    <span className={styles.socialHandle}>{item.handle}</span>
+                  </div>
+                  <h3 className={styles.socialTitle}>{item.title}</h3>
+                  <p className={styles.cardSummary}>{item.note}</p>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* ── Skills ── */}
         <section className={`${styles.section} ${styles.tintedSection}`} id="skills">
