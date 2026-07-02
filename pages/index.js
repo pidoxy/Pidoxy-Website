@@ -1352,6 +1352,17 @@ function humanizeName(name) {
     .trim();
 }
 
+// Turns a filename segment into a caption, but returns "" for opaque
+// auto-generated IDs (mixed upper/lower + digits, e.g. "G6SOG7DXkAAOOh9")
+// so random Cloudinary/Twitter names never show as captions.
+function readableCaption(segment) {
+  if (!segment) return "";
+  const base = segment.replace(/\.[^.]+$/, "");
+  const looksRandom = /[A-Z]/.test(base) && /[a-z]/.test(base) && /\d/.test(base);
+  if (looksRandom) return "";
+  return base.replace(/^[\d\s_-]+/, "").replace(/[-_]+/g, " ").trim();
+}
+
 // Optional pretty titles/dates for gallery albums, keyed by album slug.
 // A photo joins an album when its Cloudinary folder or filename prefix matches
 // the slug (e.g. folder "mirg-icair-2025/…" or file "mirg-icair-2025__caption").
@@ -1418,9 +1429,19 @@ async function galleryFromCloudinaryAdmin() {
       }
       const albumSlug = folder.split("/")[0] || "";
       const ctx = (r.context && r.context.custom) || {};
-      const caption = ctx.caption || ctx.alt || r.display_name || humanizeName(r.public_id);
+      const lastSegment = r.public_id.split("/").pop();
+      // Prefer dashboard-set caption/alt/name; otherwise derive from the filename,
+      // but suppress opaque auto-generated IDs (mixed case + digits, no words).
+      const caption =
+        ctx.caption || ctx.alt || r.display_name || readableCaption(lastSegment);
+      const albumTitle = (galleryAlbums[albumSlug] || {}).title;
       const urls = cloudinaryUrls(r.public_id, r.version, r.format);
-      return { ...urls, alt: caption, caption, album: albumSlug };
+      return {
+        ...urls,
+        alt: caption || albumTitle || "Gallery photo",
+        caption,
+        album: albumSlug,
+      };
     });
 }
 
