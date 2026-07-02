@@ -1214,42 +1214,78 @@ export default function Home({ gallery = [] }) {
   );
 }
 
-// Auto-discovers the gallery at build time: drop images into /public/gallery
-// and they appear on the next build. Captions/alt text are optional and live
-// in /public/gallery/captions.json — no code changes needed to add images.
-export async function getStaticProps() {
+const CLOUDINARY_CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "";
+const CLOUDINARY_TAG = process.env.CLOUDINARY_GALLERY_TAG || "portfolio";
+
+function humanizeName(name) {
+  return name
+    .split("/")
+    .pop()
+    .replace(/\.[^.]+$/, "")
+    .replace(/^[\d\s_-]+/, "")
+    .replace(/[-_]+/g, " ")
+    .trim();
+}
+
+// Preferred source: Cloudinary. Photos tagged CLOUDINARY_TAG in the Cloudinary
+// dashboard appear here automatically — no code, no redeploy (ISR revalidates).
+// Uses the public tag-list delivery endpoint, so no API keys are needed.
+async function galleryFromCloudinary() {
+  const url = `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/list/${CLOUDINARY_TAG}.json`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Cloudinary list ${res.status}`);
+  const data = await res.json();
+  return (data.resources || [])
+    .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0))
+    .map((r) => {
+      const caption = humanizeName(r.public_id);
+      return {
+        // f_auto/q_auto = automatic format + quality; c_limit,w_1400 caps size
+        src: `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/upload/f_auto,q_auto,c_limit,w_1400/v${r.version}/${r.public_id}.${r.format}`,
+        alt: caption,
+        caption: "",
+      };
+    });
+}
+
+// Fallback source: local /public/gallery folder, auto-discovered at build time.
+// Captions/alt optional via /public/gallery/captions.json.
+function galleryFromFolder() {
   const galleryDir = path.join(process.cwd(), "public", "gallery");
   const imageExts = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"]);
+  let captions = {};
+  const captionsPath = path.join(galleryDir, "captions.json");
+  if (fs.existsSync(captionsPath)) {
+    captions = JSON.parse(fs.readFileSync(captionsPath, "utf-8"));
+  }
+  return fs
+    .readdirSync(galleryDir)
+    .filter((file) => imageExts.has(path.extname(file).toLowerCase()))
+    .sort()
+    .reverse() // newest-first when files are date-prefixed (e.g. 2026-06-...)
+    .map((file) => {
+      const meta = captions[file] || {};
+      return {
+        src: `/gallery/${file}`,
+        alt: meta.alt || meta.caption || humanizeName(file),
+        caption: meta.caption || "",
+      };
+    });
+}
 
+export async function getStaticProps() {
   let gallery = [];
   try {
-    let captions = {};
-    const captionsPath = path.join(galleryDir, "captions.json");
-    if (fs.existsSync(captionsPath)) {
-      captions = JSON.parse(fs.readFileSync(captionsPath, "utf-8"));
-    }
-
-    gallery = fs
-      .readdirSync(galleryDir)
-      .filter((file) => imageExts.has(path.extname(file).toLowerCase()))
-      .sort()
-      .reverse() // newest-first when files are date-prefixed (e.g. 2026-06-...)
-      .map((file) => {
-        const meta = captions[file] || {};
-        const derived = file
-          .replace(/\.[^.]+$/, "")
-          .replace(/^[\d\s_-]+/, "")
-          .replace(/[-_]+/g, " ")
-          .trim();
-        return {
-          src: `/gallery/${file}`,
-          alt: meta.alt || meta.caption || derived,
-          caption: meta.caption || "",
-        };
-      });
+    gallery = CLOUDINARY_CLOUD ? await galleryFromCloudinary() : galleryFromFolder();
   } catch {
-    gallery = []; // folder missing or unreadable — section simply hides
+    // Cloudinary unreachable → try the folder; if that also fails, hide section.
+    try {
+      gallery = galleryFromFolder();
+    } catch {
+      gallery = [];
+    }
   }
 
-  return { props: { gallery } };
+  // Revalidate every 60s so new Cloudinary uploads appear without a redeploy.
+  return { props: { gallery }, revalidate: 60 };
 }
