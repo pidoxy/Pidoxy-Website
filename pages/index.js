@@ -1334,6 +1334,10 @@ export default function Home({ gallery = [] }) {
 
 const CLOUDINARY_CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "pidoxy";
 const CLOUDINARY_TAG = process.env.CLOUDINARY_GALLERY_TAG || "portfolio";
+// Optional Cloudinary folder the gallery images live in. Stripped from the
+// public_id before album parsing, so a photo at "portfolio/mirg-icair-2025/x"
+// groups under the album "mirg-icair-2025" (not "portfolio").
+const CLOUDINARY_BASE_FOLDER = (process.env.CLOUDINARY_BASE_FOLDER || "portfolio").replace(/^\/+|\/+$/g, "");
 
 function humanizeName(name) {
   return name
@@ -1389,8 +1393,12 @@ async function galleryFromCloudinary() {
   return (data.resources || [])
     .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0))
     .map((r) => {
-      const { albumSlug, caption } = parseAlbum(r.public_id);
-      const label = caption || humanizeName(r.public_id);
+      let relId = r.public_id;
+      if (CLOUDINARY_BASE_FOLDER && relId.startsWith(`${CLOUDINARY_BASE_FOLDER}/`)) {
+        relId = relId.slice(CLOUDINARY_BASE_FOLDER.length + 1);
+      }
+      const { albumSlug, caption } = parseAlbum(relId);
+      const label = caption || humanizeName(relId);
       return {
         // full-size for the lightbox; f_auto/q_auto = automatic format + quality
         src: `${base}/f_auto,q_auto,c_limit,w_1600/v${r.version}/${r.public_id}.${r.format}`,
