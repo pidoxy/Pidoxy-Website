@@ -1338,6 +1338,9 @@ const CLOUDINARY_TAG = process.env.CLOUDINARY_GALLERY_TAG || "portfolio";
 // public_id before album parsing, so a photo at "portfolio/mirg-icair-2025/x"
 // groups under the album "mirg-icair-2025" (not "portfolio").
 const CLOUDINARY_BASE_FOLDER = (process.env.CLOUDINARY_BASE_FOLDER || "portfolio").replace(/^\/+|\/+$/g, "");
+// Server-only Admin API credentials (never NEXT_PUBLIC — never sent to the browser).
+const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY || "";
+const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET || "";
 
 function humanizeName(name) {
   return name
@@ -1381,9 +1384,48 @@ function parseAlbum(id) {
   return { albumSlug, caption };
 }
 
-// Preferred source: Cloudinary. Photos tagged CLOUDINARY_TAG in the Cloudinary
-// dashboard appear here automatically — no code, no redeploy (ISR revalidates).
-// Uses the public tag-list delivery endpoint, so no API keys are needed.
+function cloudinaryUrls(publicId, version, format) {
+  const base = `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/upload`;
+  const v = version ? `v${version}/` : "";
+  return {
+    // full-size for the lightbox; f_auto/q_auto = automatic format + quality
+    src: `${base}/f_auto,q_auto,c_limit,w_1600/${v}${publicId}.${format}`,
+    // uniform, cropped thumbnail for the grid tile
+    thumb: `${base}/f_auto,q_auto,c_fill,g_auto,w_640,h_480/${v}${publicId}.${format}`,
+  };
+}
+
+// Preferred source: Cloudinary Admin API (reliable on all account types).
+// Reads images tagged CLOUDINARY_TAG, deriving the album from the asset's
+// folder and the caption from its context metadata or display name — so albums
+// and captions are fully managed from the Cloudinary dashboard, no code.
+// Needs CLOUDINARY_API_KEY/SECRET (server-only Vercel env vars).
+async function galleryFromCloudinaryAdmin() {
+  const auth = Buffer.from(`${CLOUDINARY_API_KEY}:${CLOUDINARY_API_SECRET}`).toString("base64");
+  const url = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/resources/image/tags/${CLOUDINARY_TAG}?max_results=100&context=true`;
+  const res = await fetch(url, { headers: { Authorization: `Basic ${auth}` } });
+  if (!res.ok) throw new Error(`Cloudinary Admin ${res.status}`);
+  const data = await res.json();
+  return (data.resources || [])
+    .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0))
+    .map((r) => {
+      // Album from the folder (asset_folder in dynamic mode, else the public_id path).
+      let folder =
+        r.asset_folder ||
+        (r.public_id.includes("/") ? r.public_id.split("/").slice(0, -1).join("/") : "");
+      if (CLOUDINARY_BASE_FOLDER && folder.startsWith(CLOUDINARY_BASE_FOLDER)) {
+        folder = folder.slice(CLOUDINARY_BASE_FOLDER.length).replace(/^\/+/, "");
+      }
+      const albumSlug = folder.split("/")[0] || "";
+      const ctx = (r.context && r.context.custom) || {};
+      const caption = ctx.caption || ctx.alt || r.display_name || humanizeName(r.public_id);
+      const urls = cloudinaryUrls(r.public_id, r.version, r.format);
+      return { ...urls, alt: caption, caption, album: albumSlug };
+    });
+}
+
+// Legacy source: public keyless tag-list endpoint. Deprecated on newer Cloudinary
+// accounts (returns 404), so this is only a secondary attempt.
 async function galleryFromCloudinary() {
   const url = `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/list/${CLOUDINARY_TAG}.json`;
   const res = await fetch(url);
@@ -1442,9 +1484,15 @@ function galleryFromFolder() {
 export async function getStaticProps() {
   let gallery = [];
   try {
-    gallery = CLOUDINARY_CLOUD ? await galleryFromCloudinary() : galleryFromFolder();
+    if (CLOUDINARY_API_KEY && CLOUDINARY_API_SECRET) {
+      gallery = await galleryFromCloudinaryAdmin(); // reliable, dashboard-driven
+    } else if (CLOUDINARY_CLOUD) {
+      gallery = await galleryFromCloudinary(); // legacy keyless endpoint
+    } else {
+      gallery = galleryFromFolder();
+    }
   } catch {
-    // Cloudinary unreachable → try the folder; if that also fails, hide section.
+    // Any Cloudinary error → try the local folder; if that also fails, hide section.
     try {
       gallery = galleryFromFolder();
     } catch {
