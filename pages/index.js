@@ -758,7 +758,29 @@ function renderAuthors(authors) {
 }
 
 // Event-grouped gallery with a full-screen lightbox (keyboard + arrow nav).
-function Gallery({ gallery }) {
+function PhotoGrid({ items, onOpen }) {
+  return (
+    <div className={styles.galleryGrid}>
+      {items.map((photo) => (
+        <button
+          key={photo.src}
+          type="button"
+          className={styles.galleryItem}
+          onClick={() => onOpen(photo.i)}
+          aria-label={`Open image: ${photo.alt}`}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={photo.thumb || photo.src} alt={photo.alt} loading="lazy" />
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// Renders event "moments" — a write-up paired with its photos — plus a
+// lightbox. Photos attach to a moment by album slug; leftover photos (no
+// matching moment) render as a plain trailing block.
+function Moments({ gallery }) {
   const [index, setIndex] = useState(-1);
   const open = index >= 0;
 
@@ -787,59 +809,78 @@ function Gallery({ gallery }) {
     };
   }, [open, close, prev, next]);
 
-  if (!gallery.length) return null;
-
-  // Group photos by album slug, preserving first-seen order.
-  const groups = [];
+  // Group photos by album slug.
   const bySlug = new Map();
   gallery.forEach((photo, i) => {
     const slug = photo.album || "";
-    if (!bySlug.has(slug)) {
-      const group = { slug, items: [] };
-      bySlug.set(slug, group);
-      groups.push(group);
-    }
-    bySlug.get(slug).items.push({ ...photo, i });
+    if (!bySlug.has(slug)) bySlug.set(slug, []);
+    bySlug.get(slug).push({ ...photo, i });
   });
-  const flat = groups.length === 1 && groups[0].slug === "";
+
+  // Configured moments first (in order), then any leftover photo groups.
+  const used = new Set();
+  const blocks = [];
+  moments.forEach((m) => {
+    used.add(m.slug);
+    const photos = bySlug.get(m.slug) || [];
+    if (photos.length || (m.writeup && m.writeup.length)) {
+      blocks.push({ type: "moment", moment: m, photos });
+    }
+  });
+  bySlug.forEach((photos, slug) => {
+    if (!used.has(slug)) blocks.push({ type: "plain", slug, photos });
+  });
+
+  if (!blocks.length) return null;
   const active = open ? gallery[index] : null;
 
   return (
-    <section className={styles.section} id="gallery">
+    <section className={styles.section} id="moments">
       <div className={styles.sectionIntro}>
-        <h2>Gallery</h2>
-        <p>Moments from talks, conferences, and the communities I build with.</p>
+        <h2>Moments</h2>
+        <p>Talks, conferences, and community — what happened, in words and pictures.</p>
       </div>
 
-      {groups.map((group) => {
-        const meta = galleryAlbums[group.slug] || {};
-        const title = meta.title || (group.slug ? humanizeName(group.slug) : "");
-        const sub = [meta.date, meta.description].filter(Boolean).join(" · ");
-        return (
-          <div key={group.slug || "_default"} className={styles.album}>
-            {!flat && title && (
-              <div className={styles.albumHeader}>
-                <h3>{title}</h3>
-                {sub && <p>{sub}</p>}
+      <div className={styles.momentList}>
+        {blocks.map((block) =>
+          block.type === "moment" ? (
+            <article key={block.moment.slug} className={styles.moment}>
+              <div className={styles.momentHead}>
+                <h3>{block.moment.title}</h3>
+                <p className={styles.momentMeta}>
+                  {block.moment.date}
+                  {block.moment.role ? ` · ${block.moment.role}` : ""}
+                </p>
               </div>
-            )}
-            <div className={styles.galleryGrid}>
-              {group.items.map((photo) => (
-                <button
-                  key={photo.src}
-                  type="button"
-                  className={styles.galleryItem}
-                  onClick={() => setIndex(photo.i)}
-                  aria-label={`Open image: ${photo.alt}`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={photo.thumb || photo.src} alt={photo.alt} loading="lazy" />
-                </button>
+              {block.moment.writeup?.map((para) => (
+                <p key={para.slice(0, 24)} className={styles.momentWriteup}>
+                  {para}
+                </p>
               ))}
-            </div>
-          </div>
-        );
-      })}
+              {block.photos.length > 0 && <PhotoGrid items={block.photos} onOpen={setIndex} />}
+              {block.moment.links?.length > 0 && (
+                <div className={styles.linkRow}>
+                  {block.moment.links.map((link) => (
+                    <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                      <LinkIcon external type={link.type} />
+                      <span>{link.label}</span>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </article>
+          ) : (
+            <article key={block.slug || "_more"} className={styles.moment}>
+              {block.slug && (
+                <div className={styles.momentHead}>
+                  <h3>{humanizeName(block.slug)}</h3>
+                </div>
+              )}
+              <PhotoGrid items={block.photos} onOpen={setIndex} />
+            </article>
+          )
+        )}
+      </div>
 
       {active && (
         <div className={styles.lightbox} role="dialog" aria-modal="true" onClick={close}>
@@ -1252,8 +1293,8 @@ export default function Home({ gallery = [] }) {
           </section>
         )}
 
-        {/* ── Media Gallery ── */}
-        <Gallery gallery={gallery} />
+        {/* ── Moments ── */}
+        <Moments gallery={gallery} />
 
         {/* ── Recent Milestones ── */}
         {milestones.length > 0 && (
@@ -1406,17 +1447,50 @@ function readableCaption(segment) {
   return base.replace(/^[\d\s_-]+/, "").replace(/[-_]+/g, " ").trim();
 }
 
-// Optional pretty titles/dates for gallery albums, keyed by album slug.
-// A photo joins an album when its Cloudinary folder or filename prefix matches
-// the slug (e.g. folder "mirg-icair-2025/…" or file "mirg-icair-2025__caption").
-// Adding photos to an existing album needs no code; a brand-new album only
-// needs an entry here if you want a nice title/date (otherwise the slug is used).
-const galleryAlbums = {
-  "mirg-icair-2025": {
+// "Moments" — event stories that pair a write-up with photos. Photos attach to
+// a moment when their Cloudinary folder (or filename prefix) matches the slug,
+// e.g. photos in folder "portfolio/mark-internship-2026/…". Order controls
+// display order (top = first). Add a moment by adding an entry here + photos.
+const moments = [
+  {
+    slug: "mark-internship-2026",
+    title: "M.A.R.K Internship Initiative",
+    date: "May 2026",
+    role: "Host & Moderator",
+    writeup: [
+      "I hosted and moderated the M.A.R.K Internship Initiative, a session by CISA UNILAG and NACOS UNILAG for students serious about internships and global opportunities.",
+      "I guided a panel of engineers now at Bloomberg (London) and Goldman Sachs through the realities of breaking into top companies — how they positioned themselves, what actually moved the needle in their applications, and the habits that built a competitive edge. My role was to keep it practical and honest, and draw out advice students could act on the next morning.",
+    ],
+    links: [
+      { label: "Watch Recording", href: "https://www.youtube.com/watch?v=_XcIKOSQldc&t=4325s", type: "video" },
+    ],
+  },
+  {
+    slug: "mirg-icair-2025",
     title: "MIRG-ICAIR 2025 — SharpXR Poster",
     date: "Nov 2025",
-    description: "Presenting our pediatric chest X-ray denoising research at the University of Lagos.",
+    role: "Poster Presenter",
+    writeup: [
+      "I presented our paper, SharpXR: Structure-Aware Denoising for Pediatric Chest X-Rays, as a poster at the MIRG-UNILAG International Conference on AI and Robotics — Empowering Africa Through AI and Robotics Research.",
+      "Alongside my co-author Solomon Odelola, I walked researchers and industry experts through how SharpXR improves diagnostic image quality for pediatric care, and fielded questions from people pushing the frontiers of AI and robotics across the continent.",
+    ],
+    links: [
+      { label: "Pre-print", href: "https://arxiv.org/abs/2508.08518", type: "external" },
+    ],
   },
+];
+
+const momentBySlug = Object.fromEntries(moments.map((m) => [m.slug, m]));
+
+// Explicit moment assignment for specific Cloudinary public_ids — used for
+// photos uploaded to the portfolio root with auto-generated names. Future
+// photos can instead just live in a subfolder named after the moment slug.
+const photoMomentOverride = {
+  "portfolio/PHOTO-2026-05-09-10-35-48_kpnhra": "mark-internship-2026",
+  "portfolio/G6SOG67WoAAuFSD_nd70w4": "mirg-icair-2025",
+  "portfolio/G6SOG7DXkAAOOh9_hvsixi": "mirg-icair-2025",
+  "portfolio/G6SOG7BWcAAVtb0_cm4wnt": "mirg-icair-2025",
+  "portfolio/G6SN1IGWMAAu_Qb_vlzbgm": "mirg-icair-2025",
 };
 
 // Derives an album slug + caption from a Cloudinary public_id or a filename.
@@ -1470,14 +1544,15 @@ async function galleryFromCloudinaryAdmin() {
       if (CLOUDINARY_BASE_FOLDER && folder.startsWith(CLOUDINARY_BASE_FOLDER)) {
         folder = folder.slice(CLOUDINARY_BASE_FOLDER.length).replace(/^\/+/, "");
       }
-      const albumSlug = folder.split("/")[0] || "";
+      // Explicit override (by public_id) wins over the folder-derived slug.
+      const albumSlug = photoMomentOverride[r.public_id] || folder.split("/")[0] || "";
       const ctx = (r.context && r.context.custom) || {};
       const lastSegment = r.public_id.split("/").pop();
       // Prefer dashboard-set caption/alt/name; otherwise derive from the filename,
       // but suppress opaque auto-generated IDs (mixed case + digits, no words).
       const caption =
         ctx.caption || ctx.alt || r.display_name || readableCaption(lastSegment);
-      const albumTitle = (galleryAlbums[albumSlug] || {}).title;
+      const albumTitle = (momentBySlug[albumSlug] || {}).title;
       const urls = cloudinaryUrls(r.public_id, r.version, r.format);
       return {
         ...urls,
