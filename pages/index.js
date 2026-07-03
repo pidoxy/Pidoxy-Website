@@ -758,6 +758,56 @@ function renderAuthors(authors) {
 }
 
 // Event-grouped gallery with a full-screen lightbox (keyboard + arrow nav).
+// Extracts a YouTube video ID from a watch / youtu.be / embed URL.
+function youtubeId(url) {
+  if (!url) return null;
+  const m = url.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/);
+  return m ? m[1] : null;
+}
+
+// First YouTube thumbnail across an item's links (maxres, with hq fallback).
+function videoThumb(links) {
+  for (const link of links || []) {
+    const id = youtubeId(link.href);
+    if (id) {
+      return {
+        max: `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
+        hq: `https://img.youtube.com/vi/${id}/hqdefault.jpg`,
+      };
+    }
+  }
+  return null;
+}
+
+// 16:9 thumbnail: YouTube frame when a video link exists, else a branded
+// gradient placeholder. maxres falls back to hq (always present) on error.
+function CardThumb({ links, className }) {
+  const thumb = videoThumb(links);
+  if (thumb) {
+    return (
+      <div className={`${styles.cardThumb} ${className || ""}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={thumb.max}
+          alt=""
+          loading="lazy"
+          onError={(e) => {
+            if (!e.currentTarget.dataset.fb) {
+              e.currentTarget.dataset.fb = "1";
+              e.currentTarget.src = thumb.hq;
+            }
+          }}
+        />
+      </div>
+    );
+  }
+  return (
+    <div className={`${styles.cardThumb} ${styles.cardThumbPlaceholder} ${className || ""}`}>
+      <Icon kind="code" className={styles.cardThumbIcon} />
+    </div>
+  );
+}
+
 function PhotoGrid({ items, onOpen }) {
   return (
     <div className={styles.galleryGrid}>
@@ -1089,6 +1139,7 @@ export default function Home({ gallery = [] }) {
           <div className={styles.cardGrid}>
             {projects.map((project) => (
               <article key={project.title} className={styles.card}>
+                <CardThumb links={project.links} />
                 <h3>{project.title}</h3>
                 <span className={styles.statusBadge}>{project.status}</span>
                 <p className={styles.cardSummary}>{project.summary}</p>
@@ -1166,9 +1217,13 @@ export default function Home({ gallery = [] }) {
             {talks.map((talk) => (
               <div key={talk.title} className={styles.talkCard}>
                 <div className={styles.talkHeader}>
-                  <div className={styles.talkIconWrap}>
-                    <Icon kind="mic" className={styles.talkIcon} />
-                  </div>
+                  {videoThumb(talk.links) ? (
+                    <CardThumb links={talk.links} className={styles.talkThumb} />
+                  ) : (
+                    <div className={styles.talkIconWrap}>
+                      <Icon kind="mic" className={styles.talkIcon} />
+                    </div>
+                  )}
                   <div>
                     <h3>{talk.title}</h3>
                     <p className={styles.talkMeta}>
