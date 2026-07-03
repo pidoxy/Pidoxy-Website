@@ -1533,6 +1533,20 @@ const moments = [
       { label: "Pre-print", href: "https://arxiv.org/abs/2508.08518", type: "external" },
     ],
   },
+  {
+    slug: "hacklab-2022",
+    title: "HackLab Nigeria 2022 — My First In-Person Hackathon",
+    date: "June 2022",
+    role: "Team Phantoms · 1st Runner-Up",
+    writeup: [
+      "HackLab Nigeria 2022 was my first in-person hackathon — three days at the Africa FinTech Foundry in Lagos among 800+ participants.",
+      "With Team Phantoms, I built PheraCam, a real-time facial-recognition security camera that tells registered faces from unregistered ones on the edge. We placed 1st runner-up (₦300k grant), and the project was featured in national tech coverage. It's the event that got me hooked on building under pressure.",
+    ],
+    links: [
+      { label: "Event Photos", href: "https://x.com/hacklabfdn/status/1537382809974804480", type: "photos" },
+      { label: "Highlights", href: "https://x.com/hacklabfdn/status/1536046622798389248", type: "external" },
+    ],
+  },
 ];
 
 const momentBySlug = Object.fromEntries(moments.map((m) => [m.slug, m]));
