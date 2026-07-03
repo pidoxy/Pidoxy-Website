@@ -300,6 +300,50 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
 }
 
+/* ─── Card / talk thumbnails ──────────────────────────────────────────────── */
+
+.cardThumb {
+  margin: -24px -24px 18px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  background: #ececf0;
+}
+
+.cardThumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.card:hover .cardThumb img {
+  transform: scale(1.03);
+}
+
+.cardThumbPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #030213 0%, #717182 160%);
+}
+
+.cardThumbIcon {
+  width: 34px;
+  height: 34px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Talk cards use a compact leading thumbnail instead of the mic icon. */
+.talkThumb {
+  margin: 0;
+  flex: 0 0 132px;
+  width: 132px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+}
+
 .card h3,
 .publicationBody h3,
 .skillCard h3,

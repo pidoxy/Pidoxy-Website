@@ -142,7 +142,7 @@ const projects = [
     title: "PheraCAM",
     status: "Hackathon 2nd Place",
     summary:
-      "Real-time face recognition system using OpenCV and Azure cloud services, achieving >95% accuracy with <150ms response time. Won 2nd place among 50+ teams at Hacklab's Hackathon for technical innovation and robustness.",
+      "Real-time facial-recognition camera that distinguishes registered faces from unregistered ones on the edge — for bank branches, schools, homes, and even car anti-theft. Built with OpenCV and Azure, >95% accuracy at <150ms. 1st runner-up among 800+ participants from all 36 states at HackLab Nigeria 2022.",
     tags: ["Python", "OpenCV", "Azure", "OpenAI API", "React"],
     links: [
       {
@@ -758,6 +758,56 @@ function renderAuthors(authors) {
 }
 
 // Event-grouped gallery with a full-screen lightbox (keyboard + arrow nav).
+// Extracts a YouTube video ID from a watch / youtu.be / embed URL.
+function youtubeId(url) {
+  if (!url) return null;
+  const m = url.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/);
+  return m ? m[1] : null;
+}
+
+// First YouTube thumbnail across an item's links (maxres, with hq fallback).
+function videoThumb(links) {
+  for (const link of links || []) {
+    const id = youtubeId(link.href);
+    if (id) {
+      return {
+        max: `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
+        hq: `https://img.youtube.com/vi/${id}/hqdefault.jpg`,
+      };
+    }
+  }
+  return null;
+}
+
+// 16:9 thumbnail: YouTube frame when a video link exists, else a branded
+// gradient placeholder. maxres falls back to hq (always present) on error.
+function CardThumb({ links, className }) {
+  const thumb = videoThumb(links);
+  if (thumb) {
+    return (
+      <div className={`${styles.cardThumb} ${className || ""}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={thumb.max}
+          alt=""
+          loading="lazy"
+          onError={(e) => {
+            if (!e.currentTarget.dataset.fb) {
+              e.currentTarget.dataset.fb = "1";
+              e.currentTarget.src = thumb.hq;
+            }
+          }}
+        />
+      </div>
+    );
+  }
+  return (
+    <div className={`${styles.cardThumb} ${styles.cardThumbPlaceholder} ${className || ""}`}>
+      <Icon kind="code" className={styles.cardThumbIcon} />
+    </div>
+  );
+}
+
 function PhotoGrid({ items, onOpen }) {
   return (
     <div className={styles.galleryGrid}>
@@ -1089,6 +1139,7 @@ export default function Home({ gallery = [] }) {
           <div className={styles.cardGrid}>
             {projects.map((project) => (
               <article key={project.title} className={styles.card}>
+                <CardThumb links={project.links} />
                 <h3>{project.title}</h3>
                 <span className={styles.statusBadge}>{project.status}</span>
                 <p className={styles.cardSummary}>{project.summary}</p>
@@ -1166,9 +1217,13 @@ export default function Home({ gallery = [] }) {
             {talks.map((talk) => (
               <div key={talk.title} className={styles.talkCard}>
                 <div className={styles.talkHeader}>
-                  <div className={styles.talkIconWrap}>
-                    <Icon kind="mic" className={styles.talkIcon} />
-                  </div>
+                  {videoThumb(talk.links) ? (
+                    <CardThumb links={talk.links} className={styles.talkThumb} />
+                  ) : (
+                    <div className={styles.talkIconWrap}>
+                      <Icon kind="mic" className={styles.talkIcon} />
+                    </div>
+                  )}
                   <div>
                     <h3>{talk.title}</h3>
                     <p className={styles.talkMeta}>
@@ -1476,6 +1531,20 @@ const moments = [
     ],
     links: [
       { label: "Pre-print", href: "https://arxiv.org/abs/2508.08518", type: "external" },
+    ],
+  },
+  {
+    slug: "hacklab-2022",
+    title: "HackLab Nigeria 2022 — My First In-Person Hackathon",
+    date: "June 2022",
+    role: "Team Phantoms · 1st Runner-Up",
+    writeup: [
+      "HackLab Nigeria 2022 was my first in-person hackathon — three days at the Africa FinTech Foundry in Lagos among 800+ participants.",
+      "With Team Phantoms, I built PheraCam, a real-time facial-recognition camera that tells registered faces from unregistered ones on the edge — for bank branches, churches, schools, homes, and car anti-theft. We placed 1st runner-up, winning a ₦300k grant, two Nvidia Deep Learning Institute vouchers, and a video documentary and branding from BlueAfric Media. It's the event that got me hooked on building under pressure.",
+    ],
+    links: [
+      { label: "Watch Documentary", href: "https://www.instagram.com/p/CfWHkiZKEzP/", type: "external" },
+      { label: "Event Photos", href: "https://x.com/hacklabfdn/status/1537382809974804480", type: "photos" },
     ],
   },
 ];
