@@ -1543,8 +1543,8 @@ const moments = [
       "With Team Phantoms, I built PheraCam, a real-time facial-recognition camera that tells registered faces from unregistered ones on the edge — for bank branches, churches, schools, homes, and car anti-theft. We placed 1st runner-up, winning a ₦300k grant, two Nvidia Deep Learning Institute vouchers, and a video documentary and branding from BlueAfric Media. It's the event that got me hooked on building under pressure.",
     ],
     links: [
+      { label: "Watch Documentary", href: "https://www.instagram.com/p/CfWHkiZKEzP/", type: "external" },
       { label: "Event Photos", href: "https://x.com/hacklabfdn/status/1537382809974804480", type: "photos" },
-      { label: "Highlights", href: "https://x.com/hacklabfdn/status/1536046622798389248", type: "external" },
     ],
   },
 ];
