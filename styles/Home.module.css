@@ -874,6 +874,50 @@
   outline-offset: 2px;
 }
 
+/* ─── Moments ─────────────────────────────────────────────────────────────── */
+
+.momentList {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.momentHead {
+  margin-bottom: 14px;
+}
+
+.momentHead h3 {
+  margin: 0;
+  font-size: clamp(19px, 1.6vw, 24px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  color: #030213;
+}
+
+.momentMeta {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8b8fa8;
+}
+
+.momentWriteup {
+  margin: 0 0 14px;
+  max-width: 760px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #555869;
+}
+
+.moment .galleryGrid {
+  margin-top: 22px;
+}
+
+.moment .linkRow {
+  margin-top: 18px;
+}
+
 /* ─── Lightbox ────────────────────────────────────────────────────────────── */
 
 .lightbox {
