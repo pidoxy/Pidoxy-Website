@@ -259,6 +259,23 @@ const projects = [
 
 const talks = [
   {
+    title: "M.A.R.K Internship Initiative",
+    event: "CISA UNILAG × NACOS UNILAG",
+    role: "Host & Moderator",
+    date: "May 9, 2026",
+    description:
+      "Hosted and moderated a panel on landing internships and global opportunities, featuring software engineers from Bloomberg (London) and Goldman Sachs on how students can build a competitive edge and break into top companies.",
+    tags: ["Career", "Internships", "Panel", "Moderation"],
+    links: [
+      {
+        label: "Watch Recording",
+        href: "https://www.youtube.com/watch?v=_XcIKOSQldc&t=4325s",
+        external: true,
+        type: "video",
+      },
+    ],
+  },
+  {
     title: "Introduction to AI in Business",
     event: "AI/ML Track Session",
     role: "Track Coach · AI/ML",
