@@ -1596,17 +1596,6 @@ const moments = [
 
 const momentBySlug = Object.fromEntries(moments.map((m) => [m.slug, m]));
 
-// Explicit moment assignment for specific Cloudinary public_ids — used for
-// photos uploaded to the portfolio root with auto-generated names. Future
-// photos can instead just live in a subfolder named after the moment slug.
-const photoMomentOverride = {
-  "portfolio/PHOTO-2026-05-09-10-35-48_kpnhra": "mark-internship-2026",
-  "portfolio/G6SOG67WoAAuFSD_nd70w4": "mirg-icair-2025",
-  "portfolio/G6SOG7DXkAAOOh9_hvsixi": "mirg-icair-2025",
-  "portfolio/G6SOG7BWcAAVtb0_cm4wnt": "mirg-icair-2025",
-  "portfolio/G6SN1IGWMAAu_Qb_vlzbgm": "mirg-icair-2025",
-};
-
 // Derives an album slug + caption from a Cloudinary public_id or a filename.
 // Supports "album-slug/photo" (folder) and "album-slug__caption" conventions.
 function parseAlbum(id) {
@@ -1659,7 +1648,7 @@ async function galleryFromCloudinaryAdmin() {
         folder = folder.slice(CLOUDINARY_BASE_FOLDER.length).replace(/^\/+/, "");
       }
       // Explicit override (by public_id) wins over the folder-derived slug.
-      const albumSlug = photoMomentOverride[r.public_id] || folder.split("/")[0] || "";
+      const albumSlug = folder.split("/")[0] || "";
       const ctx = (r.context && r.context.custom) || {};
       const lastSegment = r.public_id.split("/").pop();
       // Prefer dashboard-set caption/alt/name; otherwise derive from the filename,

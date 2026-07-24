@@ -16,7 +16,7 @@ const cv = {
       degree: "B.Sc. Computer Science",
       institution: "University of Lagos",
       period: "2021 – 2027",
-      detail: "CGPA: 4.82 / 5.0 (First Class)",
+      detail: "",
     },
     {
       degree: "AI Programming with Python Nanodegree",
@@ -301,7 +301,7 @@ export default function CV() {
               <div className={styles.rowRight}>
                 <div className={styles.rowTitle}>{ed.degree}</div>
                 <div className={styles.rowOrg}>{ed.institution}</div>
-                <div className={styles.rowDetail}>{ed.detail}</div>
+                {ed.detail && <div className={styles.rowDetail}>{ed.detail}</div>}
               </div>
             </div>
           ))}
