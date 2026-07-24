@@ -15,8 +15,14 @@ const cv = {
     {
       degree: "B.Sc. Computer Science",
       institution: "University of Lagos",
-      period: "2021 – 2025",
-      detail: "CGPA: 4.68 / 5.0",
+      period: "2021 – 2027",
+      detail: "CGPA: 4.82 / 5.0 (First Class)",
+    },
+    {
+      degree: "AI Programming with Python Nanodegree",
+      institution: "Udacity",
+      period: "2023",
+      detail: "AWS AI & ML Scholarship program.",
     },
   ],
 
@@ -64,6 +70,16 @@ const cv = {
       ],
     },
     {
+      role: "Software Engineer Intern",
+      org: "NitHub (UNILAG Innovation Hub)",
+      period: "Feb 2023 – Present",
+      type: "Internship",
+      bullets: [
+        "Designed and deployed AI/ML-integrated IoT systems in collaboration with student innovators.",
+        "Represented the hub at the Lagos Chamber of Commerce and Industry program showcasing products.",
+      ],
+    },
+    {
       role: "Software Engineer – Data and AI",
       org: "Wema Bank Plc.",
       period: "Aug 2024 – Dec 2024",
@@ -80,8 +96,9 @@ const cv = {
       period: "May 2024 – Aug 2024",
       type: "Apprenticeship · Remote",
       bullets: [
-        "Worked with data structures and algorithm patterns and concepts.",
-        "Facilitated and participated in problem-solving sessions and competitive programming hackathons.",
+        "Engineered a contact-lookup system with an array-implemented trie — 20% faster with 98.73% space optimization versus baseline implementations.",
+        "Hosted and facilitated problem-solving sessions and competitive-programming hackathons.",
+        "Advanced data-structure and algorithm patterns, solving complex challenges in Python.",
       ],
     },
     {
@@ -171,12 +188,12 @@ const cv = {
 
   skills: {
     "Machine Learning & AI": [
-      "PyTorch, Hugging Face Transformers",
+      "PyTorch, TensorFlow, Hugging Face Transformers",
       "FAISS, Sentence Transformers, LangGraph",
       "OpenAI API, Gemini API",
       "Computer Vision (OpenCV, ViTs)",
       "Whisper ASR, Tesseract OCR",
-      "Scikit-learn, Pandas, NumPy",
+      "Scikit-learn, Pandas, NumPy, Matplotlib",
     ],
     "Programming Languages": [
       "Python, TypeScript, JavaScript",
@@ -193,14 +210,29 @@ const cv = {
   },
 
   awards: [
+    "Amala Hackathon 2025 — Winner, ₦2,000,000 (Team PRL lead)",
+    "ACVSS 2026 — Accepted with Full Grant (1 of 31 from 312)",
+    "HackZurich 2021 — Hybrid Team Award (Coffee_Break)",
+    "Virtue Foundation Platform — 2nd, Databricks × Hack-Nation 2026",
+    "Meta Global Hackathon 2022 — 14th in EMEA, 47th globally",
+    "AccessLearn — 2nd, Afretec UNILAG Inclusion Challenge",
+    "HackLab Nigeria 2022 — 1st Runner-Up (PheraCAM)",
+    "HackOR 2021 — Frontend Hackathon Winner",
     "Jim Ovia Foundation Scholar",
     "PICFI Scholar",
     "Squad Hackademy Scholar",
-    "HackOR 2021 — Frontend Hackathon Winner",
-    "Hacklab Hackathon — 2nd Place (PheraCAM)",
     "AWS AI & ML Scholarship Recipient",
     "GDSC UNILAG Deputy Lead",
     "Project Lead — Unilag Data Community (250+ students)",
+  ],
+
+  certifications: [
+    "Microsoft Azure AI Fundamentals",
+    "Google Cloud Essentials",
+    "Udacity — AI Programming with Python",
+    "Game of Learners — AI & ML in Azure Clinics",
+    "NexaScale — Cloud Engineering",
+    "Wolfstation — Data Structures & Algorithms",
   ],
 };
 
@@ -334,6 +366,16 @@ export default function CV() {
           <ul className={styles.awardList}>
             {cv.awards.map((award) => (
               <li key={award}>{award}</li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Certifications */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Certifications</h2>
+          <ul className={styles.awardList}>
+            {cv.certifications.map((cert) => (
+              <li key={cert}>{cert}</li>
             ))}
           </ul>
         </section>

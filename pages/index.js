@@ -63,6 +63,13 @@ const experienceSnapshot = [
       "AI-powered knowledge chatbot (Node.js, Azure) enabling 2,000+ staff to query documentation; Play Store review analytics pipeline.",
   },
   {
+    role: "Software Engineer Intern",
+    org: "NitHub (UNILAG Innovation Hub)",
+    period: "Feb 2023 – Present",
+    detail:
+      "Building AI/ML-integrated IoT systems with student innovators; represented the hub at the Lagos Chamber of Commerce and Industry showcase.",
+  },
+  {
     role: "AWS AI & ML Scholar",
     org: "Amazon Web Services",
     period: "Oct 2023 – Jan 2024",
@@ -255,6 +262,22 @@ const projects = [
       },
     ],
   },
+  {
+    title: "FinBuddy",
+    status: "AI Project",
+    summary:
+      "A financial-intelligence chatbot that holds dynamic conversations to give personalized money insights, grounded in public-domain financial books. Python + FastAPI backend with Gemini for NLP.",
+    tags: ["Python", "FastAPI", "Gemini", "NLP"],
+    links: [],
+  },
+  {
+    title: "AFCF Portal",
+    status: "Engineering Project",
+    summary:
+      "An automated coordination platform that streamlined a national reporting process with real-time data updates — cutting manual entry time by 75%.",
+    tags: ["Automation", "Real-time Data", "Web"],
+    links: [],
+  },
 ];
 
 const talks = [
@@ -408,6 +431,15 @@ const honors = [
     link: "https://www.youtube.com/watch?v=4w29E3NGFV0",
   },
   {
+    title: "Meta Global Hackathon 2022",
+    org: "Meta · algorithmic challenge",
+    year: "2022",
+    result: "14th in EMEA · 47th globally",
+    detail:
+      "Engineered 10+ algorithmic solutions to critical system bugs, reducing error rates by 40% and improving stability by 25%.",
+    link: "",
+  },
+  {
     title: "AccessLearn — 2nd Place",
     org: "Afretec UNILAG Inclusion Team Innovation Challenge",
     year: "2025",
@@ -486,12 +518,12 @@ const skills = [
     title: "Machine Learning & AI",
     icon: "brain",
     items: [
-      "PyTorch, Hugging Face Transformers",
+      "PyTorch, TensorFlow, Hugging Face Transformers",
       "FAISS, Sentence Transformers, LangGraph",
       "OpenAI API, Gemini API",
       "Whisper ASR, Tesseract OCR",
       "Computer Vision (OpenCV, ViTs)",
-      "Scikit-learn, Pandas, NumPy",
+      "Scikit-learn, Pandas, NumPy, Matplotlib",
     ],
   },
   {
