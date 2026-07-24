@@ -1540,6 +1540,19 @@ function readableCaption(segment) {
 // display order (top = first). Add a moment by adding an entry here + photos.
 const moments = [
   {
+    slug: "acvss-2026",
+    title: "ACVSS 2026 — African Computer Vision Summer School",
+    date: "July 2026",
+    role: "Attendee · Full Grant",
+    writeup: [
+      "I was selected as 1 of 31 from 312 applicants — with a full grant — for the African Computer Vision Summer School (ACVSS 2026), hosted at the Google AI Community Center in Accra.",
+      "It's an intensive gathering of African students with 15+ scientists from around the world: lectures, hands-on sessions, and mentoring across advanced vision architectures, diffusion models, self-supervised and multimodal learning, 3D vision, world models, fairness, and ethics.",
+    ],
+    links: [
+      { label: "About ACVSS", href: "https://www.acvss.ai/", type: "external" },
+    ],
+  },
+  {
     slug: "mark-internship-2026",
     title: "M.A.R.K Internship Initiative",
     date: "May 2026",

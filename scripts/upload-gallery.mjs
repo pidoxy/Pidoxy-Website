@@ -42,7 +42,7 @@ if (!KEY || !SECRET) {
   process.exit(1);
 }
 
-const IMG = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"]);
+const IMG = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif", ".heic", ".heif"]);
 const slug = (s) =>
   s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
