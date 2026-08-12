@@ -1,11 +1,47 @@
+/* ─── Design tokens ───────────────────────────────────────────────────────
+   Editorial minimal: white, ink, one gold accent. All modules consume these
+   variables — no hardcoded one-off values. */
+:root {
+  --bg: #ffffff;
+  --ink: #030213;
+  --secondary: #6b7080;
+  --tint: #f7f7f9;
+  --accent: #826622; /* eyebrows, rules, active nav, link hover only (AA on white + tint) */
+  --accent-soft: rgba(130, 102, 34, 0.14);
+  --rule: rgba(3, 2, 19, 0.1);
+  --rule-strong: rgba(3, 2, 19, 0.18);
+
+  /* --font-sans / --font-serif are injected by next/font in _app.js */
+  --serif: var(--font-serif, Georgia, "Times New Roman", serif);
+  --sans: var(--font-sans, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+
+  /* 8px spacing grid */
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s6: 48px;
+  --s8: 64px;
+  --s12: 96px;
+  --s16: 128px;
+
+  --max-width: 1216px;
+  --ease: 180ms ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Inter, "SF Pro Display", "SF Pro Text", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #ffffff;
-  color: #030213;
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,4 +54,32 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

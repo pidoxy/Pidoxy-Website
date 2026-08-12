@@ -1,5 +1,5 @@
-import Head from "next/head";
-import Link from "next/link";
+import Layout from "../components/Layout";
+import Meta from "../components/Meta";
 import styles from "../styles/CV.module.css";
 
 const cv = {
@@ -250,22 +250,14 @@ function renderAuthors(authors) {
 
 export default function CV() {
   return (
-    <div className={styles.page}>
-      <Head>
-        <title>CV — Emmanuel Idoko</title>
-        <meta name="description" content="Curriculum Vitae of Emmanuel Idoko — Software Engineer, AI/ML Engineer, and Researcher." />
-      </Head>
+    <Layout>
+      <Meta
+        title="CV"
+        description="Curriculum Vitae of Emmanuel Idoko — Software Engineer, AI/ML Engineer, and Researcher."
+        path="/cv"
+      />
 
-      <nav className={styles.nav}>
-        <Link href="/" className={styles.navName}>Emmanuel Idoko</Link>
-        <div className={styles.navLinks}>
-          <Link href="/#publications">Research</Link>
-          <Link href="/#projects">Engineering</Link>
-          <span className={styles.navActive}>CV</span>
-        </div>
-      </nav>
-
-      <main className={styles.main}>
+      <div className={styles.main}>
 
         {/* Header */}
         <header className={styles.header}>
@@ -380,11 +372,7 @@ export default function CV() {
           </ul>
         </section>
 
-      </main>
-
-      <footer className={styles.footer}>
-        <p>© 2026 Emmanuel Idoko · <a href="/">Back to portfolio</a></p>
-      </footer>
-    </div>
+      </div>
+    </Layout>
   );
 }

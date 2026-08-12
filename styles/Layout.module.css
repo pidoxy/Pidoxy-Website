@@ -1,0 +1,260 @@
+/* ─── Shell ─────────────────────────────────────────────────────────────── */
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+}
+
+.skipLink {
+  position: absolute;
+  top: -48px;
+  left: var(--s2);
+  z-index: 100;
+  padding: var(--s1) var(--s2);
+  background: var(--ink);
+  color: #fff;
+  border-radius: 0 0 6px 6px;
+  transition: top var(--ease);
+}
+
+.skipLink:focus {
+  top: 0;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.headerInner {
+  width: min(var(--max-width), calc(100% - 48px));
+  margin: 0 auto;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 550;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.navLink {
+  font-size: 14px;
+  color: var(--secondary);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--ease), border-color var(--ease);
+}
+
+.navLink:hover {
+  color: var(--ink);
+}
+
+.navLinkActive {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.contactPill {
+  padding: 9px 22px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity var(--ease);
+  white-space: nowrap;
+}
+
+.contactPill:hover {
+  opacity: 0.85;
+}
+
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.burgerIcon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* ─── Mobile menu ───────────────────────────────────────────────────────── */
+.mobileMenu {
+  position: fixed;
+  inset: 68px 0 0 0;
+  z-index: 40;
+  background: var(--bg);
+  overflow-y: auto;
+  animation: menuIn 200ms ease;
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  padding: var(--s6) var(--s4);
+  gap: var(--s3);
+}
+
+.mobileLink {
+  font-family: var(--serif);
+  font-size: clamp(30px, 8vw, 40px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--s2);
+}
+
+.mobileLinkActive {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.mobileContact {
+  margin-top: var(--s3);
+  align-self: flex-start;
+  padding: 12px 32px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* ─── Footer ────────────────────────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--rule);
+  margin-top: var(--s16);
+  background: var(--tint);
+}
+
+.footerInner {
+  width: min(var(--max-width), calc(100% - 48px));
+  margin: 0 auto;
+  padding: var(--s8) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s3);
+  text-align: center;
+}
+
+.footerLine {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.footerNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s2) var(--s3);
+}
+
+.footerLink {
+  font-size: 14px;
+  color: var(--secondary);
+  transition: color var(--ease);
+}
+
+.footerLink:hover {
+  color: var(--accent);
+}
+
+.footerSocials {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.footerSocials a {
+  color: var(--secondary);
+  display: inline-flex;
+  padding: 6px;
+  transition: color var(--ease);
+}
+
+.footerSocials a:hover {
+  color: var(--ink);
+}
+
+.socialIcon {
+  width: 19px;
+  height: 19px;
+}
+
+.copyright {
+  margin: 0;
+  font-size: 13px;
+  color: var(--secondary);
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 920px) {
+  .nav {
+    display: none;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+
+  .contactPill {
+    display: none;
+  }
+}
+
+@media print {
+  .header,
+  .footer {
+    display: none;
+  }
+}

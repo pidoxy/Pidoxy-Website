@@ -333,3 +333,40 @@
     background: white;
   }
 }
+
+/* ─── Print — ⌘P produces a clean document ────────────────────────────── */
+@media print {
+  .main {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .resumeRow {
+    display: none;
+  }
+
+  .page,
+  .main,
+  .rowTitle,
+  .sectionTitle {
+    color: #000;
+  }
+
+  .row {
+    break-inside: avoid;
+  }
+
+  .section {
+    margin-top: 20px;
+  }
+
+  .pill {
+    border: none;
+    padding: 0;
+  }
+
+  a[href]::after {
+    content: "";
+  }
+}
