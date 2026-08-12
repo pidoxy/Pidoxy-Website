@@ -34,6 +34,7 @@ function Publication({ pub }) {
       <p className={styles.pubMeta}>
         <em>{pub.venue}</em> · <span className={styles.pubStatus}>{pub.status}</span>
       </p>
+      {pub.note && <p className={styles.rowNote}>{pub.note}</p>}
       {Object.keys(pub.links).length > 0 && (
         <div className={styles.pillRow}>
           {PILL_ORDER.filter((key) => pub.links[key]).map((key) => (

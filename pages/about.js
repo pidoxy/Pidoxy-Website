@@ -42,8 +42,8 @@ export default function About() {
 
           <aside className={styles.aboutSidebar}>
             <div className={styles.portrait}>
-              {/* Portrait slot — replace with <img src="/portrait.jpg" alt="Emmanuel Idoko" /> */}
-              <span className={styles.portraitInitials}>{profile.initials}</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/portrait.jpg" alt="Portrait of Emmanuel Idoko" />
             </div>
 
             <div className={styles.factsBlock}>

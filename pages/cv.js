@@ -21,7 +21,7 @@ const cv = {
     {
       degree: "AI Programming with Python Nanodegree",
       institution: "Udacity",
-      period: "2023",
+      period: "Oct 2022 – Jan 2024",
       detail: "AWS AI & ML Scholarship program.",
     },
   ],
@@ -50,7 +50,7 @@ const cv = {
     {
       role: "Software Engineer",
       org: "HabariPay – GTCO",
-      period: "Sep 2024 – Present",
+      period: "Apr 2025 – Present",
       type: "Contract · Hybrid",
       bullets: [
         "Full-stack engineering on payment infrastructure and AI-powered product features for the fintech subsidiary of Guaranty Trust.",
@@ -82,7 +82,7 @@ const cv = {
     {
       role: "Software Engineer – Data and AI",
       org: "Wema Bank Plc.",
-      period: "Aug 2024 – Dec 2024",
+      period: "Sep 2024 – Dec 2024",
       type: "Internship · Hybrid",
       bullets: [
         "Built Wema Wiki — an AI chatbot integrated into Microsoft Teams enabling 2,000+ staff to query bank documentation.",
@@ -125,7 +125,7 @@ const cv = {
     {
       role: "Lead Software Developer",
       org: "Zuri Chat",
-      period: "Jul 2021 – Nov 2021",
+      period: "Jul 2021 – Oct 2021",
       type: "Contract",
       bullets: [
         "Developed virtual music and chess room features with WebRTC — real-time A/V sync, multiplayer, third-party API integration.",
@@ -146,6 +146,14 @@ const cv = {
   ],
 
   publications: [
+    {
+      title: "Retrieval-Induced Hallucination in Medical Vision-Language Models",
+      authors: "E. Idoko et al.",
+      venue: "Africa in AI Workshop, NeurIPS 2026 (Springer LNCS)",
+      year: "2026",
+      status: "Submitted · First author",
+      links: {},
+    },
     {
       title: "SharpXR: Structure-Aware Denoising for Pediatric Chest X-Rays",
       authors:
