@@ -23,6 +23,7 @@ export const profile = {
 // Credibility anchors for the home proof strip.
 export const proofStrip = [
   { lead: "MICCAI & ICPR", rest: "Published research in medical imaging" },
+  { lead: "ACVSS 2026", rest: "African Computer Vision Summer School — 1 of 31 from 312, full grant" },
   { lead: "AidCare", rest: "Founder — live clinical decision-support AI" },
   { lead: "HabariPay (GTCO)", rest: "Software engineer, payments & AI features" },
   { lead: "23+ hackathons", rest: "6 wins & podium finishes" },
