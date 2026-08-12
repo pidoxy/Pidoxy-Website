@@ -64,7 +64,7 @@ const cv = {
       period: "Sep 2024 – Present",
       type: "Remote",
       bullets: [
-        "Research in medical imaging and clinical NLP — Few-Shot Sampling, Computer Vision.",
+        "Research in medical imaging and computer vision — Few-Shot Sampling.",
         "Weekly paper analysis, hypothesis formulation, and experimental protocol design.",
         "Authored papers accepted at MICCAI 2025 and ICPR 2026.",
       ],

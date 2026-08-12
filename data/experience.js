@@ -26,7 +26,7 @@ export const experience = [
     org: "ML Collective",
     period: "Sep 2024 – Present",
     detail:
-      "Medical imaging and clinical NLP research — weekly paper analysis, hypothesis formulation, and experimental protocol design.",
+      "Medical imaging and computer vision research — weekly paper analysis, hypothesis formulation, and experimental protocol design.",
   },
   {
     role: "Data & AI Intern",
