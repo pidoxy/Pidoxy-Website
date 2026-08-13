@@ -50,7 +50,7 @@ const cv = {
     {
       role: "Software Engineer",
       org: "HabariPay – GTCO",
-      period: "Apr 2025 – Present",
+      period: "Sep 2024 – Present",
       type: "Contract · Hybrid",
       bullets: [
         "Full-stack engineering on payment infrastructure and AI-powered product features for the fintech subsidiary of Guaranty Trust.",

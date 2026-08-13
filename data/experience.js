@@ -17,7 +17,7 @@ export const experience = [
   {
     role: "Software Engineer",
     org: "HabariPay – GTCO",
-    period: "Apr 2025 – Present",
+    period: "Sep 2024 – Present",
     detail:
       "Full-stack engineering on the fintech subsidiary of Guaranty Trust; building payment infrastructure and AI-powered product features.",
   },
