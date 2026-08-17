@@ -112,6 +112,9 @@ export default function Layout({ children }) {
                 {item.label}
               </Link>
             ))}
+            <Link href="/speaking" className={styles.footerLink}>
+              Speaker Kit
+            </Link>
             <Link href="/cv" className={styles.footerLink}>
               CV
             </Link>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Layout from "../components/Layout";
 import Meta from "../components/Meta";
 import PageHeader from "../components/PageHeader";
@@ -20,7 +21,12 @@ export default function Talks() {
           title="Talks &"
           accent="Speaking"
           lede="Talks, workshops, and panels I've given, hosted, or moderated — with recordings, slides, and photos where they exist."
-        />
+        >
+          <p className={styles.headerNote}>
+            Inviting me to speak? The <Link href="/speaking">speaker kit</Link> has bios, headshots, and
+            talk abstracts ready to paste.
+          </p>
+        </PageHeader>
 
         <ul className={styles.dateList}>
           {talks.map((talk) => (
