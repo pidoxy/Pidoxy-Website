@@ -1140,6 +1140,7 @@
 
 .bioText {
   margin: 0 0 var(--s2);
+  max-width: 780px;
   font-size: 15.5px;
   line-height: 1.75;
 }
