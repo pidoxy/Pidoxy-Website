@@ -2,10 +2,12 @@ import Head from "next/head";
 import { profile } from "../data/profile";
 
 // Per-page head: title, description, canonical, OG/Twitter cards.
-export default function Meta({ title, description, path = "/" }) {
-  const fullTitle = title
-    ? `${title} — Emmanuel Idoko`
-    : "Emmanuel Idoko — Software Engineer & AI Researcher";
+// `titleOverride` bypasses the "X — Emmanuel Idoko" pattern for pages that
+// need a differently-shaped title (e.g. the speaker page).
+export default function Meta({ title, titleOverride, description, path = "/" }) {
+  const fullTitle =
+    titleOverride ||
+    (title ? `${title} — Emmanuel Idoko` : "Emmanuel Idoko — Software Engineer & AI Researcher");
   const url = path === "/" ? profile.siteUrl : `${profile.siteUrl}${path}`;
   const image = `${profile.siteUrl}/og.png`;
 

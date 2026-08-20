@@ -896,6 +896,132 @@
 }
 
 /* ─── Speaker kit ───────────────────────────────────────────────────────── */
+.pageTitleLong {
+  font-size: clamp(30px, 4.6vw, 54px);
+  line-height: 1.14;
+  max-width: 900px;
+}
+
+.ledeSecondary {
+  margin: var(--s2) 0 0;
+  max-width: 640px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--secondary);
+}
+
+.tertiaryLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+  border-bottom: 1px solid var(--accent);
+  transition: color var(--ease);
+}
+
+.tertiaryLink:hover {
+  color: var(--accent);
+}
+
+.jumpNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+  margin-top: var(--s5);
+}
+
+.jumpLink {
+  padding: 5px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--secondary);
+  transition: border-color var(--ease), color var(--ease);
+}
+
+.jumpLink:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.credStrip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.credItem {
+  padding: var(--s3) var(--s3) var(--s3) 0;
+}
+
+.credItem + .credItem {
+  padding-left: var(--s3);
+  border-left: 1px solid var(--rule);
+}
+
+.kitContext {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.kitLabelSpaced {
+  margin-top: var(--s4);
+}
+
+.kitHeadRowSpaced {
+  margin-top: var(--s8);
+}
+
+.bioContext {
+  margin: calc(-1 * var(--s1)) 0 var(--s2);
+  font-size: 13px;
+  color: var(--secondary);
+}
+
+.territoryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s4) var(--s6);
+}
+
+.territoryCard {
+  padding-top: var(--s3);
+  border-top: 1px solid var(--rule-strong);
+}
+
+.territoryTitle {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.territoryLede {
+  margin: var(--s1) 0 var(--s2);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--secondary);
+}
+
+.territoryTopics {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.9;
+}
+
+.proseNarrow {
+  max-width: 720px;
+}
+
 .copyButton {
   flex-shrink: 0;
   padding: 5px 12px;
@@ -1095,18 +1221,18 @@
 
 .topicHead {
   display: grid;
-  grid-template-columns: 44px 1fr auto;
-  gap: var(--s3);
+  grid-template-columns: 1fr auto;
+  gap: var(--s1) var(--s3);
   align-items: start;
 }
 
-.topicIndex {
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
+.topicCategory {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--accent);
-  font-variant-numeric: tabular-nums;
-  line-height: 1.2;
 }
 
 .topicHeadBody {
@@ -1121,22 +1247,46 @@
   line-height: 1.3;
 }
 
-.topicMeta {
-  margin: 6px 0 0;
-  font-size: 13px;
-  font-weight: 500;
+.topicHook {
+  margin: var(--s1) 0 0;
+  max-width: 720px;
+  font-size: 15px;
+  line-height: 1.6;
   color: var(--secondary);
 }
 
 .topicAbstract {
-  margin: var(--s3) 0 0 calc(44px + var(--s3));
+  margin: var(--s3) 0 0;
   max-width: 760px;
   font-size: 15.5px;
   line-height: 1.75;
 }
 
+.topicMetaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s4);
+  margin-top: var(--s3);
+  max-width: 760px;
+}
+
+.topicMetaItem {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--secondary);
+}
+
+.topicMetaItem strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
 .topicTakeLabel {
-  margin: var(--s3) 0 6px calc(44px + var(--s3));
+  margin: var(--s3) 0 6px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -1145,7 +1295,7 @@
 }
 
 .topicTakeaways {
-  margin: 0 0 var(--s2) calc(44px + var(--s3));
+  margin: 0 0 var(--s2);
   padding-left: 18px;
   max-width: 720px;
   font-size: 14.5px;
@@ -1355,14 +1505,22 @@
     gap: var(--s1);
   }
 
-  .topicIndex {
-    font-size: 16px;
+  .territoryGrid {
+    grid-template-columns: 1fr;
   }
 
-  .topicAbstract,
-  .topicTakeLabel,
-  .topicTakeaways {
-    margin-left: 0;
+  .credStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .credItem {
+    padding-left: 0;
+  }
+
+  .credItem + .credItem {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--rule);
   }
 
   .linkTableRow {
