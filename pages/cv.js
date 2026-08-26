@@ -230,7 +230,7 @@ const cv = {
     "PICFI Scholar",
     "Squad Hackademy Scholar",
     "AWS AI & ML Scholarship Recipient",
-    "GDSC UNILAG Deputy Lead",
+    "Deputy Trainings & Competitions Lead — GDSC UNILAG",
     "Project Lead — Unilag Data Community (250+ students)",
   ],
 
