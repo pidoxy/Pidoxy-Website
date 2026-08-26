@@ -3,7 +3,7 @@
 // `year` drives the year-grouped list on /research.
 export const publications = [
   {
-    title: "Retrieval-Induced Hallucination in Medical Vision-Language Models",
+    title: "When Retrieval Hurts: Retrieval-Induced Hallucination in Medical Vision-Language Models",
     authors: "E. Idoko et al.",
     venue: "Africa in AI Workshop, NeurIPS 2026 (Springer LNCS)",
     year: "2026",
