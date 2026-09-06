@@ -36,7 +36,7 @@ export const experience = [
       "AI-powered knowledge chatbot (Node.js, Azure) enabling 2,000+ staff to query documentation; Play Store review analytics pipeline.",
   },
   {
-    role: "Software Engineer Intern",
+    role: "Software Engineer & AI Researcher",
     org: "NitHub (UNILAG Innovation Hub)",
     period: "Feb 2023 – Present",
     detail:
