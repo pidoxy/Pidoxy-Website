@@ -4,10 +4,9 @@ import PageHeader from "../components/PageHeader";
 import { honors } from "../data/honors";
 import styles from "../styles/Page.module.css";
 
-function AwardColumn({ title, items }) {
+function AwardTimeline({ items }) {
   return (
-    <section>
-      <h2 className={styles.sectionTitle}>{title}</h2>
+    <section aria-label="Awards and honours">
       <ul className={styles.dateList}>
         {items.map((item) => (
           <li key={item.title} className={styles.dateRow}>
@@ -35,14 +34,11 @@ function AwardColumn({ title, items }) {
 }
 
 export default function Awards() {
-  const wins = honors.filter((h) => h.kind === "win");
-  const selections = honors.filter((h) => h.kind === "selection");
-
   return (
     <Layout>
       <Meta
         title="Awards & Honours"
-        description="Hackathon wins, podium finishes, grants, and selections — from HackZurich to GDG Lagos' ₦2M winner-takes-all and the African Computer Vision Summer School."
+        description="Selected awards, scholarships, and competitive recognition for Emmanuel Idoko."
         path="/awards"
       />
 
@@ -51,13 +47,10 @@ export default function Awards() {
           eyebrow="Recognition"
           title="Awards &"
           accent="Honours"
-          lede="Selected wins and podium finishes from 23+ hackathons, plus grants, scholarships, and competitive selections."
+          lede="Selected awards, scholarships, and competitive recognition, ordered newest first."
         />
 
-        <div className={styles.awardsColumns}>
-          <AwardColumn title="Hackathon Wins & Podiums" items={wins} />
-          <AwardColumn title="Grants, Scholarships & Selections" items={selections} />
-        </div>
+        <AwardTimeline items={honors} />
       </div>
     </Layout>
   );

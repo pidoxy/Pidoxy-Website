@@ -50,3 +50,25 @@ export const experience = [
       "Competitive AWS scholarship; built an end-to-end image classification system with PyTorch and CNNs, deployed on cloud GPU (CUDA) infrastructure.",
   },
 ];
+
+// Listed separately because dates were not supplied; the About page presents
+// these as leadership and community experience rather than placing them in a
+// dated employment timeline.
+export const leadership = [
+  {
+    role: "Deputy Team Lead, Training & Competition Team",
+    org: "GDSC UNILAG",
+  },
+  {
+    role: "Projects Team Lead",
+    org: "Data Community UNILAG",
+  },
+  {
+    role: "Cloud Engineering Mentor",
+    org: "NexaScale",
+  },
+  {
+    role: "Software Engineer",
+    org: "Apostolic Faith Church Youth Development Directorate",
+  },
+];

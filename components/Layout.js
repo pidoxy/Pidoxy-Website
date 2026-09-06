@@ -104,7 +104,7 @@ export default function Layout({ children }) {
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <p className={styles.footerLine}>
-            Software engineer &amp; AI researcher — clinical AI, agentic systems, medical imaging.
+            Software engineer, AI/ML engineer, and researcher — clinical AI, medical imaging, computer vision, RAG, and agentic systems.
           </p>
           <nav className={styles.footerNav} aria-label="Footer">
             {NAV.map((item) => (

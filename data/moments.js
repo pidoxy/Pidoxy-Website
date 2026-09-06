@@ -4,6 +4,28 @@
 // display order (top = first). Add a moment by adding an entry here + photos.
 export const moments = [
   {
+    slug: "ai-tools-secondary-school-girls",
+    title: "Introducing AI Tools to Secondary School Girls",
+    date: "Community outreach",
+    role: "AI tools facilitator",
+    writeup: [
+      "I led an introductory session for secondary school girls on using AI tools.",
+    ],
+    links: [
+      {
+        label: "Download OWSD Competition Handbook",
+        href: "/documents/owsd-competition-handbook.docx",
+        type: "external",
+        download: true,
+      },
+      {
+        label: "View LinkedIn post",
+        href: "https://www.linkedin.com/posts/emmanuelidoko_privilege-isnt-always-what-we-think-it-is-activity-7359486624449105922-2YdI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB29peABYwwQjTUE9h-_ziRi4JiLyYW6v1s",
+        type: "external",
+      },
+    ],
+  },
+  {
     slug: "acvss-2026",
     title: "ACVSS 2026 — African Computer Vision Summer School",
     date: "July 2026",
@@ -43,6 +65,22 @@ export const moments = [
     ],
   },
   {
+    slug: "sit-fintech-ai-2025",
+    title: "SIT Presents: Fintech × AI",
+    date: "May 2025",
+    role: "Host",
+    writeup: [
+      "Hosted SIT Presents: Fintech × AI.",
+    ],
+    links: [
+      {
+        label: "View LinkedIn post",
+        href: "https://www.linkedin.com/posts/doyin-afolabi-11839b2b6_sit-presents-fintech-x-ai-may-10th-activity-7326629777459621888-qHfB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB29peABYwwQjTUE9h-_ziRi4JiLyYW6v1s",
+        type: "external",
+      },
+    ],
+  },
+  {
     slug: "hacklab-2022",
     title: "HackLab Nigeria 2022 — My First In-Person Hackathon",
     date: "June 2022",
@@ -52,8 +90,26 @@ export const moments = [
       "With Team Phantoms, I built PheraCam, a real-time facial-recognition camera that tells registered faces from unregistered ones on the edge — for bank branches, churches, schools, homes, and car anti-theft. We placed 1st runner-up, winning a ₦300k grant, two Nvidia Deep Learning Institute vouchers, and a video documentary and branding from BlueAfric Media. It's the event that got me hooked on building under pressure.",
     ],
     links: [
-      { label: "Watch Documentary", href: "https://www.instagram.com/p/CfWHkiZKEzP/", type: "external" },
-      { label: "Event Photos", href: "https://x.com/hacklabfdn/status/1537382809974804480", type: "photos" },
+      {
+        label: "Watch BlueAfric documentary",
+        href: "https://www.instagram.com/p/CfWHkiZKEzP/",
+        type: "external",
+      },
+      {
+        label: "View HackLab event photos",
+        href: "https://x.com/hacklabfdn/status/1537382809974804480",
+        type: "photos",
+      },
+      {
+        label: "Read MyJoyOnline coverage",
+        href: "https://www.myjoyonline.com/hacklab-nigeria-ends-12-scalable-ai-big-data-edge-solutions/",
+        type: "external",
+      },
+      {
+        label: "Read BusinessDay coverage",
+        href: "https://businessday.ng/companies/article/hacklab-foundation-partners-blueafric-media-on-hacklab-hackathon-nigeria-2022/",
+        type: "external",
+      },
     ],
   },
 ];
