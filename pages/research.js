@@ -15,10 +15,11 @@ const years = [...new Set(publications.map((p) => p.year))].sort((a, b) => {
   return Number(b) - Number(a);
 });
 
-const PILL_ORDER = ["pdf", "arxiv", "doi", "code", "announcement"];
+const PILL_ORDER = ["pdf", "arxiv", "certificate", "doi", "code", "announcement"];
 const PILL_LABELS = {
   pdf: "PDF",
   arxiv: "arXiv",
+  certificate: "Certificate",
   doi: "DOI",
   code: "Code",
   announcement: "Announcement",

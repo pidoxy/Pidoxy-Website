@@ -5,13 +5,15 @@ export const publications = [
     title: "VAMAE: Vessel-Aware Masked Autoencoders for OCT Angiography",
     authors:
       "I. Abolade, P. Mireku, K. Chibundu, P. Ododo, E. Idoko, P. Omoigui, S. Odelola",
-    venue: "Accepted at the 28th International Conference on Pattern Recognition (ICPR 2026)",
+    venue: "28th International Conference on Pattern Recognition (ICPR 2026)",
     year: "2026",
-    status: "Accepted",
+    status: "Presented",
     featured: false,
+    note: "Presented in the official P3 poster session in Lyon, France; the poster presentation certificate is available directly from this page.",
     links: {
       arxiv: "https://arxiv.org/abs/2604.06583",
       pdf: "https://arxiv.org/pdf/2604.06583",
+      certificate: "/documents/icpr-2026-vamae-poster-presentation-certificate.pdf",
     },
   },
   {
