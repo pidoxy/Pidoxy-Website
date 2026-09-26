@@ -1,6 +1,10 @@
 import Head from "next/head";
+import Script from "next/script";
 import { Inter, Fraunces } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "../styles/globals.css";
+
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,7 +31,19 @@ export default function App({ Component, pageProps }) {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#030213" />
       </Head>
+      {gaMeasurementId && (
+        <>
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} strategy="afterInteractive" />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaMeasurementId}');`}
+          </Script>
+        </>
+      )}
       <Component {...pageProps} />
+      <Analytics />
     </div>
   );
 }

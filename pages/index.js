@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <Layout>
       <Meta
-        description="Emmanuel Idoko — software engineer and AI researcher building clinical AI systems, agentic pipelines, and full-stack products. Published at MICCAI and ICPR."
+        description="Emmanuel Idoko — software engineer, AI/ML engineer, and researcher building practical software and AI systems across clinical AI, medical imaging, computer vision, RAG, and agentic systems."
         path="/"
       />
       <Head>
@@ -83,7 +83,7 @@ export default function Home() {
               alternateName: "Pidoxy",
               url: profile.siteUrl,
               image: `${profile.siteUrl}/og.png`,
-              jobTitle: "Software Engineer & AI Researcher",
+              jobTitle: "Software Engineer, AI/ML Engineer, and Researcher",
               email: `mailto:${profile.email}`,
               alumniOf: {
                 "@type": "CollegeOrUniversity",
@@ -94,7 +94,9 @@ export default function Home() {
                 "Deep Learning",
                 "Medical Imaging",
                 "Computer Vision",
+                "Self-Supervised Learning",
                 "Retrieval-Augmented Generation",
+                "Agentic Systems",
                 "Full-Stack Engineering",
               ],
               sameAs: [
@@ -113,7 +115,7 @@ export default function Home() {
 
       {/* ── Hero ── */}
       <section className={`${styles.container} ${styles.hero}`}>
-        <p className={styles.eyebrow}>Software Engineer &amp; AI Researcher</p>
+        <p className={styles.eyebrow}>Software Engineer · AI/ML Engineer · Researcher</p>
         <h1 className={styles.heroName}>
           Emmanuel <em>Idoko</em>
         </h1>

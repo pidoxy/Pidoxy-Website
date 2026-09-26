@@ -7,7 +7,9 @@ import { profile } from "../data/profile";
 export default function Meta({ title, titleOverride, description, path = "/" }) {
   const fullTitle =
     titleOverride ||
-    (title ? `${title} — Emmanuel Idoko` : "Emmanuel Idoko — Software Engineer & AI Researcher");
+    (title
+      ? `${title} — Emmanuel Idoko`
+      : "Emmanuel Idoko — Software Engineer, AI/ML Engineer, and Researcher");
   const url = path === "/" ? profile.siteUrl : `${profile.siteUrl}${path}`;
   const image = `${profile.siteUrl}/og.png`;
 

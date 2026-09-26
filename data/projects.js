@@ -219,12 +219,21 @@ export const projects = [
     links: [],
   },
   {
-    title: "AFCF Portal",
+    title: "AFCF Portal & E-Library",
     group: "systems",
-    status: "Engineering Project",
+    status: "National Reporting & Digital Library",
     summary:
-      "An automated coordination platform that streamlined a national reporting process with real-time data updates — cutting manual entry time by 75%.",
-    tags: ["Automation", "Real-time Data", "Web"],
+      "A national reporting and digital-library platform for 500+ AFCF users, automating compliance workflows, real-time chapter updates, and file publishing while cutting manual data-collation time by 75%.",
+    tags: ["Node.js", "React", "Next.js", "PostgreSQL", "Workflow Automation"],
+    links: [],
+  },
+  {
+    title: "AFM WECA Welfare CRM",
+    group: "systems",
+    status: "Production Welfare Operations Platform",
+    summary:
+      "A branch-aware welfare CRM that replaces spreadsheet-led newcomer care with live registration, assignment, follow-up, conversion, attendance, blessings, reporting, and audit workflows. Role-based access supports platform admins, pastors, welfare officers, secretaries, and volunteers; production routes were validated across 213 people, 212 newcomers, and 24 branch-team records.",
+    tags: ["NestJS", "Next.js", "PostgreSQL", "Redis", "JWT", "RBAC"],
     links: [],
   },
 ];

@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import Meta from "../components/Meta";
 import PageHeader from "../components/PageHeader";
 import { profile, aboutProse, aboutFacts } from "../data/profile";
-import { experience } from "../data/experience";
+import { experience, leadership } from "../data/experience";
 import styles from "../styles/Page.module.css";
 
 export default function About() {
@@ -23,7 +23,7 @@ export default function About() {
               "@type": "Person",
               name: "Emmanuel Idoko",
               url: `${profile.siteUrl}/about`,
-              jobTitle: "Software Engineer & AI Researcher",
+              jobTitle: "Software Engineer, AI/ML Engineer, and Researcher",
               alumniOf: { "@type": "CollegeOrUniversity", name: "University of Lagos" },
             }),
           }}
@@ -63,6 +63,15 @@ export default function About() {
             </div>
 
             <div className={styles.factsBlock}>
+              <h2>Research interests</h2>
+              <ul>
+                {aboutFacts.researchInterests.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={styles.factsBlock}>
               <h2>Profiles</h2>
               <ul>
                 {aboutFacts.profiles.map((item) => (
@@ -87,6 +96,21 @@ export default function About() {
                   <h3>{item.role}</h3>
                   <p className={styles.timelineOrg}>{item.org}</p>
                   <p>{item.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Leadership &amp; Community</h2>
+          <ul className={styles.dateList}>
+            {leadership.map((item) => (
+              <li key={`${item.role}-${item.org}`} className={styles.dateRow}>
+                <span className={styles.dateCell} aria-hidden="true">—</span>
+                <div className={`${styles.rowBody} ${styles.timelineItem}`}>
+                  <h3>{item.role}</h3>
+                  <p className={styles.timelineOrg}>{item.org}</p>
                 </div>
               </li>
             ))}

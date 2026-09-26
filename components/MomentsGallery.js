@@ -111,7 +111,13 @@ export default function MomentsGallery({ gallery }) {
               {block.moment.links?.length > 0 && (
                 <div className={styles.linkRow}>
                   {block.moment.links.map((link) => (
-                    <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target={link.download ? undefined : "_blank"}
+                      rel={link.download ? undefined : "noreferrer"}
+                      download={link.download || undefined}
+                    >
                       <LinkIcon external type={link.type} className={styles.inlineIcon} />
                       <span>{link.label}</span>
                     </a>
