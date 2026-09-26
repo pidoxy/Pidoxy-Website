@@ -37,6 +37,32 @@ export const publications = [
 export const researchActivity = [
   {
     date: "2026",
+    title: "Invited reviewer - MIRASOL Workshop, MICCAI 2026",
+    note: "Invited to review paper submissions for the MIRASOL Workshop at MICCAI 2026, contributing peer-review expertise in medical imaging and AI.",
+    links: [],
+  },
+  {
+    date: "Aug 2026",
+    title: "VAMAE poster presentation at ICPR 2026",
+    note: "Co-authored VAMAE: Vessel-Aware Masked Autoencoders for OCT Angiography was presented in the official P3 poster session at the 28th International Conference on Pattern Recognition in Lyon, France.",
+    links: [
+      { label: "Poster presentation certificate", href: "/documents/icpr-2026-vamae-poster-presentation-certificate.pdf" },
+      { label: "arXiv", href: "https://arxiv.org/abs/2604.06583" },
+    ],
+  },
+  {
+    date: "Aug 2026",
+    title: "IMAGINE 2026 - Imaging Without Borders MRI Build Lab",
+    note: "Completed CAMERA MRI Africa and MAI Lab's IMAGINE training as part of the Lagos cohort. The cohort's onsite Build Lab assembled a low-field MRI scanner and a robotic field-mapping system in Nigeria, leading to a preliminary report accepted for poster presentation at ESMRMB Congress 2026.",
+    links: [
+      {
+        label: "LinkedIn post",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7507753718310793216/",
+      },
+    ],
+  },
+  {
+    date: "2026",
     title: "VAMAE accepted at ICPR 2026",
     note: "VAMAE: Vessel-Aware Masked Autoencoders for OCT Angiography was accepted at the 28th International Conference on Pattern Recognition.",
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2604.06583" }],

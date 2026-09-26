@@ -35,7 +35,7 @@ export const heroCopy = {
 // Compact, text-based credibility strip under the hero.
 export const credibility = [
   { lead: "SharpXR", rest: "Published — MIRASOL Workshop, MICCAI 2025" },
-  { lead: "VAMAE", rest: "Accepted — ICPR 2026" },
+  { lead: "VAMAE", rest: "Presented — ICPR 2026, Lyon" },
   { lead: "ACVSS 2026", rest: "Selected 1 of 31 from 312 — full grant, Accra" },
   { lead: "AidCare", rest: "Founder — clinical decision-support platform" },
   { lead: "HabariPay (GTCO)", rest: "Software engineer — fintech infrastructure" },
@@ -437,16 +437,16 @@ export const headshots = [
     href: "/speaker/emmanuel-idoko-headshot-portrait.jpg",
   },
   {
-    label: "Casual — square",
+    label: "Professional — square",
     note: "1200 × 1200 · JPG",
     bestFor: "Community events, podcasts, meetups, interviews",
-    href: "/speaker/emmanuel-idoko-headshot-casual-square.jpg",
+    href: "/speaker/emmanuel-idoko-headshot-professional-square.jpg",
   },
   {
-    label: "Casual — portrait",
+    label: "Professional — portrait",
     note: "1500 × 2000 · JPG",
     bestFor: "Less formal promotional materials",
-    href: "/speaker/emmanuel-idoko-headshot-casual-portrait.jpg",
+    href: "/speaker/emmanuel-idoko-headshot-professional-portrait.jpg",
   },
 ];
 

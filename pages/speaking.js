@@ -384,31 +384,33 @@ export default function Speaking() {
           <p className={styles.sectionIntro}>{headshotUsageNote}</p>
           <div className={styles.headshotGrid}>
             {headshots.map((h) => (
-              <a
-                key={h.href}
-                href={h.href}
-                download
-                className={styles.headshotCard}
-                aria-label={`Download ${h.label} headshot`}
-              >
-                <div className={styles.headshotFrame} style={{ aspectRatio: "1 / 1" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={h.href}
-                    alt={`Emmanuel Idoko — ${h.label.toLowerCase()} headshot`}
-                    loading="lazy"
-                    style={{ objectPosition: "center top" }}
-                  />
+              <div key={h.href} className={styles.headshotCard}>
+                <a href={h.href} download className={styles.headshotDownloadLink} aria-label={`Download ${h.label} headshot`}>
+                  <div className={styles.headshotFrame} style={{ aspectRatio: "1 / 1" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={h.href}
+                      alt={`Emmanuel Idoko — ${h.label.toLowerCase()} headshot`}
+                      loading="lazy"
+                      style={{ objectPosition: "center top" }}
+                    />
+                  </div>
+                  <div className={styles.headshotMeta}>
+                    <span className={styles.headshotLabel}>{h.label}</span>
+                    <span className={styles.headshotNote}>{h.note}</span>
+                    <span className={styles.headshotNote}>{h.bestFor}</span>
+                    <span className={styles.headshotDownload}>
+                      Download <Icon kind="arrow-down" className={styles.inlineIcon} />
+                    </span>
+                  </div>
+                </a>
+                <div className={styles.headshotActions}>
+                  <a href={h.href} target="_blank" rel="noreferrer" className={styles.headshotOpenLink}>
+                    Open image
+                  </a>
+                  <CopyButton text={`${profile.siteUrl}${h.href}`} label="Copy link" />
                 </div>
-                <div className={styles.headshotMeta}>
-                  <span className={styles.headshotLabel}>{h.label}</span>
-                  <span className={styles.headshotNote}>{h.note}</span>
-                  <span className={styles.headshotNote}>{h.bestFor}</span>
-                  <span className={styles.headshotDownload}>
-                    Download <Icon kind="arrow-down" className={styles.inlineIcon} />
-                  </span>
-                </div>
-              </a>
+              </div>
             ))}
           </div>
         </section>

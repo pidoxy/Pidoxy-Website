@@ -4,6 +4,24 @@
 // display order (top = first). Add a moment by adding an entry here + photos.
 export const moments = [
   {
+    slug: "imagine-2026",
+    title: "IMAGINE 2026 - Imaging Without Borders MRI Build Lab",
+    date: "Aug 2026",
+    role: "Participant · On-site Build Lab",
+    writeup: [
+      "I completed IMAGINE (Imaging Without Borders), a CAMERA MRI Africa and Medical Artificial Intelligence Laboratory (MAI Lab) training initiative focused on making diagnostic imaging more accessible through low-cost, open-source MRI technology.",
+      "After six weeks of online training in MRI principles, hardware, pulse programming, signal processing, image reconstruction, and quality control, I joined the Lagos cohort's onsite Build Lab. Together, we assembled a low-field MRI scanner and a 3D linear-actuator robot for mapping the magnetic field within its imaging volume.",
+      "The Lagos cohort's preliminary report, Building MRI Capacity in Nigeria: Preliminary Report of the First Onsite Assembly of a Reusable, Low-Field MRI Scanner and Robotic Field-Mapping System in Nigeria, was accepted for a poster presentation at the ESMRMB Congress 2026.",
+    ],
+    links: [
+      {
+        label: "View LinkedIn post",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7507753718310793216/",
+        type: "external",
+      },
+    ],
+  },
+  {
     slug: "ai-tools-secondary-school-girls",
     title: "Introducing AI Tools to Secondary School Girls",
     date: "Community outreach",
