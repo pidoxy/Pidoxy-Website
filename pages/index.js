@@ -6,6 +6,7 @@ import Meta from "../components/Meta";
 import Icon from "../components/Icon";
 import CardThumb from "../components/CardThumb";
 import { profile, proofStrip, currently } from "../data/profile";
+import { personJsonLd, websiteJsonLd, profilePageJsonLd } from "../data/seo";
 import { projects } from "../data/projects";
 import { publications } from "../data/publications";
 import styles from "../styles/Page.module.css";
@@ -71,6 +72,7 @@ export default function Home() {
       <Meta
         description="Emmanuel Idoko — software engineer, AI/ML engineer, and researcher building practical software and AI systems across clinical AI, medical imaging, computer vision, RAG, and agentic systems."
         path="/"
+        ogType="profile"
       />
       <Head>
         <script
@@ -78,35 +80,14 @@ export default function Home() {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Emmanuel Idoko",
-              alternateName: "Pidoxy",
-              url: profile.siteUrl,
-              image: `${profile.siteUrl}/og.png`,
-              jobTitle: "Software Engineer, AI/ML Engineer, and Researcher",
-              email: `mailto:${profile.email}`,
-              alumniOf: {
-                "@type": "CollegeOrUniversity",
-                name: "University of Lagos",
-              },
-              knowsAbout: [
-                "Artificial Intelligence",
-                "Deep Learning",
-                "Medical Imaging",
-                "Computer Vision",
-                "Self-Supervised Learning",
-                "Retrieval-Augmented Generation",
-                "Agentic Systems",
-                "Full-Stack Engineering",
-              ],
-              sameAs: [
-                profile.github,
-                profile.linkedin,
-                profile.twitter,
-                profile.devpost,
-                profile.youtube,
-                profile.huggingface,
-                profile.scholar,
+              "@graph": [
+                personJsonLd,
+                websiteJsonLd,
+                profilePageJsonLd(
+                  "",
+                  "Emmanuel Idoko — Software Engineer, AI/ML Engineer, and Researcher",
+                  "Official website of Emmanuel Idoko, a software engineer, AI/ML engineer, and researcher in Lagos, Nigeria."
+                ),
               ],
             }),
           }}

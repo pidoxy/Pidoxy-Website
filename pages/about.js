@@ -2,7 +2,8 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import Meta from "../components/Meta";
 import PageHeader from "../components/PageHeader";
-import { profile, aboutProse, aboutFacts } from "../data/profile";
+import { aboutProse, aboutFacts } from "../data/profile";
+import { personJsonLd, profilePageJsonLd } from "../data/seo";
 import { experience, leadership } from "../data/experience";
 import styles from "../styles/Page.module.css";
 
@@ -13,6 +14,7 @@ export default function About() {
         title="About"
         description="Emmanuel Idoko is a software engineer and AI researcher — clinical AI systems, agentic pipelines, and medical imaging research published at MICCAI and ICPR."
         path="/about"
+        ogType="profile"
       />
       <Head>
         <script
@@ -20,11 +22,14 @@ export default function About() {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Emmanuel Idoko",
-              url: `${profile.siteUrl}/about`,
-              jobTitle: "Software Engineer, AI/ML Engineer, and Researcher",
-              alumniOf: { "@type": "CollegeOrUniversity", name: "University of Lagos" },
+              "@graph": [
+                personJsonLd,
+                profilePageJsonLd(
+                  "/about",
+                  "About Emmanuel Idoko",
+                  "Biography and background for Emmanuel Idoko, software engineer, AI/ML engineer, and researcher."
+                ),
+              ],
             }),
           }}
         />

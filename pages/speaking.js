@@ -5,6 +5,7 @@ import Meta from "../components/Meta";
 import CopyButton from "../components/CopyButton";
 import Icon, { LinkIcon } from "../components/Icon";
 import { profile } from "../data/profile";
+import { personJsonLd, profilePageJsonLd } from "../data/seo";
 import { talks } from "../data/talks";
 import { researchActivity } from "../data/publications";
 import {
@@ -82,6 +83,7 @@ export default function Speaking() {
         titleOverride="Emmanuel Idoko — Speaker · AI, Computer Vision & Software Engineering"
         description="Speaker kit for Emmanuel Idoko — software engineer, AI researcher, and technical speaker from Nigeria working across computer vision, multimodal AI, reliable AI, and production systems. Bios, headshots, talk abstracts, and everything an organizer needs."
         path="/speaking"
+        ogType="profile"
       />
       <Head>
         <script
@@ -89,38 +91,14 @@ export default function Speaking() {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "ProfilePage",
-              url: `${profile.siteUrl}/speaking`,
-              mainEntity: {
-                "@type": "Person",
-                name: "Emmanuel Idoko",
-                url: profile.siteUrl,
-                image: `${profile.siteUrl}/speaker/emmanuel-idoko-headshot-square.jpg`,
-                jobTitle: "Software Engineer, AI Researcher & Technical Speaker",
-                affiliation: [
-                  { "@type": "Organization", name: "AidCare" },
-                  { "@type": "Organization", name: "HabariPay (GTCO)" },
-                  { "@type": "CollegeOrUniversity", name: "University of Lagos" },
-                ],
-                knowsAbout: [
-                  "Computer Vision",
-                  "Multimodal Learning",
-                  "Vision-Language Models",
-                  "Medical Imaging",
-                  "Retrieval-Augmented Generation",
-                  "Agentic Systems",
-                  "Software Engineering",
-                ],
-                sameAs: [
-                  profile.github,
-                  profile.linkedin,
-                  profile.twitter,
-                  profile.scholar,
-                  profile.youtube,
-                  profile.devpost,
-                  profile.huggingface,
-                ],
-              },
+              "@graph": [
+                personJsonLd,
+                profilePageJsonLd(
+                  "/speaking",
+                  "Emmanuel Idoko Speaker Kit",
+                  "Speaker kit for Emmanuel Idoko, with bios, headshots, talk abstracts, and organizer links."
+                ),
+              ],
             }),
           }}
         />

@@ -18,6 +18,21 @@ export const profile = {
   huggingface: "https://huggingface.co/Pidoxy",
   scholar: "https://scholar.google.com/citations?hl=en&user=hHEK0h0AAAAJ",
   siteUrl: "https://pidoxy.com",
+  seoKeywords: [
+    "Emmanuel Idoko",
+    "Pidoxy",
+    "Emmanuel Idoko software engineer",
+    "Emmanuel Idoko AI researcher",
+    "Emmanuel Idoko machine learning",
+    "Emmanuel Idoko medical imaging",
+    "clinical AI",
+    "computer vision researcher Nigeria",
+    "AI/ML engineer Nigeria",
+    "University of Lagos computer science",
+    "SharpXR",
+    "VAMAE",
+    "AidCare",
+  ],
 };
 
 // Credibility anchors for the home proof strip.

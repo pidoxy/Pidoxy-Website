@@ -5,6 +5,7 @@ import PageHeader from "../components/PageHeader";
 import Icon, { LinkIcon } from "../components/Icon";
 import Authors from "../components/Authors";
 import { profile } from "../data/profile";
+import { personId } from "../data/seo";
 import { publications, researchActivity } from "../data/publications";
 import styles from "../styles/Page.module.css";
 
@@ -75,6 +76,7 @@ export default function Research() {
               author: sharpxr.authors.split(", ").map((name) => ({
                 "@type": "Person",
                 name,
+                ...(name.includes("Idoko") ? { "@id": personId, url: profile.siteUrl } : {}),
               })),
               datePublished: "2025",
               publisher: "MIRASOL Workshop, MICCAI 2025",
