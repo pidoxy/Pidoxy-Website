@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Image from "next/image";
 import Icon from "./Icon";
 import styles from "../styles/Page.module.css";
 
@@ -23,23 +25,22 @@ export function videoThumb(links) {
 }
 
 // 16:9 thumbnail: YouTube frame when a video link exists, else a quiet
-// placeholder. maxres falls back to hq (always present) on error.
+// placeholder. Served through next/image so the browser gets a card-sized
+// WebP/AVIF instead of the 1280x720 original. maxres falls back to hq (always
+// present) when a video has no maxres frame.
 export default function CardThumb({ links, className }) {
+  const [useHq, setUseHq] = useState(false);
   const thumb = videoThumb(links);
   if (thumb) {
     return (
       <div className={`${styles.cardThumb} ${className || ""}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={thumb.max}
+        <Image
+          src={useHq ? thumb.hq : thumb.max}
           alt=""
-          loading="lazy"
-          onError={(e) => {
-            if (!e.currentTarget.dataset.fb) {
-              e.currentTarget.dataset.fb = "1";
-              e.currentTarget.src = thumb.hq;
-            }
-          }}
+          fill
+          sizes="(max-width: 900px) 100vw, 400px"
+          quality={70}
+          onError={() => setUseHq(true)}
         />
       </div>
     );

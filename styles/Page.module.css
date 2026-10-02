@@ -388,6 +388,7 @@
 }
 
 .cardThumb {
+  position: relative; /* next/image fill */
   aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
@@ -529,6 +530,7 @@
 }
 
 .portrait {
+  position: relative; /* next/image fill */
   aspect-ratio: 4 / 5;
   border-radius: 14px;
   overflow: hidden;
@@ -1173,6 +1175,7 @@
 }
 
 .headshotFrame {
+  position: relative; /* next/image fill */
   background: var(--tint);
   overflow: hidden;
 }

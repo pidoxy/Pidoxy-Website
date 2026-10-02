@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import Layout from "../components/Layout";
 import Meta from "../components/Meta";
 import PageHeader from "../components/PageHeader";
@@ -47,8 +48,13 @@ export default function About() {
 
           <aside className={styles.aboutSidebar}>
             <div className={styles.portrait}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/portrait.jpg" alt="Portrait of Emmanuel Idoko" />
+              <Image
+                src="/portrait.jpg"
+                alt="Portrait of Emmanuel Idoko"
+                fill
+                sizes="(max-width: 900px) 100vw, 430px"
+                quality={80}
+              />
             </div>
 
             <div className={styles.factsBlock}>

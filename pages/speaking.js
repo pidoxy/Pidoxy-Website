@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import Meta from "../components/Meta";
@@ -365,11 +366,12 @@ export default function Speaking() {
               <div key={h.href} className={styles.headshotCard}>
                 <a href={h.href} download className={styles.headshotDownloadLink} aria-label={`Download ${h.label} headshot`}>
                   <div className={styles.headshotFrame} style={{ aspectRatio: "1 / 1" }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={h.href}
                       alt={`Emmanuel Idoko — ${h.label.toLowerCase()} headshot`}
-                      loading="lazy"
+                      fill
+                      sizes="(max-width: 640px) 100vw, 320px"
+                      quality={80}
                       style={{ objectPosition: "center top" }}
                     />
                   </div>
