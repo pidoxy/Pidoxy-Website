@@ -2,6 +2,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { Inter, Fraunces } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../styles/globals.css";
 
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
@@ -53,6 +54,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       )}
       <Component {...pageProps} />
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
