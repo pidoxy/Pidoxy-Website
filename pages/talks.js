@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
 import Meta from "../components/Meta";
-import PageHeader from "../components/PageHeader";
-import { LinkIcon } from "../components/Icon";
 import { talks } from "../data/talks";
-import styles from "../styles/Page.module.css";
+import page from "../styles/Page.module.css";
+import styles from "../styles/Talks.module.css";
 
 export default function Talks() {
   return (
@@ -15,44 +14,56 @@ export default function Talks() {
         path="/talks"
       />
 
-      <div className={styles.container}>
-        <PageHeader
-          eyebrow="Speaking"
-          title="Talks &"
-          accent="Speaking"
-          lede="Talks, workshops, and panels I've given, hosted, or moderated — with recordings, slides, and photos where they exist."
-        >
-          <p className={styles.headerNote}>
-            Inviting me to speak? The <Link href="/speaking">speaker kit</Link> has bios, headshots, and
-            talk abstracts ready to paste.
+      <div className={page.container}>
+        <header className={styles.header}>
+          <p className={styles.eyebrow}>Speaking</p>
+          <h1 className={styles.title}>
+            Talks &amp; <em>Speaking</em>
+          </h1>
+          <p className={styles.lede}>
+            Talks, workshops, and panels I&apos;ve given, hosted, or moderated — with recordings, slides, and photos
+            where they exist.
           </p>
-        </PageHeader>
+          <p className={styles.note}>
+            Inviting me to speak? The <Link href="/speaking">speaker kit</Link> has bios, headshots, and talk
+            abstracts ready to paste.
+          </p>
+        </header>
 
-        <ul className={styles.dateList}>
-          {talks.map((talk) => (
-            <li key={talk.title} className={styles.dateRow}>
-              <span className={styles.dateCell}>{talk.date}</span>
-              <div className={styles.rowBody}>
-                <h2 className={styles.rowTitle}>{talk.title}</h2>
-                <p className={styles.rowMeta}>
-                  {talk.event} · <span className={styles.rowResult}>{talk.role}</span>
-                </p>
-                <p className={styles.rowNote}>{talk.description}</p>
-                {talk.links.filter((l) => l.href).length > 0 && (
-                  <div className={styles.linkRow}>
-                    {talk.links
-                      .filter((l) => l.href)
-                      .map((link) => (
-                        <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
-                          <LinkIcon external={link.external} type={link.type} className={styles.inlineIcon} />
-                          <span>{link.label}</span>
+        <ul className={styles.list}>
+          {talks.map((talk) => {
+            const links = talk.links.filter((l) => l.href);
+            return (
+              <li key={talk.title} className={styles.row}>
+                <span className={styles.date}>{talk.date}</span>
+                <div className={styles.body}>
+                  <h2 className={styles.talkTitle}>{talk.title}</h2>
+                  <p className={styles.meta}>
+                    {talk.event} <span>·</span> {talk.role}
+                  </p>
+                  <p className={styles.description}>{talk.description}</p>
+                  {links.length > 0 && (
+                    <div className={styles.links}>
+                      {links.map((link) => (
+                        <a
+                          key={link.label}
+                          className={styles.pill}
+                          href={link.href}
+                          target={link.external ? "_blank" : undefined}
+                          rel={link.external ? "noreferrer" : undefined}
+                        >
+                          {link.label}
+                          <span className={styles.arrow} aria-hidden="true">
+                            →
+                          </span>
                         </a>
                       ))}
-                  </div>
-                )}
-              </div>
-            </li>
-          ))}
+                    </div>
+                  )}
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </Layout>

@@ -1,0 +1,177 @@
+/* Talks page only. Editorial layout: oversized headline, wide date column,
+   large serif titles, pill links. Scoped here so the shared list styles in
+   Page.module.css (used by About, Awards, Press, Research, Speaking) are
+   untouched. Consumes the tokens from globals.css. */
+
+.header {
+  padding: var(--s12) 0 var(--s8);
+}
+
+.eyebrow {
+  margin: 0 0 var(--s3);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.title {
+  margin: 0 0 var(--s4);
+  font-family: var(--serif);
+  font-size: clamp(56px, 9vw, 120px);
+  font-weight: 480;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.title em {
+  font-style: italic;
+  font-weight: 440;
+}
+
+.lede {
+  margin: 0 0 var(--s2);
+  max-width: 620px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--secondary);
+}
+
+.note {
+  margin: 0;
+  max-width: 620px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--secondary);
+}
+
+.note a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--accent);
+  transition: color var(--ease);
+}
+
+.note a:hover {
+  color: var(--accent);
+}
+
+/* ─── Talk list ─────────────────────────────────────────────────────────── */
+.list {
+  margin: 0 0 var(--s16);
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(120px, 200px) minmax(0, 1fr);
+  gap: var(--s5);
+  padding: var(--s6) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.date {
+  padding-top: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.body {
+  min-width: 0;
+}
+
+.talkTitle {
+  margin: 0 0 var(--s1);
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.meta {
+  margin: 0 0 var(--s2);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.meta span {
+  color: var(--secondary);
+}
+
+.description {
+  margin: 0 0 var(--s3);
+  max-width: 640px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--secondary);
+}
+
+/* ─── Link pills ────────────────────────────────────────────────────────── */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: border-color var(--ease), color var(--ease);
+}
+
+.pill:hover {
+  border-color: var(--ink);
+}
+
+.arrow {
+  transition: transform var(--ease);
+}
+
+.pill:hover .arrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 720px) {
+  .header {
+    padding: var(--s8) 0 var(--s6);
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--s1);
+    padding: var(--s5) 0;
+  }
+
+  .date {
+    padding-top: 0;
+  }
+
+  .lede {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow {
+    transition: none;
+  }
+
+  .pill:hover .arrow {
+    transform: none;
+  }
+}
