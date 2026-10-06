@@ -38,7 +38,7 @@ export const credibility = [
   { lead: "VAMAE", rest: "Presented — ICPR 2026, Lyon" },
   { lead: "ACVSS 2026", rest: "Selected 1 of 31 from 312 — full grant, Accra" },
   { lead: "AidCare", rest: "Founder — clinical decision-support platform" },
-  { lead: "HabariPay (GTCO)", rest: "Software engineer — fintech infrastructure" },
+  { lead: "HabariPay (GTCO)", rest: "Software engineer — enterprise events software" },
 ];
 
 // Affiliations, grouped so a role is never implied where there is only
@@ -49,7 +49,7 @@ export const affiliationGroups = [
     items: [
       "Founder & AI/ML Engineer — AidCare",
       "Software Engineer — HabariPay (GTCO's fintech subsidiary)",
-      "AI/ML Consultant — Consulting Club of Lagos",
+      "Head, AI and ML — Consulting Club of Lagos",
     ],
   },
   {

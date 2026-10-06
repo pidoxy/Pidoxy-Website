@@ -28,7 +28,7 @@ const cv = {
 
   experience: [
     {
-      role: "AI/ML Consultant",
+      role: "Head, AI and ML",
       org: "Consulting Club of Lagos",
       period: "Mar 2026 – Present",
       type: "Consulting",
@@ -53,7 +53,7 @@ const cv = {
       period: "Sep 2024 – Present",
       type: "Contract · Hybrid",
       bullets: [
-        "Full-stack engineering on payment infrastructure and AI-powered product features for the fintech subsidiary of Guaranty Trust.",
+        "Full-stack engineering on enterprise events software, including AI-powered product features, at the fintech subsidiary of Guaranty Trust.",
         "Built vendor management application (Next.js, Node.js, PostgreSQL) used by 260+ attendees.",
         "TF-IDF recommendation engine and Gemini-powered product summaries.",
       ],
@@ -82,7 +82,7 @@ const cv = {
     {
       role: "Software Engineer – Data and AI",
       org: "Wema Bank Plc.",
-      period: "Sep 2024 – Dec 2024",
+      period: "Aug 2024 – Dec 2024",
       type: "Internship · Hybrid",
       bullets: [
         "Built Wema Wiki — an AI chatbot integrated into Microsoft Teams enabling 2,000+ staff to query bank documentation.",
@@ -125,7 +125,7 @@ const cv = {
     {
       role: "Lead Software Developer",
       org: "Zuri Chat",
-      period: "Jul 2021 – Oct 2021",
+      period: "Jul 2021 – Nov 2021",
       type: "Contract",
       bullets: [
         "Developed virtual music and chess room features with WebRTC — real-time A/V sync, multiplayer, third-party API integration.",
@@ -134,13 +134,13 @@ const cv = {
       ],
     },
     {
-      role: "Frontend Developer Hackathon Winner",
+      role: "Frontend Developer, Hackathon Finalist",
       org: "HackOR Hackathon",
       period: "Mar 2021",
       type: "Hackathon · Virtual",
       bullets: [
         "Built a food-sharing platform enabling people to share and receive surplus food to reduce waste.",
-        "HackOR 2021 Finalist & Winner.",
+        "HackOR 2021 Finalist.",
       ],
     },
   ],
@@ -225,7 +225,7 @@ const cv = {
     "Meta Global Hackathon 2022 — 14th in EMEA, 47th globally",
     "AccessLearn — 2nd, Afretec UNILAG Inclusion Challenge",
     "HackLab Nigeria 2022 — 1st Runner-Up (PheraCAM)",
-    "HackOR 2021 — Frontend Hackathon Winner",
+    "HackOR 2021 — Finalist (Foodify)",
     "Jim Ovia Foundation Scholar",
     "PICFI Scholar",
     "Squad Hackademy Scholar",

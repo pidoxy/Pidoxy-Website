@@ -40,7 +40,7 @@ export const proofStrip = [
   { lead: "MICCAI & ICPR", rest: "Published and accepted research in medical imaging" },
   { lead: "ACVSS 2026", rest: "African Computer Vision Summer School — 1 of 31 from 312, full grant" },
   { lead: "AidCare", rest: "Founder — live clinical decision-support AI" },
-  { lead: "HabariPay (GTCO)", rest: "Software engineer, payments & AI features" },
+  { lead: "HabariPay (GTCO)", rest: "Software engineer, enterprise events software" },
   { lead: "NHEF Scholar", rest: "Nigerian Higher Education Foundation — 2026" },
 ];
 

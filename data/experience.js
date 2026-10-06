@@ -1,7 +1,7 @@
 // Experience timeline (About page).
 export const experience = [
   {
-    role: "AI/ML Consultant",
+    role: "Head, AI and ML",
     org: "Consulting Club of Lagos",
     period: "Mar 2026 – Present",
     detail:
@@ -19,7 +19,7 @@ export const experience = [
     org: "HabariPay – GTCO",
     period: "Sep 2024 – Present",
     detail:
-      "Full-stack engineering on the fintech subsidiary of Guaranty Trust; building payment infrastructure and AI-powered product features.",
+      "Full-stack engineering on enterprise events software at the fintech subsidiary of Guaranty Trust, including AI-powered product features.",
   },
   {
     role: "Independent ML Researcher",
@@ -31,7 +31,7 @@ export const experience = [
   {
     role: "Data & AI Intern",
     org: "Wema Bank",
-    period: "Sep 2024 – Dec 2024",
+    period: "Aug 2024 – Dec 2024",
     detail:
       "AI-powered knowledge chatbot (Node.js, Azure) enabling 2,000+ staff to query documentation; Play Store review analytics pipeline.",
   },

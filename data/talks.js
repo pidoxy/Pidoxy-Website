@@ -1,6 +1,29 @@
 // Talks, hosting, and speaking.
 export const talks = [
   {
+    title: "From Senses to Systems",
+    event: "SysConf 2026",
+    role: "Speaker",
+    date: "Oct 2026",
+    description:
+      "What biological perception teaches us about multimodal AI: from vultures that find gas leaks by smell to sensor placement, cost and active perception, and why a sensing system is only as good as its verification. Delivered 2 October 2026, with an interactive demo, Leak Desk.",
+    tags: ["Conference", "Multimodal AI", "Perception"],
+    links: [
+      {
+        label: "Slides",
+        href: "https://docs.google.com/presentation/d/1aHeEYmAWN-4nNsPT3Xu3YR2Zw92fJq-QaNQafN-Vxzo/edit?usp=sharing",
+        external: true,
+        type: "slides",
+      },
+      {
+        label: "Try the Demo",
+        href: "https://sysconf.pidoxy.com",
+        external: true,
+        type: "demo",
+      },
+    ],
+  },
+  {
     title: "M.A.R.K Internship Initiative",
     event: "CISA UNILAG × NACOS UNILAG",
     role: "Host & Moderator",
