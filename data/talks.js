@@ -10,6 +10,12 @@ export const talks = [
     tags: ["Conference", "Multimodal AI", "Perception"],
     links: [
       {
+        label: "Watch Recording",
+        href: "https://www.youtube.com/watch?v=nDVWoPTkgyU",
+        external: true,
+        type: "video",
+      },
+      {
         label: "Slides",
         href: "https://docs.google.com/presentation/d/1aHeEYmAWN-4nNsPT3Xu3YR2Zw92fJq-QaNQafN-Vxzo/edit?usp=sharing",
         external: true,

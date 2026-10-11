@@ -38,6 +38,16 @@ export const projects = [
         type: "video",
       },
       {
+        label: "Code",
+        href: "https://github.com/pidoxy/hacknation",
+        external: false,
+      },
+      {
+        label: "Live Demo",
+        href: "https://hacknation-three.vercel.app",
+        external: true,
+      },
+      {
         label: "Devpost",
         href: "https://devpost.com/pidoxy",
         external: true,
@@ -57,6 +67,38 @@ export const projects = [
         href: "https://www.youtube.com/watch?v=k9qfi4OKaEg&t=2s",
         external: true,
         type: "video",
+      },
+    ],
+  },
+  {
+    title: "AI Scientist",
+    group: "agentic",
+    status: "Hack-Nation Research OS",
+    summary:
+      "AI-assisted research workflow that helps researchers move from idea to experiment: organizing hypotheses, generating study plans, benchmarking runs, and turning research work into a repeatable operating system.",
+    tags: ["Next.js", "TypeScript", "AI Agents", "Research Workflow", "Vercel"],
+    links: [
+      {
+        label: "Watch Demo",
+        href: "https://www.youtube.com/watch?v=2ec62MQ5awI",
+        external: true,
+        type: "video",
+      },
+      {
+        label: "Architecture",
+        href: "https://www.youtube.com/watch?v=UtYp22QBgkg",
+        external: true,
+        type: "video",
+      },
+      {
+        label: "Code",
+        href: "https://github.com/pidoxy/ResearchOS-AI-Scientist",
+        external: false,
+      },
+      {
+        label: "Live Demo",
+        href: "https://hack-nation-5.vercel.app",
+        external: true,
       },
     ],
   },
@@ -126,6 +168,12 @@ export const projects = [
       {
         label: "Watch Demo",
         href: "https://www.youtube.com/watch?v=eUpADlc2aVk&t=5s",
+        external: true,
+        type: "video",
+      },
+      {
+        label: "Buildathon Demo",
+        href: "https://www.youtube.com/watch?v=rnla6FqpDug",
         external: true,
         type: "video",
       },
