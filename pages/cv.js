@@ -42,9 +42,9 @@ const cv = {
       period: "May 2025 – Present",
       type: "Founding",
       bullets: [
-        "Architecting a clinical AI decision-support platform for Nigerian healthcare.",
-        "Dual-mode RAG system with semantic search over 500+ clinical protocols using FAISS and Sentence Transformers.",
-        "Multimodal document ingestion via Whisper ASR and Tesseract OCR; RBAC access control layer.",
+        "Architecting a clinical AI decision-support platform for Nigerian frontline care.",
+        "Built public triage, language-aware guidance, and offline-friendly safety flows for care settings with limited specialist access.",
+        "Shaping clinician workspace foundations with patient and consultation workflows, access control, and auditability.",
       ],
     },
     {

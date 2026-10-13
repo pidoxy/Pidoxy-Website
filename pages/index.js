@@ -43,8 +43,8 @@ const featured = [
     eyebrow: "Flagship product",
     title: "AidCare",
     summary:
-      "Clinical decision support for healthcare settings where specialist knowledge is scarce — dual-mode RAG over 500+ clinical protocols.",
-    href: "/engineering",
+      "Clinical decision support for Nigerian frontline care — public triage, safety guidance, and community health-worker practice flows.",
+    href: "/engineering#aidcare",
     linkLabel: "Engineering",
     links: aidcare.links,
   },

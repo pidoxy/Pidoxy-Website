@@ -270,9 +270,9 @@ export const speakerTalks = [
   {
     category: "AI Systems",
     title: "Clinical AI That Survives Production",
-    hook: "The architecture, compromises, retrieval design, multimodal ingestion, privacy considerations, and deployment lessons behind building AidCare.",
+    hook: "The architecture, product tradeoffs, safety constraints, language choices, privacy considerations, and deployment lessons behind building AidCare.",
     abstract:
-      "AidCare is a clinical decision-support platform built for healthcare settings where specialist knowledge is scarce and infrastructure is unreliable. This is a systems talk about the engineering decisions that weren't obvious: why a dual-mode RAG design with separate knowledge bases for physicians and community health workers; how a Sentence Transformers + FAISS pipeline over 500+ clinical protocols delivers sub-second retrieval; how Whisper ASR and Tesseract OCR turn voice notes and scanned records into queryable context; and how a token-efficient Gemini prompting layer produces grounded differential diagnoses. We close with deployment on a single DigitalOcean box — containerized FastAPI, RBAC, scoped tokens, anonymized logging — and the failure modes we hit along the way.",
+      "AidCare is a clinical decision-support platform built for healthcare settings where specialist knowledge is scarce and infrastructure is unreliable. This is a systems talk about the engineering decisions that weren't obvious: how public triage and clinician workflows sit beside grounded clinical guidance; how language-aware interaction changes the product surface for Nigerian frontline care; how offline-friendly safety flows shape the interface; and how privacy, access control, auditability, and deployment constraints affect what can safely ship. We close with the failure modes we hit along the way and the tradeoffs behind turning a clinical AI prototype into a usable product.",
     audience: "Software engineers, AI product teams, health-tech builders",
     level: "Intermediate",
     formats: "Conference talk · Workshop",
@@ -283,7 +283,7 @@ export const speakerTalks = [
       "How to design ingestion for messy multimodal inputs (voice, scans, PDFs)",
       "Privacy and access-control patterns for clinical data on a small budget",
     ],
-    related: { label: "About AidCare", href: "/engineering" },
+    related: { label: "About AidCare", href: "/engineering#aidcare" },
   },
   {
     category: "Agentic AI",

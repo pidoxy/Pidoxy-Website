@@ -59,9 +59,24 @@ export const projects = [
     group: "agentic",
     status: "Live Clinical AI Product",
     summary:
-      "Clinical decision support platform for Nigerian healthcare. Dual-mode RAG system using Sentence Transformers + FAISS over 500+ clinical protocols, with Whisper ASR and Tesseract OCR for multimodal document ingestion.",
-    tags: ["FastAPI", "FAISS", "Gemini", "Whisper", "DigitalOcean", "RBAC"],
+      "Clinical decision-support platform for Nigerian frontline care. AidCare Core now includes public triage, language-aware guidance, offline-friendly safety flows, and a Community Health Challenge for training and practice.",
+    tags: ["Next.js", "FastAPI", "Clinical AI", "Voice", "Triage", "RBAC"],
     links: [
+      {
+        label: "Open AidCare",
+        href: "https://aidcare.pidoxy.com",
+        external: true,
+      },
+      {
+        label: "Try Triage",
+        href: "https://aidcare.pidoxy.com/triage",
+        external: true,
+      },
+      {
+        label: "Health Challenge",
+        href: "https://aidcare.pidoxy.com/chc",
+        external: true,
+      },
       {
         label: "Watch Demo",
         href: "https://www.youtube.com/watch?v=k9qfi4OKaEg&t=2s",

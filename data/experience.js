@@ -12,7 +12,7 @@ export const experience = [
     org: "AidCare",
     period: "May 2025 – Present",
     detail:
-      "Clinical AI platform with dual-mode RAG, semantic search over 500+ protocols, and multimodal ingestion for Nigerian healthcare.",
+      "Clinical AI platform for Nigerian frontline care, with public triage, language-aware guidance, offline-friendly safety flows, and clinician workspace foundations.",
   },
   {
     role: "Software Engineer",

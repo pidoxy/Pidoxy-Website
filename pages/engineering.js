@@ -7,9 +7,13 @@ import { projects, projectGroups } from "../data/projects";
 import { skills } from "../data/skills";
 import styles from "../styles/Page.module.css";
 
+function projectId(title) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
 function ProjectCard({ project }) {
   return (
-    <article className={styles.card}>
+    <article id={projectId(project.title)} className={styles.card}>
       <CardThumb links={project.links} />
       <h3 className={styles.cardTitle}>{project.title}</h3>
       <span className={styles.statusBadge}>{project.status}</span>
