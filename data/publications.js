@@ -2,6 +2,19 @@
 // name is emphasized only by the rendering component.
 export const publications = [
   {
+    title: "When Retrieval Hurts: Measuring and Explaining Retrieval-Induced Hallucination in Chest X-ray Report Generation",
+    authors: "E. Idoko, A. Olabisi, S. Oni, A. Josiah",
+    venue: "Africa at NeurIPS 2026",
+    year: "2026",
+    status: "Accepted",
+    featured: false,
+    note: "First-author work measuring and explaining how retrieved evidence can introduce unsupported findings into chest X-ray report generation. Preprint available on arXiv.",
+    links: {
+      arxiv: "https://arxiv.org/abs/2609.31733",
+      pdf: "https://arxiv.org/pdf/2609.31733",
+    },
+  },
+  {
     title: "VAMAE: Vessel-Aware Masked Autoencoders for OCT Angiography",
     authors:
       "I. Abolade, P. Mireku, K. Chibundu, P. Ododo, E. Idoko, P. Omoigui, S. Odelola",
@@ -37,6 +50,15 @@ export const publications = [
 // Dated research activity for the /research page. These are milestones, not
 // additional publication records.
 export const researchActivity = [
+  {
+    date: "Oct 2026",
+    title: "When Retrieval Hurts accepted at Africa at NeurIPS 2026",
+    note: "Our paper on retrieval-induced hallucination in chest X-ray report generation was accepted at Africa at NeurIPS 2026.",
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2609.31733" },
+      { label: "OpenReview", href: "https://openreview.net/forum?id=oNbPPMFIRu" },
+    ],
+  },
   {
     date: "2026",
     title: "Invited reviewer - MIRASOL Workshop, MICCAI 2026",

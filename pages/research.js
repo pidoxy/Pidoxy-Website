@@ -62,7 +62,7 @@ export default function Research() {
     <Layout>
       <Meta
         title="Research & Publications"
-        description="Medical imaging and applied AI research by Emmanuel Idoko — SharpXR (MICCAI 2025), VAMAE (ICPR 2026), and ongoing work in multimodal learning."
+        description="Medical imaging and applied AI research by Emmanuel Idoko — When Retrieval Hurts (Africa at NeurIPS 2026), VAMAE (ICPR 2026), and SharpXR (MICCAI 2025)."
         path="/research"
       />
       <Head>
