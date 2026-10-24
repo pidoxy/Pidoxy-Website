@@ -94,7 +94,7 @@ export default function MomentsGallery({ gallery }) {
       <div className={styles.momentList}>
         {blocks.map((block) =>
           block.type === "moment" ? (
-            <article key={block.moment.slug} className={styles.moment}>
+            <article key={block.moment.slug} id={block.moment.slug} className={styles.moment}>
               <div className={styles.momentHead}>
                 <h2>{block.moment.title}</h2>
                 <p className={styles.momentMeta}>

@@ -4,6 +4,24 @@
 // display order (top = first). Add a moment by adding an entry here + photos.
 export const moments = [
   {
+    slug: "nithub-ai-literacy-2026",
+    title: "Nithub AI Literacy Day — Introduction to AI and Prompting",
+    date: "Sep 2026",
+    role: "Beginner Track Facilitator · University of Lagos",
+    writeup: [
+      "I facilitated the beginner track at Nithub AI Literacy Day at the University of Lagos, introducing academics, students, professionals, and entrepreneurs to practical ways of using AI for learning, research support, writing, planning, and everyday work.",
+      "We explored a six-part structure for clearer prompts: role, task, context, constraints, examples, and output format. Specifying the audience, purpose, length, and examples gives an AI tool more useful direction, but clearer instructions do not guarantee a correct answer.",
+      "Alongside hands-on prompting, we discussed hallucinations, fabricated references, bias, and the risks of sharing sensitive information. The three habits I wanted participants to leave with were simple: give better instructions, protect sensitive data, and verify before use.",
+    ],
+    links: [
+      {
+        label: "View LinkedIn post",
+        href: "https://www.linkedin.com/posts/emmanuelidoko_ailiteracy-responsibleai-nithub-ugcPost-7518736230390321155-HXi8/",
+        type: "external",
+      },
+    ],
+  },
+  {
     slug: "imagine-2026",
     title: "IMAGINE 2026 - Imaging Without Borders MRI Build Lab",
     date: "Aug 2026",

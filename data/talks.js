@@ -30,6 +30,29 @@ export const talks = [
     ],
   },
   {
+    title: "Introduction to AI and Prompting",
+    event: "Nithub AI Literacy Day · University of Lagos",
+    role: "Beginner Track Facilitator",
+    date: "Sep 2026",
+    description:
+      "A beginner-friendly session for academics, students, professionals, and entrepreneurs on using AI for learning, research support, writing, planning, and everyday work. Covered a six-part prompting structure — role, task, context, constraints, examples, and output format — alongside hallucinations, fabricated references, bias, data privacy, and verifying AI outputs before use.",
+    tags: ["AI Literacy", "Prompting", "Responsible AI", "Workshop"],
+    links: [
+      {
+        label: "Photos & Recap",
+        href: "/moments#nithub-ai-literacy-2026",
+        external: false,
+        type: "photos",
+      },
+      {
+        label: "LinkedIn Post",
+        href: "https://www.linkedin.com/posts/emmanuelidoko_ailiteracy-responsibleai-nithub-ugcPost-7518736230390321155-HXi8/",
+        external: true,
+        type: "external",
+      },
+    ],
+  },
+  {
     title: "M.A.R.K Internship Initiative",
     event: "CISA UNILAG × NACOS UNILAG",
     role: "Host & Moderator",
