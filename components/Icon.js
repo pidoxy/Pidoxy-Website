@@ -236,6 +236,57 @@ export default function Icon({ kind, className }) {
     );
   }
 
+  if (kind === "arrow-up-right") {
+    return (
+      <svg {...commonProps}>
+        <path d="M7 7h10v10" />
+        <path d="M7 17L17 7" />
+      </svg>
+    );
+  }
+
+  if (kind === "moon") {
+    return (
+      <svg {...commonProps}>
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" />
+      </svg>
+    );
+  }
+
+  if (kind === "sun") {
+    return (
+      <svg {...commonProps}>
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+      </svg>
+    );
+  }
+
+  if (kind === "copy") {
+    return (
+      <svg {...commonProps}>
+        <rect x="8" y="8" width="14" height="14" rx="2" />
+        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+      </svg>
+    );
+  }
+
+  if (kind === "check") {
+    return (
+      <svg {...commonProps}>
+        <path d="M20 6L9 17l-5-5" />
+      </svg>
+    );
+  }
+
+  if (kind === "play") {
+    return (
+      <svg {...commonProps}>
+        <path d="M7 4l14 8-14 8z" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+
   return null;
 }
 

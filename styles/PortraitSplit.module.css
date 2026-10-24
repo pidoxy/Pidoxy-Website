@@ -1,0 +1,108 @@
+.figure {
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 464 / 580;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--tint);
+  touch-action: pan-y;
+  cursor: ew-resize;
+  user-select: none;
+  isolation: isolate;
+}
+
+.signal {
+  object-fit: cover;
+}
+
+/* The noise half: same pixels, desaturated and softened, with grain. */
+.noise {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 calc(100% - var(--seam)) 0 0);
+  transition: clip-path var(--dur-resolve) var(--ease-out);
+}
+.frame[data-dragging] .noise,
+.frame[data-dragging] .handle {
+  transition: none;
+}
+.noiseImg {
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.25) brightness(1.05) blur(2.5px);
+}
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.85;
+}
+
+.handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--seam);
+  width: 44px;
+  margin-left: -22px;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  transition: left var(--dur-resolve) var(--ease-out);
+  outline: none;
+}
+.handle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--accent);
+}
+.knob {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.frame:hover .knob,
+.handle:focus-visible .knob {
+  transform: scale(1.12);
+}
+.handle:focus-visible .knob {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.tag {
+  position: absolute;
+  top: 14px;
+  z-index: 1;
+  padding: 4px 9px;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  color: var(--ink);
+  pointer-events: none;
+}
+.tagLeft {
+  left: 14px;
+}
+.tagRight {
+  right: 14px;
+}
+
+.caption {
+  color: var(--secondary);
+}

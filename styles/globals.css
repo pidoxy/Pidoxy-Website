@@ -1,19 +1,29 @@
-/* ─── Design tokens ───────────────────────────────────────────────────────
-   Editorial minimal: white, ink, one gold accent. All modules consume these
-   variables — no hardcoded one-off values. */
+/* ─── Design tokens ("Signal from noise") ────────────────────────────────
+   Warm film-paper light theme, near-black dark theme, one gold accent.
+   Mirrors the Figma variables (Color: Light/Dark). Every module consumes
+   these; no hardcoded one-off colours. Legacy names (--tint, --accent-soft…)
+   are kept so pages not yet rebuilt keep rendering. */
 :root {
-  --bg: #ffffff;
-  --ink: #030213;
-  --secondary: #6b7080;
-  --tint: #f7f7f9;
-  --accent: #826622; /* eyebrows, rules, active nav, link hover only (AA on white + tint) */
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --tint: #efece5; /* surface-sunken */
+  --ink: #0e0d12;
+  --ink-inverse: #f6f4ef;
+  --secondary: #5e606b;
+  --rule: rgba(14, 13, 18, 0.1);
+  --rule-strong: rgba(14, 13, 18, 0.18);
+  --accent: #826622;
   --accent-soft: rgba(130, 102, 34, 0.14);
-  --rule: rgba(3, 2, 19, 0.1);
-  --rule-strong: rgba(3, 2, 19, 0.18);
+  --live: #2f9e6b;
+  --glow: rgba(201, 165, 90, 0);
+  --grain-opacity: 0.05;
+  --nav-bg: rgba(246, 244, 239, 0.85);
+  color-scheme: light;
 
-  /* --font-sans / --font-serif are injected by next/font in _app.js */
+  /* next/font injects --font-sans / --font-serif / --font-mono in _app.js */
   --serif: var(--font-serif, Georgia, "Times New Roman", serif);
   --sans: var(--font-sans, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  --mono: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
 
   /* 8px spacing grid */
   --s1: 8px;
@@ -26,12 +36,64 @@
   --s12: 96px;
   --s16: 128px;
 
-  --max-width: 1216px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  --max-width: 1312px;
+  --gutter: clamp(20px, 4.5vw, 64px);
+  --nav-h: 68px;
+
+  /* Motion (design/content-audit-and-motion.md) */
+  --dur-fast: 160ms;
+  --dur-base: 320ms;
+  --dur-resolve: 600ms;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-inout: cubic-bezier(0.77, 0, 0.175, 1);
   --ease: 180ms ease;
+}
+
+/* data-theme is set before first paint by the inline script in _document.js
+   (stored choice, else the system preference). */
+:root[data-theme="dark"] {
+  --bg: #0b0b0c;
+  --surface: #141416;
+  --tint: #101012;
+  --ink: #edebe6;
+  --ink-inverse: #0b0b0c;
+  --secondary: #8e8d8a;
+  --rule: rgba(237, 235, 230, 0.1);
+  --rule-strong: rgba(237, 235, 230, 0.2);
+  --accent: #c9a55a;
+  --accent-soft: rgba(201, 165, 90, 0.16);
+  --live: #4cc38a;
+  --glow: rgba(201, 165, 90, 0.12);
+  --grain-opacity: 0.06;
+  --nav-bg: rgba(11, 11, 12, 0.8);
+  color-scheme: dark;
+}
+
+/* Sections that are always dark (closing CTA + footer), whatever the theme. */
+.theme-dark {
+  --bg: #0b0b0c;
+  --surface: #141416;
+  --tint: #101012;
+  --ink: #edebe6;
+  --ink-inverse: #0b0b0c;
+  --secondary: #8e8d8a;
+  --rule: rgba(237, 235, 230, 0.1);
+  --rule-strong: rgba(237, 235, 230, 0.2);
+  --accent: #c9a55a;
+  --accent-soft: rgba(201, 165, 90, 0.16);
+  color-scheme: dark;
+  background: var(--bg);
+  color: var(--ink);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
 }
 
 html,
@@ -46,6 +108,23 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Static film grain over the whole page: one inline SVG, no network request,
+   never animates (so it stays on under reduced motion). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+:root[data-theme="dark"] body::before {
+  mix-blend-mode: screen;
 }
 
 a {
@@ -64,12 +143,68 @@ a {
 
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: 2px;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 img {
   max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* ─── Shared utilities used across the rebuilt pages ─── */
+.container {
+  width: 100%;
+  max-width: calc(var(--max-width) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Reveal on enter: content is visible by default (no-JS, crawlers); the
+   enhancement only runs once html has .js and the element hasn't entered. */
+.js [data-reveal]:not(.is-in) {
+  opacity: 0;
+  transform: translateY(8px);
+}
+[data-reveal] {
+  transition:
+    opacity var(--dur-resolve) var(--ease-out),
+    transform var(--dur-resolve) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 60ms);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -82,5 +217,10 @@ img {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .js [data-reveal]:not(.is-in) {
+    opacity: 1;
+    transform: none;
   }
 }

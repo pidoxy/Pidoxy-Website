@@ -4,7 +4,7 @@
 export const projectGroups = [
   { key: "agentic", title: "AI & Agentic Systems" },
   { key: "products", title: "Products & Platforms" },
-  { key: "systems", title: "Systems & Earlier Work" },
+  { key: "systems", title: "In Production" },
 ];
 
 export const projects = [
@@ -19,8 +19,10 @@ export const projects = [
   },
   {
     title: "Virtue Foundation Intelligence Platform",
+    slug: "virtue-foundation",
+    image: "/images/work/virtue-foundation.jpg",
     group: "agentic",
-    status: "Hackathon 2nd Place",
+    status: "MIT Hack-Nation × Databricks · 2nd Place",
     summary:
       "End-to-end agentic AI platform analyzing 797 Ghana healthcare facilities across 16 regions. A LangGraph supervisor routes queries to 6 specialized sub-agents backed by a FAISS vector store, identifying 10 medical deserts and 43 data anomalies.",
     tags: ["Python", "LangGraph", "GPT-4o-mini", "FAISS", "FastAPI", "Next.js"],
@@ -56,6 +58,8 @@ export const projects = [
   },
   {
     title: "AidCare",
+    slug: "aidcare",
+    image: "/images/work/aidcare.jpg",
     group: "agentic",
     status: "Live Clinical AI Product",
     summary:
@@ -77,16 +81,12 @@ export const projects = [
         href: "https://aidcare.pidoxy.com/chc",
         external: true,
       },
-      {
-        label: "Watch Demo",
-        href: "https://www.youtube.com/watch?v=k9qfi4OKaEg&t=2s",
-        external: true,
-        type: "video",
-      },
     ],
   },
   {
     title: "AI Scientist",
+    slug: "ai-scientist",
+    image: "/images/work/ai-scientist.jpg",
     group: "agentic",
     status: "Hack-Nation Research OS",
     summary:
@@ -119,6 +119,8 @@ export const projects = [
   },
   {
     title: "Kinetix",
+    slug: "kinetix",
+    image: "/images/work/kinetix.jpg",
     group: "agentic",
     status: "Gemini API Hackathon",
     summary:
@@ -174,6 +176,8 @@ export const projects = [
   },
   {
     title: "Amala Atlas",
+    slug: "amala-atlas",
+    image: "/images/work/amala-atlas.jpg",
     group: "products",
     status: "Amala Hackathon Winner · ₦2M",
     summary:
@@ -205,7 +209,41 @@ export const projects = [
     ],
   },
   {
+    title: "Amebo",
+    slug: "amebo",
+    group: "products",
+    status: "AFRETEC Assistive Technology Workshop · 3rd Place · ₦1M",
+    summary:
+      "A crowdsourced accessibility layer over the Lagos map for pedestrians with disabilities. Users report accessible infrastructure (ramps, wheelchair-friendly bus stops) and live hazards (open gutters, broken pavement); the app answers with voice guidance for visually impaired users and text alerts for deaf and hard-of-hearing users.",
+    tags: ["Accessibility", "Maps", "Voice", "Crowdsourcing"],
+    links: [
+      {
+        label: "UNILAG News",
+        href: "https://unilag.edu.ng/driving-inclusion-through-innovation-unilag-hosts-pan-african-assistive-technology-workshop/",
+        external: true,
+      },
+    ],
+  },
+  {
+    title: "AccessLearn",
+    slug: "accesslearn",
+    group: "products",
+    status: "AFRETEC Inclusion Challenge · 2nd Place · Mentor & builder",
+    summary:
+      "An accessible learning platform built with a student team I mentored: text-to-speech in English, major Nigerian languages and Pidgin, AI translation, a fingerspelling tool, accessibility profiles and an AI tutor for document-based questions.",
+    tags: ["Accessibility", "Text-to-speech", "Translation", "AI tutor"],
+    links: [
+      {
+        label: "Story on X",
+        href: "https://x.com/pidoxy_/status/2051314798114050379",
+        external: true,
+      },
+    ],
+  },
+  {
     title: "PheraCAM",
+    slug: "pheracam",
+    image: "/images/work/pheracam.jpg",
     group: "products",
     status: "Hackathon 2nd Place",
     summary:
@@ -232,6 +270,8 @@ export const projects = [
   },
   {
     title: "Campus Thrift Books",
+    slug: "campus-thrift-books",
+    image: "/images/work/campus-thrift-books.jpg",
     group: "products",
     status: "GDSC Solution Challenge 2024",
     summary:
@@ -248,6 +288,8 @@ export const projects = [
   },
   {
     title: "Medity",
+    slug: "medity",
+    image: "/images/work/medity.jpg",
     group: "products",
     status: "Web App Challenge",
     summary:
@@ -271,6 +313,24 @@ export const projects = [
         external: true,
       },
     ],
+  },
+  {
+    title: "HabariPay (GTCO)",
+    group: "systems",
+    status: "Sep 2024 – present · day job",
+    summary:
+      "Full-stack engineering on enterprise events software at Guaranty Trust's fintech subsidiary, including AI-powered product features.",
+    tags: ["Full-stack", "Enterprise", "Fintech", "AI features"],
+    links: [],
+  },
+  {
+    title: "Wema Wiki",
+    group: "systems",
+    status: "Wema Bank · Aug – Dec 2024",
+    summary:
+      "An AI assistant in Microsoft Teams that answers staff questions about the bank's products and processes, alongside an OpenAI-based product-recommendation model.",
+    tags: ["Node.js", "Azure", "OpenAI", "SQL"],
+    links: [],
   },
   {
     title: "Modern Search Engine",
@@ -299,4 +359,19 @@ export const projects = [
     tags: ["NestJS", "Next.js", "PostgreSQL", "Redis", "JWT", "RBAC"],
     links: [],
   },
+];
+
+// Hackathon builds and side projects for the Engineering archive strip.
+// Devpost counts 23 hackathons; these are the ones worth naming.
+export const hackathonCount = 23;
+
+export const archive = [
+  { year: "2026", title: "KRONOS", note: "USAII Global AI Hackathon · AI study planner", href: "https://usaihacks.vercel.app" },
+  { year: "2025", title: "African Folktale Storyteller", note: "Spitchathon · voice AI", href: "" },
+  { year: "2024", title: "Take On Squad", note: "Squad by GTCO · 5th place", href: "" },
+  { year: "2023", title: "PhishPaddy", note: "Phishing-site detection", href: "https://github.com/pidoxy/PhishPaddy" },
+  { year: "2022", title: "Decentralised voting", note: "Ethereum smart contracts", href: "https://github.com/pidoxy/voting-system" },
+  { year: "2021", title: "Coffee_Break", note: "HackZurich · Hybrid Team Award", href: "https://devpost.com/software/coffee_break" },
+  { year: "2021", title: "Foodify", note: "HackOR · finalist", href: "https://devpost.com/pidoxy" },
+  { year: "2021", title: "HTFGame", note: "HackThisFall S2", href: "https://devpost.com/pidoxy" },
 ];

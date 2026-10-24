@@ -1,7 +1,25 @@
 // Talks, hosting, and speaking.
 export const talks = [
   {
+    title: "AI for Software Engineering",
+    event: "The AI Colony · Cohort One",
+    role: "Instructor",
+    date: "Jul 2026 – present",
+    description:
+      "Teaching the AI for Software Engineering module to Cohort One, built around a real two-language service codebase (FastAPI and Express).",
+    tags: ["Teaching", "AI for SWE"],
+    links: [
+      {
+        label: "Course starter repo",
+        href: "https://github.com/pidoxy/ai-for-se-starter",
+        external: true,
+        type: "code",
+      },
+    ],
+  },
+  {
     title: "From Senses to Systems",
+    image: "/images/talks/sysconf-2026.jpg",
     event: "SysConf 2026",
     role: "Speaker",
     date: "Oct 2026",
@@ -31,6 +49,7 @@ export const talks = [
   },
   {
     title: "Introduction to AI and Prompting",
+    image: "/images/talks/nithub-2026.jpg",
     event: "Nithub AI Literacy Day · University of Lagos",
     role: "Beginner Track Facilitator",
     date: "Sep 2026",
@@ -54,6 +73,7 @@ export const talks = [
   },
   {
     title: "M.A.R.K Internship Initiative",
+    image: "/images/talks/mark-2026.jpg",
     event: "CISA UNILAG × NACOS UNILAG",
     role: "Host & Moderator",
     date: "May 2026",

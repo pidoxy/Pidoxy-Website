@@ -1,6 +1,13 @@
 // Experience timeline (About page).
 export const experience = [
   {
+    role: "Instructor, AI for Software Engineering",
+    org: "The AI Colony",
+    period: "Jul 2026 – Present",
+    detail:
+      "Teaching the AI for Software Engineering module to Cohort One, built around a real service codebase in Python and JavaScript.",
+  },
+  {
     role: "Head, AI and ML",
     org: "Consulting Club of Lagos",
     period: "Mar 2026 – Present",
@@ -33,7 +40,14 @@ export const experience = [
     org: "Wema Bank",
     period: "Aug 2024 – Dec 2024",
     detail:
-      "AI-powered knowledge chatbot (Node.js, Azure) enabling 2,000+ staff to query documentation; Play Store review analytics pipeline.",
+      "Built Wema Wiki, an AI assistant in Microsoft Teams that answers staff questions about the bank's products and processes, and contributed to an OpenAI-based product-recommendation model.",
+  },
+  {
+    role: "Software Engineer, Data Structures & Algorithms (Apprenticeship)",
+    org: "Wolfstation",
+    period: "May 2024 – Aug 2024",
+    detail:
+      "Top 3 student. Hosted a problem-solving session and competed in a programming hackathon.",
   },
   {
     role: "Software Engineer & AI Researcher",
@@ -49,6 +63,18 @@ export const experience = [
     detail:
       "Competitive AWS scholarship; built an end-to-end image classification system with PyTorch and CNNs, deployed on cloud GPU (CUDA) infrastructure.",
   },
+  {
+    role: "Cloud Engineer (Apprenticeship)",
+    org: "NexaScale",
+    period: "Feb 2023 – May 2023",
+    detail: "Cloud engineering capstones on AWS and Azure; later returned as a mentor.",
+  },
+  {
+    role: "Lead Software Developer",
+    org: "Zuri Chat · HNG i8",
+    period: "Jul 2021 – Nov 2021",
+    detail: "Led development and ran the deployment pipeline with GitHub Actions. HNG i8 finalist.",
+  },
 ];
 
 // Listed separately because dates were not supplied; the About page presents
@@ -62,6 +88,14 @@ export const leadership = [
   {
     role: "Projects Team Lead",
     org: "Data Community UNILAG",
+  },
+  {
+    role: "Mentor & builder, AccessLearn team",
+    org: "AFRETEC UNILAG Inclusion Challenge",
+  },
+  {
+    role: "Sustainability Volunteer",
+    org: "Prof. Ayodele Awojobi Design Competition",
   },
   {
     role: "Cloud Engineering Mentor",

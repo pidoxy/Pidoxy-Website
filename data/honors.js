@@ -18,11 +18,27 @@ export const honors = [
   },
   {
     date: "2026",
-    title: "HackNation Databricks Challenge Award",
-    org: "HackNation × Databricks",
+    title: "MIT Hack-Nation × Databricks Challenge",
+    org: "MIT Hack-Nation × Databricks",
     result: "2nd Place",
     detail: "Recognized for the Virtue Foundation Intelligence Platform.",
     link: "https://www.youtube.com/watch?v=4w29E3NGFV0",
+  },
+  {
+    date: "2026",
+    title: "Pan-African Assistive Technology Workshop (AFRETEC)",
+    org: "University of Lagos · AFRETEC Network",
+    result: "3rd Place · ₦1,000,000",
+    detail: "Amebo, a crowdsourced accessibility layer over the Lagos map. Nine teams were selected from 19 submissions for a ₦4.5M Theseabilities Foundation prize pool.",
+    link: "https://unilag.edu.ng/driving-inclusion-through-innovation-unilag-hosts-pan-african-assistive-technology-workshop/",
+  },
+  {
+    date: "2026",
+    title: "AFRETEC UNILAG Inclusion Team Innovation Challenge",
+    org: "University of Lagos · AFRETEC Network",
+    result: "Mentor & builder · AccessLearn, 2nd Place",
+    detail: "Mentored a student team and built AccessLearn with them: text-to-speech in English, Nigerian languages and Pidgin, AI translation, fingerspelling, accessibility profiles and an AI tutor.",
+    link: "https://x.com/pidoxy_/status/2051314798114050379",
   },
   {
     date: "2025",
@@ -31,14 +47,6 @@ export const honors = [
     result: "Winner · ₦2,000,000",
     detail: "Team lead for Amala Atlas, the winner-takes-all project.",
     link: "https://www.youtube.com/watch?v=eUpADlc2aVk&t=5s",
-  },
-  {
-    date: "2025",
-    title: "Afretec UNILAG Inclusion Team Innovation Challenge",
-    org: "Afretec UNILAG",
-    result: "Second Place",
-    detail: "AccessLearn project.",
-    link: "",
   },
   {
     date: "2025–2027",
@@ -58,6 +66,14 @@ export const honors = [
   },
   {
     date: "2024",
+    title: "Take On Squad Hackathon",
+    org: "Squad by GTCO",
+    result: "5th Place",
+    detail: "Team hackathon run by GTCO's payments subsidiary.",
+    link: "",
+  },
+  {
+    date: "2024",
     title: "Wolfstation Data Structures and Algorithms Program",
     org: "Wolfstation",
     result: "Top 3 Student",
@@ -70,6 +86,14 @@ export const honors = [
     org: "Amazon Web Services · Udacity",
     result: "Scholar",
     detail: "Completed the Udacity AI Programming with Python Nanodegree.",
+    link: "",
+  },
+  {
+    date: "2023",
+    title: "GitHub Campus Expert DevSprint, UNILAG",
+    org: "GitHub Campus Experts",
+    result: "Top Ten",
+    detail: "Data structures challenge.",
     link: "",
   },
   {
@@ -95,5 +119,13 @@ export const honors = [
     result: "Finalist",
     detail: "Foodify project.",
     link: "https://devpost.com/pidoxy",
+  },
+  {
+    date: "2021",
+    title: "HNG i8 Internship",
+    org: "HNG",
+    result: "Finalist",
+    detail: "Went on to lead development on Zuri Chat.",
+    link: "",
   },
 ];
