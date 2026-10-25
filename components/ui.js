@@ -100,7 +100,7 @@ export function NowPill({ href, text }) {
 export function CopyChip({ text, label = "Copy" }) {
   const [state, copy] = useCopy(text);
   return (
-    <button type="button" className={`${styles.chip} ${styles.copyChip}`} onClick={copy} aria-live="polite" data-state={state}>
+    <button type="button" className={`${styles.chip} ${styles.copyChip}`} onClick={copy} aria-live="polite" data-state={state} data-track="copy_text" data-track-item={label}>
       {state === "copied" ? "Copied" : state === "failed" ? "Select & copy" : label}
       <Icon kind={state === "copied" ? "check" : "copy"} />
     </button>

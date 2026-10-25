@@ -129,6 +129,7 @@ function Bios() {
             aria-controls={`bio-panel-${i}`}
             tabIndex={tab === i ? 0 : -1}
             onClick={() => setTab(i)}
+            data-track="bio_tab"
           >
             {b.label.replace(/ bio$/i, "").replace(/ introduction$/i, " intro")}
           </button>
@@ -163,6 +164,7 @@ export default function Speaking() {
     <Layout>
       <Meta
         titleOverride="Emmanuel Idoko — Speaker · AI, Computer Vision & Software Engineering"
+        cardTitle="Speaker kit: AI, computer vision and software engineering"
         description="Speaker kit for Emmanuel Idoko — software engineer, AI researcher, and technical speaker from Nigeria working across computer vision, multimodal AI, reliable AI, and production systems. Bios, headshots, talk abstracts, and everything an organizer needs."
         path="/speaking"
         ogType="profile"

@@ -5,6 +5,7 @@ import Icon from "./Icon";
 import { Button } from "./ui";
 import useCopy from "../lib/useCopy";
 import { profile } from "../data/profile";
+import { eventForClick, track } from "../lib/track";
 import styles from "../styles/Layout.module.css";
 
 const NAV = [
@@ -74,7 +75,7 @@ function ThemeToggle() {
     }
   };
   return (
-    <button type="button" className={`${styles.iconButton} ${styles.themeToggle}`} onClick={toggle} aria-label="Toggle dark mode" title="Toggle dark mode">
+    <button type="button" className={`${styles.iconButton} ${styles.themeToggle}`} onClick={toggle} data-track="theme_toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
       <Icon kind="moon" className={`${styles.icon} ${styles.moon}`} />
       <Icon kind="sun" className={`${styles.icon} ${styles.sun}`} />
     </button>
@@ -84,7 +85,7 @@ function ThemeToggle() {
 function CopyEmail() {
   const [state, copy] = useCopy(profile.email);
   return (
-    <Button onClick={copy} variant="secondary" icon={state === "copied" ? "check" : "copy"} aria-live="polite">
+    <Button onClick={copy} data-track="copy_email" variant="secondary" icon={state === "copied" ? "check" : "copy"} aria-live="polite">
       {state === "copied" ? "Copied" : state === "failed" ? "Select & copy" : "Copy email"}
     </Button>
   );
@@ -130,6 +131,18 @@ export default function Layout({ children }) {
   const burgerRef = useRef(null);
 
   useReveal(router.asPath);
+
+  // One delegated listener sends every meaningful click to analytics:
+  // downloads, email, outbound links, and anything tagged data-track.
+  useEffect(() => {
+    const onClick = (e) => {
+      if (!(e.target instanceof Element)) return;
+      const ev = eventForClick(e.target);
+      if (ev) track(ev.name, { ...ev.props, page: window.location.pathname });
+    };
+    document.addEventListener("click", onClick, { capture: true });
+    return () => document.removeEventListener("click", onClick, { capture: true });
+  }, []);
 
   useEffect(() => {
     const close = () => setMenuOpen(false);
@@ -194,7 +207,7 @@ export default function Layout({ children }) {
           <div className={styles.actions}>
             <LagosClock className={`mono ${styles.clock}`} />
             <ThemeToggle />
-            <a href="#contact" className={styles.talk}>
+            <a href="#contact" className={styles.talk} data-track="cta_lets_talk">
               Let&rsquo;s talk
             </a>
             <button
@@ -285,7 +298,7 @@ export default function Layout({ children }) {
             </div>
             <div className={styles.meta}>
               <LagosClock className="mono" />
-              <span>© 2026 Emmanuel Idoko</span>
+              <span>© 2026 Emmanuel Idoko · Pidoxy</span>
               <a href="#main">Back to top ↑</a>
             </div>
           </div>

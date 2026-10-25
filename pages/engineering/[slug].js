@@ -1,10 +1,13 @@
 import { useMemo } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import Meta from "../../components/Meta";
 import { Button, StatusPill, Readout, SmartLink, uiStyles as ui } from "../../components/ui";
 import { Figure, Timeline, Toc, innerStyles as s } from "../../components/inner";
 import { caseStudies } from "../../data/caseStudies";
+import { profile } from "../../data/profile";
+import { personId } from "../../data/seo";
 
 export function getStaticPaths() {
   return { paths: Object.keys(caseStudies).map((slug) => ({ params: { slug } })), fallback: false };
@@ -19,7 +22,30 @@ export default function CaseStudy({ slug, cs }) {
 
   return (
     <Layout>
-      <Meta title={`${cs.title} case study`} description={`${cs.headline} ${cs.lede}`} path={`/engineering/${slug}`} ogType="article" />
+      <Meta title={`${cs.title} case study`} description={`${cs.headline} ${cs.lede}`} path={`/engineering/${slug}`} ogType="article" kicker={cs.kicker} cardTitle={`${cs.title}: ${cs.headline}`} />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: `${cs.title} case study: ${cs.headline}`,
+              description: cs.lede,
+              url: `${profile.siteUrl}/engineering/${slug}`,
+              image: `${profile.siteUrl}${cs.hero.src}`,
+              author: { "@id": personId },
+              about: {
+                "@type": "SoftwareApplication",
+                name: cs.title,
+                url: cs.ctas[0]?.href,
+                applicationCategory: cs.kicker.split(" · ")[1] || "Application",
+                creator: { "@id": personId },
+              },
+            }),
+          }}
+        />
+      </Head>
 
       <header className={`container ${s.intro}`}>
         <Link href="/engineering" className={`mono ${s.back}`}>

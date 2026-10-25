@@ -17,7 +17,7 @@ export const profile = {
   youtube: "https://www.youtube.com/@pidoxy",
   huggingface: "https://huggingface.co/Pidoxy",
   scholar: "https://scholar.google.com/citations?hl=en&user=hHEK0h0AAAAJ",
-  siteUrl: "https://pidoxy.com",
+  siteUrl: "https://www.pidoxy.com",
   seoKeywords: [
     "Emmanuel Idoko",
     "Pidoxy",

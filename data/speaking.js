@@ -455,10 +455,10 @@ export const headshotUsageNote =
 
 // Every URL an organizer or CFP form might ask for.
 export const speakerLinks = [
-  { label: "Website", href: "https://pidoxy.com" },
-  { label: "Speaker kit", href: "https://pidoxy.com/speaking" },
-  { label: "Research & publications", href: "https://pidoxy.com/research" },
-  { label: "Talks & recordings", href: "https://pidoxy.com/talks" },
+  { label: "Website", href: "https://www.pidoxy.com" },
+  { label: "Speaker kit", href: "https://www.pidoxy.com/speaking" },
+  { label: "Research & publications", href: "https://www.pidoxy.com/research" },
+  { label: "Talks & recordings", href: "https://www.pidoxy.com/talks" },
   { label: "Google Scholar", href: "https://scholar.google.com/citations?hl=en&user=hHEK0h0AAAAJ" },
   { label: "GitHub", href: "https://github.com/pidoxy" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/emmanuelidoko/" },

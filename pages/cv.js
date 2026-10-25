@@ -275,7 +275,7 @@ export default function CV() {
         <div className={styles.toolbarActions}>
           <div className={styles.segmented} role="radiogroup" aria-label="Résumé version">
             {Object.entries(VERSIONS).map(([key, v]) => (
-              <button key={key} type="button" role="radio" aria-checked={version === key} onClick={() => setVersion(key)}>
+              <button key={key} type="button" role="radio" aria-checked={version === key} onClick={() => setVersion(key)} data-track="resume_version" data-track-version={key}>
                 {v.label}
               </button>
             ))}

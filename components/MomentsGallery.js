@@ -18,7 +18,7 @@ function PhotoGrid({ items, onOpen }) {
   return (
     <div className={styles.grid} data-count={Math.min(items.length, 5)}>
       {items.map((photo, n) => (
-        <button key={photo.src} type="button" className={styles.photo} onClick={() => onOpen(photo.i)} aria-label={`Open image: ${photo.alt}`}>
+        <button key={photo.src} type="button" className={styles.photo} onClick={() => onOpen(photo.i)} data-track="photo_open" data-track-album={photo.album || ""} aria-label={`Open image: ${photo.alt}`}>
           {/* Cloudinary already serves sized, auto-format thumbnails. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={photo.thumb || photo.src} alt={photo.alt} loading={n < 2 ? "eager" : "lazy"} decoding="async" />

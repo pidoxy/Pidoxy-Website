@@ -72,7 +72,7 @@ export default function Paper({ pub, prev, next }) {
 
   return (
     <Layout>
-      <Meta title={short} description={`${pub.plain} ${pub.venue}.`} path={`/research/${pub.slug}`} ogType="article" />
+      <Meta title={short} description={`${pub.plain} ${pub.venue}.`} path={`/research/${pub.slug}`} ogType="article" kicker={`${pub.status} · ${pub.year}`} cardTitle={pub.title} />
       <Head>
         <script
           type="application/ld+json"
@@ -87,8 +87,9 @@ export default function Paper({ pub, prev, next }) {
                 name,
                 ...(name.includes("Idoko") ? { "@id": personId, url: profile.siteUrl } : {}),
               })),
-              datePublished: pub.year,
-              publisher: pub.venue,
+              datePublished: String(pub.year),
+              description: pub.plain,
+              publisher: { "@type": "Organization", name: pub.venue },
               ...(pub.links.doi || pub.links.arxiv ? { sameAs: pub.links.doi || pub.links.arxiv } : {}),
             }),
           }}

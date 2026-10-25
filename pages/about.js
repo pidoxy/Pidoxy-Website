@@ -66,6 +66,9 @@ export default function About() {
             <p className="mono" style={{ color: "var(--secondary)", margin: 0 }}>
               Elsewhere
             </p>
+            <p style={{ margin: 0 }}>
+              Online I go by <strong>Pidoxy</strong>: @pidoxy on GitHub, YouTube and Devpost, @pidoxy_ on X.
+            </p>
             <div className={s.chips}>
               {aboutFacts.profiles.map((p) => (
                 <Chip key={p.href} href={p.href}>
