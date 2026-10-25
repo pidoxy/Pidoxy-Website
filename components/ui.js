@@ -184,8 +184,9 @@ export function Readout({ label, value, caption }) {
   return (
     <div className={styles.readout} ref={ref}>
       <p className="eyebrow">{label}</p>
-      <p className={styles.readoutValue} aria-label={value}>
+      <p className={styles.readoutValue}>
         <span aria-hidden="true">{display}</span>
+        <span className="visually-hidden">{value}</span>
       </p>
       {caption ? <p className={styles.readoutCaption}>{caption}</p> : null}
     </div>

@@ -123,7 +123,7 @@ function useReveal(key) {
   }, [key]);
 }
 
-export default function Layout({ children }) {
+export default function Layout({ children, progress = false }) {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -223,6 +223,7 @@ export default function Layout({ children }) {
             </button>
           </div>
         </div>
+        {progress ? <div className={styles.progress} aria-hidden="true" /> : null}
       </header>
 
       <div id="site-menu" ref={menuRef} className={`${styles.menu} ${menuOpen ? styles.menuOpen : ""}`} hidden={!menuOpen}>

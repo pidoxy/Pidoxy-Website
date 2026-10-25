@@ -71,7 +71,7 @@ export default function Paper({ pub, prev, next }) {
   const short = pub.title.split(":")[0];
 
   return (
-    <Layout>
+    <Layout progress>
       <Meta title={short} description={`${pub.plain} ${pub.venue}.`} path={`/research/${pub.slug}`} ogType="article" kicker={`${pub.status} · ${pub.year}`} cardTitle={pub.title} />
       <Head>
         <script

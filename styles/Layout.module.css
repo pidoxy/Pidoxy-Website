@@ -42,6 +42,36 @@
   -webkit-backdrop-filter: saturate(1.4) blur(14px);
 }
 
+/* Reading progress on long pages: a hairline under the header that fills as
+   the page scrolls. Pure CSS (scroll-driven animation), so it costs no JS and
+   simply doesn't render where unsupported or when motion is reduced. */
+.progress {
+  display: none;
+}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .progress {
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      background: var(--accent);
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      animation: readProgress linear both;
+      animation-timeline: scroll(root block);
+      pointer-events: none;
+    }
+  }
+}
+@keyframes readProgress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .headerInner {
   height: var(--nav-h);
   display: grid;
