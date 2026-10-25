@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "./Icon";
+import useCopy from "../lib/useCopy";
 import styles from "../styles/ui.module.css";
 
 // Shared building blocks for the rebuilt pages. Each mirrors a component on
@@ -12,6 +13,15 @@ const isExternal = (href = "") => /^(https?:|mailto:)/.test(href);
 // Renders a Next <Link> for internal routes and a plain <a> for external ones,
 // opening external links in a new tab safely.
 export function SmartLink({ href, children, ...rest }) {
+  // Static files (résumés, images) aren't routes: use a plain anchor so Next
+  // doesn't try to prefetch them as pages.
+  if (/\.(pdf|jpe?g|png|webp)$/i.test(href)) {
+    return (
+      <a href={href} {...rest}>
+        {children}
+      </a>
+    );
+  }
   if (isExternal(href)) {
     const newTab = href.startsWith("http");
     return (
@@ -82,6 +92,18 @@ export function NowPill({ href, text }) {
       <span className={styles.nowText}>{text}</span>
       <Icon kind="arrow-up-right" className={styles.btnIcon} />
     </SmartLink>
+  );
+}
+
+// Copy-to-clipboard pill, styled like a link chip. Used for copy-ready
+// facts, bios and abstracts in the speaker kit.
+export function CopyChip({ text, label = "Copy" }) {
+  const [state, copy] = useCopy(text);
+  return (
+    <button type="button" className={`${styles.chip} ${styles.copyChip}`} onClick={copy} aria-live="polite" data-state={state}>
+      {state === "copied" ? "Copied" : state === "failed" ? "Select & copy" : label}
+      <Icon kind={state === "copied" ? "check" : "copy"} />
+    </button>
   );
 }
 

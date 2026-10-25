@@ -230,6 +230,15 @@
   width: 12px;
   height: 12px;
 }
+.copyChip {
+  background: transparent;
+  cursor: pointer;
+  flex: none;
+}
+.copyChip[data-state="copied"] {
+  border-color: var(--live);
+  color: var(--live);
+}
 
 /* Section header */
 .sectionHead {
