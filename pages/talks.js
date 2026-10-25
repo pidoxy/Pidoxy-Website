@@ -56,7 +56,7 @@ export default function Talks() {
       <section className="container" style={{ paddingTop: "clamp(32px, 4vw, 64px)" }} aria-label="Photos">
         <div className={t.strip}>
           {STRIP.map((p, i) => (
-            <figure key={p.src} data-reveal style={{ "--i": i }}>
+            <figure key={p.src}>
               <div className={t.stripImg}>
                 <Image src={p.src} alt={p.alt} fill sizes="(max-width: 760px) 100vw, 40vw" quality={72} priority={i === 0} />
               </div>
