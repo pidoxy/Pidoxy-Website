@@ -29,7 +29,11 @@ const nextConfig: NextConfig = {
     qualities: [70, 75, 80],
     // YouTube thumbnails rarely change; cache the optimized copies for 30 days.
     minimumCacheTTL: 60 * 60 * 24 * 30,
-    remotePatterns: [{ protocol: "https", hostname: "img.youtube.com", pathname: "/vi/**" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "img.youtube.com", pathname: "/vi/**" },
+      // Project and talk images live on the Cloudinary CDN, not in /public.
+      { protocol: "https", hostname: "res.cloudinary.com", pathname: "/pidoxy/**" },
+    ],
   },
   async headers() {
     return [
