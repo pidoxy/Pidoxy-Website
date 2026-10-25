@@ -37,15 +37,19 @@ const cv = {
       org: "The AI Colony",
       period: "Jul 2026 – Present",
       type: "Contract · Remote",
-      bullets: ["Teaching the AI for Software Engineering module to Cohort One, built around a real two-language service codebase (FastAPI and Express)."],
+      bullets: [
+        "Teach the 8-week AI for Software Engineering programme at The AI Colony Academy (Genesis Cohort, from Sep 2026): two live sessions a week, from prompting and in-editor assistance to agentic workflows, context engineering, spec-driven development and a shipped capstone project.",
+        "Built the course codebase, Colony Orders: an orders and payments service in FastAPI and Express sharing one API contract, with ADRs, house rules, 41 tests per implementation and a demo checkpoint for each of the eight modules.",
+      ],
     },
     {
       role: "Head, AI and ML",
       org: "Consulting Club of Lagos",
       period: "Mar 2026 – Present",
-      type: "Consulting",
+      type: "Leadership",
       bullets: [
-        "Providing AI/ML strategy and consulting for client engagements through one of Lagos' leading consulting organizations.",
+        "Lead the club's AI/ML Track, building AI fluency among its consultants; taught the track's Introduction to AI in Business session.",
+        "The track hosts a practitioner guest series covering Core Machine Learning Concepts, AI Product Thinking, LLMs and generative AI, and AI Ethics and Responsible AI.",
       ],
     },
     {

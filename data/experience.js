@@ -5,14 +5,14 @@ export const experience = [
     org: "The AI Colony",
     period: "Jul 2026 – Present",
     detail:
-      "Teaching the AI for Software Engineering module to Cohort One, built around a real service codebase in Python and JavaScript.",
+      "I teach AI for Software Engineering at The AI Colony Academy: an 8-week, beginner-friendly programme with two live sessions a week. It takes developers from foundations and prompting through in-editor assistance, agentic workflows, context engineering, spec-driven development and shipping responsibly, to a capstone where every student ships a working AI-powered project. I built the course codebase, Colony Orders: an orders and payments service implemented in both FastAPI and Express against one API contract, with house rules, architecture decision records, a test suite, and a checkpoint for every module so each live demo starts from a known state. The Genesis Cohort began on 28 September 2026.",
   },
   {
     role: "Head, AI and ML",
     org: "Consulting Club of Lagos",
     period: "Mar 2026 – Present",
     detail:
-      "Providing AI/ML consulting and strategy for clients through one of Lagos' leading consulting organizations.",
+      "I lead the club's AI/ML Track, which builds AI fluency among its consultants. I taught the track's Introduction to AI in Business session, and the track runs a guest series with practitioners: Core Machine Learning Concepts, AI Product Thinking, Modern AI (LLMs and generative AI), and AI Ethics and Responsible AI.",
   },
   {
     role: "Founder & AI/ML Engineer",
