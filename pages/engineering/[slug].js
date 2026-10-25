@@ -21,7 +21,7 @@ export default function CaseStudy({ slug, cs }) {
   const toc = useMemo(() => cs.sections.map((x) => ({ id: x.id, label: x.label })), [cs]);
 
   return (
-    <Layout>
+    <Layout progress>
       <Meta title={`${cs.title} case study`} description={`${cs.headline} ${cs.lede}`} path={`/engineering/${slug}`} ogType="article" kicker={cs.kicker} cardTitle={`${cs.title}: ${cs.headline}`} />
       <Head>
         <script

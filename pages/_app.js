@@ -14,12 +14,13 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
-// Display serif for headings. Only the default axes are loaded — extra axes
-// (SOFT/WONK) balloon the font files and hurt LCP.
+// Display serif for headings. Only the default axes and the upright style are
+// loaded: extra axes (SOFT/WONK) balloon the files, and nothing on the site is
+// set in italic, so the italic file would be a wasted preload that delays LCP.
 const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
-  style: ["normal", "italic"],
+  style: ["normal"],
   variable: "--font-serif",
 });
 

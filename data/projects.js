@@ -159,11 +159,6 @@ export const projects = [
         href: "https://github.com/pidoxy/invoicematch.ai",
         external: false,
       },
-      {
-        label: "Live Demo",
-        href: "https://invoicematch-ai.vercel.app",
-        external: true,
-      },
     ],
   },
   {
