@@ -18,7 +18,7 @@ export const publications = [
     extraLinks: [{ label: "OpenReview", href: "https://openreview.net/forum?id=oNbPPMFIRu" }],
     position: "1st author",
     plain: "When does retrieval make a radiology report worse? We measure it, and trace the cause.",
-    figure: { src: "/images/research/wrh-illustrative.jpg", alt: "Illustrative generated chest X-ray report with one finding copied from a retrieved case", note: "Illustrative — not a figure from the paper" },
+    figure: { src: "/images/research/wrh-illustrative.jpg", alt: "Illustrative generated chest X-ray report with one finding copied from a retrieved case", note: "Illustrative, not a figure from the paper" },
     findings: [
       { label: "Verbatim copying", value: "95%", caption: "of retrieval-augmented reports copied text from another patient (0% without retrieval)" },
       { label: "Relevant retrieval", value: "0.201 → 0.402", caption: "CheXbert F1 doubles when the retrieved case matches" },

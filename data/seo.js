@@ -54,7 +54,7 @@ export const personJsonLd = {
     "Full-Stack Engineering",
     "Software Engineering",
   ],
-  award: honors.slice(0, 10).map((h) => `${h.title} — ${h.result} (${h.date})`),
+  award: honors.slice(0, 10).map((h) => `${h.title}: ${h.result} (${h.date})`),
   sameAs: [
     profile.github,
     profile.linkedin,

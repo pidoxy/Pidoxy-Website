@@ -120,7 +120,7 @@ export function SectionHeader({ index, label, title, sub, link, id }) {
   return (
     <div className={styles.sectionHead}>
       <div className={styles.sectionHeadText}>
-        <p className="eyebrow">{index ? `${index} — ${label}` : label}</p>
+        <p className="eyebrow">{index ? `${index} · ${label}` : label}</p>
         <h2 className={styles.displayL} id={id}>
           {title}
         </h2>

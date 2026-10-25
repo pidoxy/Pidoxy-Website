@@ -76,7 +76,7 @@ const cv = {
       period: "Sep 2024 – Present",
       type: "Remote",
       bullets: [
-        "Research in medical imaging and computer vision — Few-Shot Sampling.",
+        "Research in medical imaging and computer vision: Few-Shot Sampling.",
         "Weekly paper analysis, hypothesis formulation, and experimental protocol design.",
         "Co-authored SharpXR (MIRASOL Workshop, MICCAI 2025) and VAMAE (ICPR 2026); first author on When Retrieval Hurts (Africa at NeurIPS 2026).",
       ],
@@ -97,7 +97,7 @@ const cv = {
       period: "Aug 2024 – Dec 2024",
       type: "Internship · Hybrid",
       bullets: [
-        "Built Wema Wiki — an AI chatbot integrated into Microsoft Teams enabling 2,000+ staff to query bank documentation.",
+        "Built Wema Wiki, an AI chatbot integrated into Microsoft Teams enabling 2,000+ staff to query bank documentation.",
         "Developed advanced SQL scripts for data requests across departments.",
         "Product recommendation model with OpenAI; Play Store comment analytics pipeline.",
       ],
@@ -108,7 +108,7 @@ const cv = {
       period: "May 2024 – Aug 2024",
       type: "Apprenticeship · Remote",
       bullets: [
-        "Engineered a contact-lookup system with an array-implemented trie — 20% faster with 98.73% space optimization versus baseline implementations.",
+        "Engineered a contact-lookup system with an array-implemented trie: 20% faster with 98.73% space optimization versus baseline implementations.",
         "Hosted and facilitated problem-solving sessions and competitive-programming hackathons.",
         "Advanced data-structure and algorithm patterns, solving complex challenges in Python.",
       ],
@@ -119,7 +119,7 @@ const cv = {
       period: "Oct 2023 – Jan 2024",
       type: "Scholarship · Remote",
       bullets: [
-        "Awarded the AWS AI & Machine Learning Scholarship — completed all requirements ahead of schedule.",
+        "Awarded the AWS AI & Machine Learning Scholarship and completed all requirements ahead of schedule.",
         "Built an end-to-end image classification system using Python, PyTorch, and CNNs.",
         "Deployed via command-line interface on cloud-based GPU (CUDA) infrastructure.",
       ],
@@ -140,7 +140,7 @@ const cv = {
       period: "Jul 2021 – Nov 2021",
       type: "Contract",
       bullets: [
-        "Developed virtual music and chess room features with WebRTC — real-time A/V sync, multiplayer, third-party API integration.",
+        "Developed virtual music and chess room features with WebRTC: real-time A/V sync, multiplayer, third-party API integration.",
         "Led cross-language team integration; optimized response times by 50% via caching.",
         "Managed deployment pipeline with GitHub Actions and Jenkins.",
       ],
@@ -171,7 +171,7 @@ const cv = {
     {
       title: "SharpXR Research Poster Presentation",
       authors: "E. Idoko",
-      venue: "MIRG-ICAIR 2025 — Machine Intelligence Research Group Conference",
+      venue: "MIRG-ICAIR 2025, Machine Intelligence Research Group Conference",
       year: "2025",
       status: "Poster",
       links: {},
@@ -202,30 +202,30 @@ const cv = {
   },
 
   awards: [
-    "Amala Hackathon 2025 — Winner, ₦2,000,000 (Team PRL lead)",
-    "ACVSS 2026 — Accepted with Full Grant (1 of 31 from 312)",
-    "HackZurich 2021 — Hybrid Team Award (Coffee_Break)",
-    "Virtue Foundation Platform — 2nd, MIT Hack-Nation × Databricks 2026",
-    "Amebo — 3rd of 9, Pan-African Assistive Technology Workshop (AFRETEC) 2026, ₦1,000,000",
-    "Meta Global Hackathon 2022 — 14th in EMEA, 47th globally",
-    "AccessLearn — 2nd, AFRETEC UNILAG Inclusion Team Innovation Challenge 2026 (mentor & builder)",
-    "HackLab Nigeria 2022 — 1st Runner-Up (PheraCAM)",
-    "HackOR 2021 — Finalist (Foodify)",
+    "Amala Hackathon 2025 · Winner, ₦2,000,000 (Team PRL lead)",
+    "ACVSS 2026 · Accepted with Full Grant (1 of 31 from 312)",
+    "HackZurich 2021 · Hybrid Team Award (Coffee_Break)",
+    "Virtue Foundation Platform · 2nd, MIT Hack-Nation × Databricks 2026",
+    "Amebo · 3rd of 9, Pan-African Assistive Technology Workshop (AFRETEC) 2026, ₦1,000,000",
+    "Meta Global Hackathon 2022 · 14th in EMEA, 47th globally",
+    "AccessLearn · 2nd, AFRETEC UNILAG Inclusion Team Innovation Challenge 2026 (mentor & builder)",
+    "HackLab Nigeria 2022 · 1st Runner-Up (PheraCAM)",
+    "HackOR 2021 · Finalist (Foodify)",
     "Jim Ovia Foundation Scholar",
     "PICFI Scholar",
     "Squad Hackademy Scholar",
     "AWS AI & ML Scholarship Recipient",
-    "Deputy Trainings & Competitions Lead — GDSC UNILAG",
-    "Project Lead — Unilag Data Community (250+ students)",
+    "Deputy Trainings & Competitions Lead · GDSC UNILAG",
+    "Project Lead · Unilag Data Community (250+ students)",
   ],
 
   certifications: [
     "Microsoft Azure AI Fundamentals",
     "Google Cloud Essentials",
-    "Udacity — AI Programming with Python",
-    "Game of Learners — AI & ML in Azure Clinics",
-    "NexaScale — Cloud Engineering",
-    "Wolfstation — Data Structures & Algorithms",
+    "Udacity · AI Programming with Python",
+    "Game of Learners · AI & ML in Azure Clinics",
+    "NexaScale · Cloud Engineering",
+    "Wolfstation · Data Structures & Algorithms",
   ],
 };
 
@@ -263,7 +263,7 @@ export default function CV() {
     <Layout>
       <Meta
         title="CV"
-        description="Curriculum Vitae of Emmanuel Idoko — software engineer, AI researcher and founder: experience, publications, skills, awards and certifications, with research and engineering résumé downloads."
+        description="Curriculum Vitae of Emmanuel Idoko: software engineer, AI researcher and founder: experience, publications, skills, awards and certifications, with research and engineering résumé downloads."
         path="/cv"
       />
 

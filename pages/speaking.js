@@ -33,7 +33,7 @@ import {
 } from "../data/speaking";
 import k from "../styles/SpeakerKit.module.css";
 
-const inviteMailto = `mailto:${profile.email}?subject=${encodeURIComponent("Speaking Invitation — [Event Name]")}`;
+const inviteMailto = `mailto:${profile.email}?subject=${encodeURIComponent("Speaking Invitation: [Event Name]")}`;
 
 // Plain-text blocks for the copy actions — clean output for event forms.
 const factsText = [
@@ -163,9 +163,9 @@ export default function Speaking() {
   return (
     <Layout>
       <Meta
-        titleOverride="Emmanuel Idoko — Speaker · AI, Computer Vision & Software Engineering"
+        titleOverride="Emmanuel Idoko | Speaker · AI, Computer Vision & Software Engineering"
         cardTitle="Speaker kit: AI, computer vision and software engineering"
-        description="Speaker kit for Emmanuel Idoko — software engineer, AI researcher, and technical speaker from Nigeria working across computer vision, multimodal AI, reliable AI, and production systems. Bios, headshots, talk abstracts, and everything an organizer needs."
+        description="Speaker kit for Emmanuel Idoko: software engineer, AI researcher, and technical speaker from Nigeria working across computer vision, multimodal AI, reliable AI, and production systems. Bios, headshots, talk abstracts, and everything an organizer needs."
         path="/speaking"
         ogType="profile"
       />
@@ -222,9 +222,9 @@ export default function Speaking() {
             {speakerProfile.availability.map((a) => (
               <div key={a}>
                 <span className="mono" style={{ color: "var(--secondary)" }}>
-                  {a.split(" — ")[0]}
+                  {a.split(" · ")[0]}
                 </span>
-                {a.split(" — ")[1] || a}
+                {a.split(" · ")[1] || a}
               </div>
             ))}
           </div>
@@ -253,7 +253,7 @@ export default function Speaking() {
         </div>
         <div className={k.blocks}>
           <div className={k.block}>
-            <p className="eyebrow">Designation — pick by context</p>
+            <p className="eyebrow">Designation · pick by context</p>
             <ul>
               {speakerProfile.designations.map((d) => (
                 <li key={d.context} className={k.copyRow}>
@@ -288,7 +288,7 @@ export default function Speaking() {
             </div>
           ))}
           <div className={k.block}>
-            <p className="eyebrow">Taglines — pick one</p>
+            <p className="eyebrow">Taglines · pick one</p>
             <ul>
               {taglines.map((t) => (
                 <li key={t.label} className={k.copyRow}>
@@ -306,7 +306,7 @@ export default function Speaking() {
 
       {/* ── Bios ── */}
       <section id="bios" className={`container ${s.section} ${k.anchor}`} aria-labelledby="bios-title">
-        <SectionHeader index="02" label="Bios" title="Copy-ready bios" id="bios-title" sub="Purpose-built for different events — not one paragraph truncated seven ways. Third person, present tense; each stands alone." />
+        <SectionHeader index="02" label="Bios" title="Copy-ready bios" id="bios-title" sub="Purpose-built for different events, not one paragraph truncated seven ways. Third person, present tense; each stands alone." />
         <div style={{ display: "grid", gap: 20 }}>
           <Bios />
         </div>
@@ -319,7 +319,7 @@ export default function Speaking() {
           label="Territories"
           title="What I speak about"
           id="topics-title"
-          sub="Seven territories my sessions are drawn from — each backed by research I’ve conducted, systems I’ve built, or communities I’ve taught."
+          sub="Seven territories my sessions are drawn from, each backed by research I’ve conducted, systems I’ve built, or communities I’ve taught."
         />
         <div className={k.territories}>
           {territories.map((t) => (
@@ -406,7 +406,7 @@ export default function Speaking() {
                 ))}
               </ul>
               <p className="mono" style={{ color: "var(--secondary)", margin: 0 }}>
-                Not every session fits every group — each talk above lists its intended audience.
+                Not every session fits every group; each talk above lists its intended audience.
               </p>
             </div>
           </div>
@@ -435,7 +435,7 @@ export default function Speaking() {
           {headshots.map((h) => (
             <div key={h.href} className={k.shot}>
               <a href={h.href} download className={k.shotImg} aria-label={`Download ${h.label} headshot`}>
-                <Image src={h.href} alt={`Emmanuel Idoko — ${h.label.toLowerCase()} headshot`} fill sizes="(max-width: 1000px) 50vw, 310px" quality={78} />
+                <Image src={h.href} alt={`Emmanuel Idoko, ${h.label.toLowerCase()} headshot`} fill sizes="(max-width: 1000px) 50vw, 310px" quality={78} />
               </a>
               <div className={k.shotMeta}>
                 <span>{h.label}</span>

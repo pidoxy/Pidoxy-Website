@@ -79,9 +79,9 @@ export const aboutProse = [
 
 export const aboutFacts = {
   education: [
-    "B.Sc. Computer Science — University of Lagos (2021–2027)",
-    "AWS AI & ML Scholar — Amazon Web Services",
-    "AI Programming with Python Nanodegree — Udacity",
+    "B.Sc. Computer Science, University of Lagos (2021–2027)",
+    "AWS AI & ML Scholar, Amazon Web Services",
+    "AI Programming with Python Nanodegree, Udacity",
   ],
   location: "Lagos, Nigeria",
   researchInterests: [

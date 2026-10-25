@@ -13,7 +13,7 @@ export const projects = [
     group: "agentic",
     status: "ACVSS 2026 Research Hackathon",
     summary:
-      "Tested whether super-resolution actually improves downstream flood mapping from degraded satellite imagery — a 3-phase pipeline (conditioned latent-diffusion SR → flood-aware fine-tuning → U-Net segmentation → per-tile risk ranking) on a SpaceNet-8 subset. Diffusion SR improved every downstream metric (mean IoU +24%, flood mIoU +11%) against degraded-LR and bicubic baselines.",
+      "Tested whether super-resolution actually improves downstream flood mapping from degraded satellite imagery, using a 3-phase pipeline (conditioned latent-diffusion SR → flood-aware fine-tuning → U-Net segmentation → per-tile risk ranking) on a SpaceNet-8 subset. Diffusion SR improved every downstream metric (mean IoU +24%, flood mIoU +11%) against degraded-LR and bicubic baselines.",
     tags: ["PyTorch", "Latent Diffusion", "U-Net", "SpaceNet-8", "Computer Vision"],
     links: [],
   },
@@ -181,7 +181,7 @@ export const projects = [
     group: "products",
     status: "Amala Hackathon Winner · ₦2M",
     summary:
-      "Winner of GDG Lagos' Amala Hackathon (₦2,000,000, winner-takes-all) as Team PRL lead. A crowdsourced global map for discovering authentic Amala spots, with an autonomous agent that scans food blogs daily — user reviews with Google auth, Google Maps integration, and an admin moderation panel. Open-sourced for the community.",
+      "Winner of GDG Lagos' Amala Hackathon (₦2,000,000, winner-takes-all) as Team PRL lead. A crowdsourced global map for discovering authentic Amala spots, with an autonomous agent that scans food blogs daily. It has user reviews with Google auth, Google Maps integration, and an admin moderation panel. Open-sourced for the community.",
     tags: ["Next.js", "Firebase", "Google Maps", "Cheerio", "Vercel"],
     links: [
       {
@@ -247,7 +247,7 @@ export const projects = [
     group: "products",
     status: "Hackathon 2nd Place",
     summary:
-      "Real-time facial-recognition camera that distinguishes registered faces from unregistered ones on the edge — for bank branches, schools, homes, and even car anti-theft. Built with OpenCV and Azure, >95% accuracy at <150ms. 1st runner-up among 800+ participants from all 36 states at HackLab Nigeria 2022.",
+      "Real-time facial-recognition camera that distinguishes registered faces from unregistered ones on the edge, for bank branches, schools, homes, and even car anti-theft. Built with OpenCV and Azure, >95% accuracy at <150ms. 1st runner-up among 800+ participants from all 36 states at HackLab Nigeria 2022.",
     tags: ["Python", "OpenCV", "Azure", "OpenAI API", "React"],
     links: [
       {
@@ -275,7 +275,7 @@ export const projects = [
     group: "products",
     status: "GDSC Solution Challenge 2024",
     summary:
-      "A platform for university students to buy, sell, and exchange second-hand textbooks on campus — reducing the cost burden of course materials and promoting a circular economy within academic communities.",
+      "A platform for university students to buy, sell, and exchange second-hand textbooks on campus, reducing the cost burden of course materials and promoting a circular economy within academic communities.",
     tags: ["React", "Firebase", "Google Cloud", "GDSC"],
     links: [
       {
@@ -293,7 +293,7 @@ export const projects = [
     group: "products",
     status: "Web App Challenge",
     summary:
-      "Global health data aggregator that centralizes pandemic and disease information worldwide — surfacing symptoms, treatments, prevention methods, and real-time news updates to users in regions with limited health information access.",
+      "Global health data aggregator that centralizes pandemic and disease information worldwide, surfacing symptoms, treatments, prevention methods, and real-time news updates to users in regions with limited health information access.",
     tags: ["React", "KendoReact", "Health Tech", "Netlify"],
     links: [
       {

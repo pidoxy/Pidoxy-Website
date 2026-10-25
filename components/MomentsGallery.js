@@ -94,7 +94,7 @@ export default function MomentsGallery({ gallery }) {
           .map((b) => (
             <a key={b.moment.slug} href={`#${b.moment.slug}`}>
               <span className="mono">{b.moment.date}</span>
-              {b.moment.title.split(" — ")[0]}
+              {b.moment.title.split(": ")[0]}
             </a>
           ))}
       </nav>

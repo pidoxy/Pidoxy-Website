@@ -58,7 +58,7 @@ export default function Home() {
               "@graph": [
                 personJsonLd,
                 websiteJsonLd,
-                profilePageJsonLd("", "Emmanuel Idoko — Software Engineer, AI Researcher and Founder", hero.intro),
+                profilePageJsonLd("", "Emmanuel Idoko (Pidoxy): Software Engineer, AI Researcher and Founder", hero.intro),
               ],
             }),
           }}
@@ -93,7 +93,7 @@ export default function Home() {
           </ul>
         </div>
         <div className={styles.heroFigure}>
-          <PortraitSplit src="/images/home/portrait.jpg" alt="Emmanuel Idoko, arms crossed, smiling, in front of a curved wooden wall" caption="Fig. 0 — The author, partially denoised. Drag the seam." />
+          <PortraitSplit src="/images/home/portrait.jpg" alt="Emmanuel Idoko, arms crossed, smiling, in front of a curved wooden wall" caption="Fig. 0. The author, partially denoised. Drag the seam." />
         </div>
       </section>
 

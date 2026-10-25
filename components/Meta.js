@@ -22,7 +22,7 @@ export default function Meta({
 }) {
   const fullTitle =
     titleOverride ||
-    (title ? `${title} — Emmanuel Idoko` : "Emmanuel Idoko (Pidoxy) — Software Engineer, AI Researcher and Founder");
+    (title ? `${title} | Emmanuel Idoko` : "Emmanuel Idoko (Pidoxy) | Software Engineer, AI Researcher and Founder");
   const url = path === "/" ? `${profile.siteUrl}/` : `${profile.siteUrl}${path}`;
   const section = path.split("/").filter(Boolean)[0];
   const cardText = cardTitle || title || "I study how intelligent systems work, and build the ones people depend on.";
@@ -32,7 +32,7 @@ export default function Meta({
     (path === "/"
       ? `${profile.siteUrl}/og.png`
       : `${profile.siteUrl}/api/og?${new URLSearchParams({ title: cardText, kicker: cardKicker })}`);
-  const imageAlt = title ? `${title} — Emmanuel Idoko` : "Emmanuel Idoko — software engineer, AI researcher and founder";
+  const imageAlt = title ? `${title} | Emmanuel Idoko` : "Emmanuel Idoko, software engineer, AI researcher and founder";
   const keywordContent = Array.isArray(keywords) ? keywords.join(", ") : keywords;
 
   return (

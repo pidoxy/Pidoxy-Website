@@ -8,7 +8,7 @@ import { getGallery } from "../lib/gallery";
 export default function Moments({ gallery = [] }) {
   return (
     <Layout>
-      <Meta title="Moments" description="Talks, conferences, hackathons, and community — what happened, in words and pictures." path="/moments" />
+      <Meta title="Moments" description="Talks, conferences, hackathons, and community: what happened, in words and pictures." path="/moments" />
 
       <header className={`container ${s.intro}`}>
         <p className="eyebrow">Moments</p>

@@ -18,7 +18,7 @@ export const caseStudies = {
       { k: "Languages", v: "English · Hausa · Yoruba · Igbo · Pidgin" },
       { k: "Stack", v: "Next.js · FastAPI · Voice · RBAC" },
     ],
-    hero: { src: "/images/work/aidcare.jpg", alt: "AidCare landing page beside the community health worker home screen", caption: "aidcare.pidoxy.com — landing and the community health worker home screen." },
+    hero: { src: "/images/work/aidcare.jpg", alt: "AidCare landing page beside the community health worker home screen", caption: "aidcare.pidoxy.com: landing and the community health worker home screen." },
     readouts: [
       { label: "Clinical modes", value: "2", caption: "CHW triage and clinical support" },
       { label: "Languages", value: "5", caption: "English, Hausa, Yoruba, Igbo, Pidgin" },

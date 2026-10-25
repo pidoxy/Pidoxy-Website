@@ -18,7 +18,7 @@ export default function Sysconf() {
     <Layout>
       <Meta
         title="Leak Desk"
-        description='Leak Desk — an interactive demo from the SysConf talk on getting language models to know when to say "I don&apos;t know."'
+        description='Leak Desk: an interactive demo from the SysConf talk on getting language models to know when to say "I don&apos;t know."'
         path="/sysconf"
         noindex
       />
@@ -26,7 +26,7 @@ export default function Sysconf() {
         <p className="eyebrow">SysConf · Interactive demo</p>
         <h1 className={ui.displayXL}>Leak Desk</h1>
         <p className={ui.bodyL}>
-          Three sources, three honest answers — ANSWER, CONFLICT, or NEED MORE. A small demo from my SysConf talk on getting language models to know when to say &ldquo;I don&apos;t know.&rdquo; It calls Claude live, so it runs on Claude.
+          Three sources, three honest answers: ANSWER, CONFLICT, or NEED MORE. A small demo from my SysConf talk on getting language models to know when to say &ldquo;I don&apos;t know.&rdquo; It calls Claude live, so it runs on Claude.
         </p>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
           <Button href={ARTIFACT_URL} icon="arrow-up-right">
@@ -37,7 +37,7 @@ export default function Sysconf() {
           </Button>
         </div>
         <p className="mono" style={{ color: "var(--secondary)", margin: 0 }}>
-          If the demo doesn&apos;t open, it may be offline —{" "}
+          If the demo doesn&apos;t open, it may be offline.{" "}
           <a href={`mailto:${profile.email}?subject=Leak%20Desk%20demo`} style={{ textDecoration: "underline" }}>
             email me
           </a>{" "}
