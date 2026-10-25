@@ -75,7 +75,8 @@ export default function Engineering() {
       {/* Featured: AidCare */}
       {filter === "all" || filter === "agentic" ? (
         <section className="container" style={{ paddingTop: "clamp(32px, 4vw, 56px)" }} aria-label="Featured product">
-          <div className={s.feature} data-reveal>
+          {/* No data-reveal: this sits above the fold and holds the LCP image. */}
+          <div className={s.feature}>
             <SmartLink href="/engineering/aidcare" className={e.featureMedia} tabIndex={-1} aria-hidden="true">
               <Image src={aidcare.image} alt="" fill sizes="(max-width: 900px) 100vw, 680px" quality={80} priority />
             </SmartLink>

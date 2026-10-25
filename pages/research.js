@@ -74,7 +74,8 @@ export default function Research() {
 
       {/* Featured result */}
       <section className="container" style={{ paddingTop: "clamp(40px, 5vw, 72px)" }} aria-label="Featured result">
-        <div className={s.feature} data-reveal>
+        {/* No data-reveal: above the fold, so it must paint without waiting for JS. */}
+        <div className={s.feature}>
           <Figure src={featured.figure.src} alt={featured.figure.alt} note={featured.figure.note} ratio="5 / 3" sizes="(max-width: 900px) 100vw, 680px" priority />
           <div className={s.featureText}>
             <div className={s.metaRow}>
