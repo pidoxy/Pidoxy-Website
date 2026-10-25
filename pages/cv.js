@@ -34,22 +34,24 @@ const cv = {
   experience: [
     {
       role: "Instructor, AI for Software Engineering",
-      org: "The AI Colony",
+      org: "The AI Colony Academy",
       period: "Jul 2026 – Present",
       type: "Contract · Remote",
       bullets: [
-        "Teach the 8-week AI for Software Engineering programme at The AI Colony Academy (Genesis Cohort, from Sep 2026): two live sessions a week, from prompting and in-editor assistance to agentic workflows, context engineering, spec-driven development and a shipped capstone project.",
-        "Built the course codebase, Colony Orders: an orders and payments service in FastAPI and Express sharing one API contract, with ADRs, house rules, 41 tests per implementation and a demo checkpoint for each of the eight modules.",
+        "Built and teach the first cohort of an eight-week AI for Software Engineering course on Thinkific: recorded the on-camera concept segments and screen-recorded code practicals myself.",
+        "Run two live sessions a week: Tuesday on instructing and controlling AI coding tools and agents, Saturday on core engineering principles, with the class building one classroom reservation service across sessions.",
+        "Write the facilitator notes, slides, checkpoint work and quiz questions for every session, fact-checked against sources.",
       ],
     },
     {
-      role: "Head, AI and ML",
+      role: "Head of the AI/ML Track",
       org: "Consulting Club of Lagos",
       period: "Mar 2026 – Present",
       type: "Leadership",
       bullets: [
-        "Lead the club's AI/ML Track, building AI fluency among its consultants; taught the track's Introduction to AI in Business session.",
-        "The track hosts a practitioner guest series covering Core Machine Learning Concepts, AI Product Thinking, LLMs and generative AI, and AI Ethics and Responsible AI.",
+        "Lead an eleven-week programme (Fall 2026, Demo Day 14 Jan 2027) that trains emerging consultants to evaluate, scope and recommend responsible AI for Nigerian organisations; designed the curriculum and teach Weeks 1, 3 and 10.",
+        "Wrote the assignment pack and rubrics: one artefact a week for a single AI transformation engagement, from client note and readiness assessment to risk register, architecture roadmap and business case.",
+        "Built the industry speaker pipeline with briefs and session packs, and write the case material, including a Jumia Nigeria solution architecture case from public sources.",
       ],
     },
     {

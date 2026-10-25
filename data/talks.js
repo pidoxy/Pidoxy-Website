@@ -7,7 +7,7 @@ export const talks = [
     role: "Instructor",
     date: "Jul 2026 – present",
     description:
-      "An 8-week programme for developers who want AI built into how they ship software, with two live sessions a week. The curriculum runs from foundations and prompting to in-editor assistance, the agentic shift, context engineering, spec-driven development, shipping responsibly, and a capstone where every student ships a working AI-powered project. Each module is taught on a codebase I built for the course: an orders and payments service in FastAPI and Express that share one API contract, with a checkpoint for every live demo.",
+      "An eight-week course I built and teach. Two live sessions a week: Tuesday on instructing and controlling AI coding tools and agents, Saturday on the engineering principles behind good software. Sessions are interactive from start to finish, and the class builds one project together across weeks, starting with a classroom reservation service designed in the live design session.",
     tags: ["Teaching", "AI for SWE"],
     links: [
       {
@@ -16,6 +16,16 @@ export const talks = [
         external: true,
       },
     ],
+  },
+  {
+    title: "AI & ML Track: Fall 2026",
+    event: "Consulting Club of Lagos",
+    role: "Track Lead · Instructor",
+    date: "Oct 2026 – Jan 2027",
+    description:
+      "An eleven-week, consulting-first programme on evaluating, scoping and recommending responsible AI for Nigerian organisations: five speaker-led sessions, five workshops and a Demo Day. I designed it and teach Weeks 1, 3 and 10.",
+    tags: ["AI strategy", "Consulting", "Programme"],
+    links: [],
   },
   {
     title: "From Senses to Systems",

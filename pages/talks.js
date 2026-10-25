@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import Meta from "../components/Meta";
-import { Button, Chip, SectionHeader, Stamp, uiStyles as ui } from "../components/ui";
+import { Button, Chip, SectionHeader, SmartLink, Stamp, uiStyles as ui } from "../components/ui";
 import { innerStyles as s } from "../components/inner";
 import { profile } from "../data/profile";
 import { talks } from "../data/talks";
+import { teachingIntro, programmes } from "../data/teaching";
 import t from "../styles/TalksPage.module.css";
 
 const STRIP = [
@@ -15,6 +16,7 @@ const STRIP = [
 ];
 
 const PASSPORT = [
+  { role: "Track Lead", event: "CCL AI/ML", date: "Oct 2026" },
   { role: "Speaker", event: "SysConf", date: "Oct 2026" },
   { role: "Facilitator", event: "NITHub", date: "Sep 2026" },
   { role: "Build Lab", event: "IMAGINE", date: "Aug 2026" },
@@ -23,14 +25,14 @@ const PASSPORT = [
   { role: "Host", event: "M.A.R.K", date: "May 2026" },
   { role: "Poster", event: "MIRG-ICAIR", date: "Nov 2025" },
 ];
-const ROT = [-4, 3, -2, 4, -3, 2, -1];
+const ROT = [-4, 3, -2, 4, -3, 2, -1, 3];
 
 export default function Talks() {
   return (
     <Layout>
       <Meta
         title="Talks & teaching"
-        description="Talks, workshops and teaching by Emmanuel Idoko: SysConf 2026, NITHub AI Literacy Day, AI for Software Engineering at The AI Colony, paper walkthroughs and community sessions."
+        description="Talks, teaching and programme leadership by Emmanuel Idoko: the AI/ML Track at the Consulting Club of Lagos, AI for Software Engineering at The AI Colony Academy, SysConf 2026, NITHub AI Literacy Day and community sessions."
         path="/talks"
       />
 
@@ -64,8 +66,57 @@ export default function Talks() {
         </div>
       </section>
 
+      <section id="teaching" className={`container ${s.section}`} aria-labelledby="teaching-title">
+        <SectionHeader index="01" label="Teaching" title="AI education and programme leadership" id="teaching-title" />
+        <div className={t.teachIntro}>
+          {teachingIntro.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </div>
+        {programmes.map((pr) => (
+          <article key={pr.id} id={pr.id} className={t.programme} aria-labelledby={`${pr.id}-title`}>
+            <header className={t.programmeHead}>
+              <span className="eyebrow">{pr.period}</span>
+              <h3 id={`${pr.id}-title`} className={t.programmeTitle}>
+                {pr.role}
+              </h3>
+              <p className={t.programmeOrg}>{pr.href ? <SmartLink href={pr.href}>{pr.org} ↗</SmartLink> : pr.org}</p>
+              <p className={t.programmeSummary}>{pr.summary}</p>
+            </header>
+            <div className={t.programmeBody}>
+              <figure className={t.pull}>
+                <figcaption className="mono">{pr.quoteLabel}</figcaption>
+                <blockquote>{pr.quote}</blockquote>
+              </figure>
+              <p className={t.programmeLede}>{pr.lede}</p>
+              <p className={`mono ${t.blockLabel}`}>{pr.doLabel}</p>
+              <ul className={t.does}>
+                {pr.does.map((d) => (
+                  <li key={d.label}>
+                    <strong>{d.label}</strong>
+                    <span>{d.text}</span>
+                  </li>
+                ))}
+              </ul>
+              {pr.cycles?.map((c) => (
+                <div key={c.name} className={t.cycle}>
+                  <p className={`mono ${t.blockLabel}`}>
+                    {c.name}
+                    {c.current ? <span className={t.current}>Current cycle</span> : null}
+                  </p>
+                  <h4 className={t.cycleTitle}>{c.title}</h4>
+                  {c.body.map((b) => (
+                    <p key={b}>{b}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
+      </section>
+
       <section className={`container ${s.section}`} aria-labelledby="archive">
-        <SectionHeader index="01" label="Archive" title="Every session" id="archive" />
+        <SectionHeader index="02" label="Archive" title="Every session" id="archive" />
         <ol className={t.talks}>
           {talks.map((k) => (
             <li key={k.title} className={`${t.talk} ${k.image ? "" : t.talkNoThumb}`} data-reveal>
@@ -95,7 +146,7 @@ export default function Talks() {
       </section>
 
       <section className={`container ${s.section}`} aria-labelledby="passport">
-        <SectionHeader index="02" label="Passport" title="Where I’ve been" id="passport" link={{ href: "/moments", label: "Moments in photos" }} />
+        <SectionHeader index="03" label="Passport" title="Where I’ve been" id="passport" link={{ href: "/moments", label: "Moments in photos" }} />
         <div className={t.stamps}>
           {PASSPORT.map((p, i) => (
             <Stamp key={p.event} {...p} rotate={ROT[i]} index={i} />
