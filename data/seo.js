@@ -16,7 +16,7 @@ export const personJsonLd = {
   name: "Emmanuel Idoko",
   givenName: "Emmanuel",
   familyName: "Idoko",
-  alternateName: ["Pidoxy", "Idoko Emmanuel", "Emmanuel Idoko (Pidoxy)"],
+  alternateName: ["Pidoxy", "Idoko, Emmanuel", "Emmanuel Idoko (Pidoxy)"],
   url: profile.siteUrl,
   image: [
     `${profile.siteUrl}/portrait.jpg`,
