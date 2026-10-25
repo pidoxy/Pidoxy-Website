@@ -65,11 +65,11 @@ I teach AI for Software Engineering at The AI Colony and AI literacy at NITHub, 
 
 ## Talks and teaching
 
-- AI for Software Engineering, The AI Colony · Cohort One (Jul 2026 – present), Instructor
+- AI for Software Engineering, The AI Colony Academy · Genesis Cohort (Jul 2026 – present), Instructor
 - From Senses to Systems, SysConf 2026 (Oct 2026), Speaker
 - Introduction to AI and Prompting, Nithub AI Literacy Day · University of Lagos (Sep 2026), Beginner Track Facilitator
 - M.A.R.K Internship Initiative, CISA UNILAG × NACOS UNILAG (May 2026), Host & Moderator
-- Introduction to AI in Business, AI/ML Track Session (Apr 2026), Track Coach · AI/ML
+- Introduction to AI in Business, Consulting Club of Lagos · AI/ML Track (Apr 2026), Head of the AI/ML Track
 - Attention Is All You Need: Paper Walkthrough, Student Researchers Session (2026), Speaker
 
 ## Contact and profiles
