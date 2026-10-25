@@ -1,6 +1,20 @@
 // Press & media coverage.
 export const press = [
   {
+    outlet: "University of Lagos",
+    title: "Driving Inclusion Through Innovation: UNILAG Hosts Pan-African Assistive Technology Workshop",
+    note: "Names Team Amebo third in the AFRETEC innovation challenge, winning ₦1M.",
+    date: "Apr 2026",
+    href: "https://unilag.edu.ng/driving-inclusion-through-innovation-unilag-hosts-pan-african-assistive-technology-workshop/",
+  },
+  {
+    outlet: "University of Lagos",
+    title: "Team Pharmacode Clinches First Place at the AFRETEC-UNILAG Innovation-in-Health Challenge 2025",
+    note: "Features AidCare among the health-innovation projects presented at the challenge.",
+    date: "Jun 2025",
+    href: "https://unilag.edu.ng/team-pharmacode-clinches-first-place-at-the-afretec-unilag-innovation-in-health-challenge-2025/",
+  },
+  {
     outlet: "MyJoyOnline",
     title: "HackLab Nigeria ends: 12 scalable AI, Big Data & Edge solutions",
     note: "National coverage of the HackLab Nigeria 2022 finale where PheraCam placed 1st runner-up.",
@@ -14,4 +28,9 @@ export const press = [
     date: "2022",
     href: "https://businessday.ng/companies/article/hacklab-foundation-partners-blueafric-media-on-hacklab-hackathon-nigeria-2022/",
   },
+];
+
+// Shorter mentions that aren't full articles.
+export const mentions = [
+  { label: "An independent review of SharpXR", source: "pith.science", href: "https://pith.science/paper/2508.08518" },
 ];

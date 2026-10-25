@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://pidoxy.com/sitemap.xml
+Sitemap: https://www.pidoxy.com/sitemap.xml

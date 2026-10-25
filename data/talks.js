@@ -1,7 +1,25 @@
 // Talks, hosting, and speaking.
 export const talks = [
   {
+    title: "AI for Software Engineering",
+    event: "The AI Colony · Cohort One",
+    role: "Instructor",
+    date: "Jul 2026 – present",
+    description:
+      "Teaching the AI for Software Engineering module to Cohort One, built around a real two-language service codebase (FastAPI and Express).",
+    tags: ["Teaching", "AI for SWE"],
+    links: [
+      {
+        label: "Course starter repo",
+        href: "https://github.com/pidoxy/ai-for-se-starter",
+        external: true,
+        type: "code",
+      },
+    ],
+  },
+  {
     title: "From Senses to Systems",
+    image: "/images/talks/sysconf-2026.jpg",
     event: "SysConf 2026",
     role: "Speaker",
     date: "Oct 2026",
@@ -31,11 +49,12 @@ export const talks = [
   },
   {
     title: "Introduction to AI and Prompting",
+    image: "/images/talks/nithub-2026.jpg",
     event: "Nithub AI Literacy Day · University of Lagos",
     role: "Beginner Track Facilitator",
     date: "Sep 2026",
     description:
-      "A beginner-friendly session for academics, students, professionals, and entrepreneurs on using AI for learning, research support, writing, planning, and everyday work. Covered a six-part prompting structure — role, task, context, constraints, examples, and output format — alongside hallucinations, fabricated references, bias, data privacy, and verifying AI outputs before use.",
+      "A beginner-friendly session for academics, students, professionals, and entrepreneurs on using AI for learning, research support, writing, planning, and everyday work. Covered a six-part prompting structure (role, task, context, constraints, examples, and output format) alongside hallucinations, fabricated references, bias, data privacy, and verifying AI outputs before use.",
     tags: ["AI Literacy", "Prompting", "Responsible AI", "Workshop"],
     links: [
       {
@@ -54,6 +73,7 @@ export const talks = [
   },
   {
     title: "M.A.R.K Internship Initiative",
+    image: "/images/talks/mark-2026.jpg",
     event: "CISA UNILAG × NACOS UNILAG",
     role: "Host & Moderator",
     date: "May 2026",
@@ -75,7 +95,7 @@ export const talks = [
     role: "Track Coach · AI/ML",
     date: "Apr 2026",
     description:
-      "An introductory session for the AI/ML track covering practical applications of AI in business — how organizations can leverage AI tools, frameworks, and workflows to drive value and improve decision-making.",
+      "An introductory session for the AI/ML track covering practical applications of AI in business: how organizations can leverage AI tools, frameworks, and workflows to drive value and improve decision-making.",
     tags: ["AI/ML", "Business", "Workshop"],
     links: [
       {
@@ -87,12 +107,12 @@ export const talks = [
     ],
   },
   {
-    title: "Attention Is All You Need — Paper Walkthrough",
+    title: "Attention Is All You Need: Paper Walkthrough",
     event: "Student Researchers Session",
     role: "Speaker",
     date: "2026",
     description:
-      "A beginner-friendly walkthrough of the landmark Transformer paper for early student researchers — breaking down self-attention, multi-head attention, and positional encoding with intuitive explanations.",
+      "A beginner-friendly walkthrough of the landmark Transformer paper for early student researchers, breaking down self-attention, multi-head attention, and positional encoding with intuitive explanations.",
     tags: ["Deep Learning", "NLP", "Transformers", "Research"],
     links: [
       {

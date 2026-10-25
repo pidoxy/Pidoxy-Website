@@ -1,8 +1,8 @@
-import Link from "next/link";
 import Layout from "../components/Layout";
 import Meta from "../components/Meta";
+import { Button, uiStyles as ui } from "../components/ui";
+import { innerStyles as s } from "../components/inner";
 import { profile } from "../data/profile";
-import styles from "../styles/Page.module.css";
 
 // Leak Desk landing / fallback page.
 //
@@ -18,42 +18,32 @@ export default function Sysconf() {
     <Layout>
       <Meta
         title="Leak Desk"
-        description='Leak Desk — an interactive demo from the SysConf talk on getting language models to know when to say "I don&apos;t know."'
+        description='Leak Desk: an interactive demo from the SysConf talk on getting language models to know when to say "I don&apos;t know."'
         path="/sysconf"
         noindex
       />
-      <div className={`${styles.container} ${styles.notFound}`}>
-        <p className={styles.eyebrow}>SysConf · Interactive demo</p>
-        <h1 className={styles.pageTitle}>
-          Leak <em>Desk</em>
-        </h1>
-        <p className={styles.notFoundText} style={{ maxWidth: "54ch", marginInline: "auto" }}>
-          Three sources, three honest answers — ANSWER, CONFLICT, or NEED MORE. A small demo
-          from my SysConf talk on getting language models to know when to say &ldquo;I don&apos;t
-          know.&rdquo; It calls Claude live, so it runs on Claude.
+      <header className={`container ${s.intro}`} style={{ paddingBottom: 0 }}>
+        <p className="eyebrow">SysConf · Interactive demo</p>
+        <h1 className={ui.displayXL}>Leak Desk</h1>
+        <p className={ui.bodyL}>
+          Three sources, three honest answers: ANSWER, CONFLICT, or NEED MORE. A small demo from my SysConf talk on getting language models to know when to say &ldquo;I don&apos;t know.&rdquo; It calls Claude live, so it runs on Claude.
         </p>
-        <div
-          style={{
-            display: "flex",
-            gap: "12px",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            marginBottom: "var(--s4)",
-          }}
-        >
-          <a className={styles.primaryButton} href={ARTIFACT_URL} target="_blank" rel="noreferrer">
-            Open the live demo ↗
-          </a>
-          <Link className={styles.secondaryButton} href="/talks">
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <Button href={ARTIFACT_URL} icon="arrow-up-right">
+            Open the live demo
+          </Button>
+          <Button href="/talks" variant="secondary">
             See the talk
-          </Link>
+          </Button>
         </div>
-        <p className={styles.notFoundText} style={{ fontSize: "0.9rem", marginInline: "auto" }}>
-          If the demo doesn&apos;t open, it may be offline —{" "}
-          <a href={`mailto:${profile.email}?subject=Leak%20Desk%20demo`}>email me</a> and I&apos;ll
-          resend the link.
+        <p className="mono" style={{ color: "var(--secondary)", margin: 0 }}>
+          If the demo doesn&apos;t open, it may be offline.{" "}
+          <a href={`mailto:${profile.email}?subject=Leak%20Desk%20demo`} style={{ textDecoration: "underline" }}>
+            email me
+          </a>{" "}
+          and I&apos;ll resend the link.
         </p>
-      </div>
+      </header>
     </Layout>
   );
 }

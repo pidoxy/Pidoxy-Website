@@ -11,15 +11,15 @@ export const speakerProfile = {
   designations: [
     { context: "Default", text: "Software Engineer, AI Researcher & Technical Speaker" },
     { context: "Short", text: "AI Engineer & Researcher" },
-    { context: "Research events", text: "AI/ML Researcher — Computer Vision, Multimodal Learning & Medical AI" },
+    { context: "Research events", text: "AI/ML Researcher · Computer Vision, Multimodal Learning & Medical AI" },
     { context: "Engineering conferences", text: "Software Engineer & Applied AI Researcher" },
   ],
   location: "Lagos, Nigeria",
-  timezone: "West Africa Time — UTC+1",
+  timezone: "West Africa Time (UTC+1)",
   languages: "English",
   availability: [
-    "In person — Nigeria; internationally with travel support",
-    "Remote — any timezone",
+    "In person · Nigeria; internationally with travel support",
+    "Remote · any timezone",
   ],
 };
 
@@ -27,18 +27,18 @@ export const speakerProfile = {
 export const heroCopy = {
   proposition: ["Building intelligent systems.", "Studying how they work.", "Sharing what I learn."],
   intro:
-    "I'm Emmanuel Idoko — a software engineer, AI researcher, and technical speaker working across computer vision, multimodal AI, reliable AI, production AI systems, healthcare technology, and software engineering.",
+    "I'm Emmanuel Idoko, a software engineer, AI researcher, and technical speaker working across computer vision, multimodal AI, reliable AI, production AI systems, healthcare technology, and software engineering.",
   line2:
     "I speak about the systems I build, the research questions behind them, the experiments that fail, and the engineering decisions required to move an AI idea from a notebook into something people can actually use.",
 };
 
 // Compact, text-based credibility strip under the hero.
 export const credibility = [
-  { lead: "SharpXR", rest: "Published — MIRASOL Workshop, MICCAI 2025" },
-  { lead: "VAMAE", rest: "Presented — ICPR 2026, Lyon" },
-  { lead: "ACVSS 2026", rest: "Selected 1 of 31 from 312 — full grant, Accra" },
-  { lead: "AidCare", rest: "Founder — clinical decision-support platform" },
-  { lead: "HabariPay (GTCO)", rest: "Software engineer — enterprise events software" },
+  { lead: "SharpXR", rest: "Published · MIRASOL Workshop, MICCAI 2025" },
+  { lead: "VAMAE", rest: "Presented · ICPR 2026, Lyon" },
+  { lead: "ACVSS 2026", rest: "Selected 1 of 31 from 312 · full grant, Accra" },
+  { lead: "AidCare", rest: "Founder · clinical decision-support platform" },
+  { lead: "HabariPay (GTCO)", rest: "Software engineer · enterprise events software" },
 ];
 
 // Affiliations, grouped so a role is never implied where there is only
@@ -47,21 +47,21 @@ export const affiliationGroups = [
   {
     label: "Work",
     items: [
-      "Founder & AI/ML Engineer — AidCare",
-      "Software Engineer — HabariPay (GTCO's fintech subsidiary)",
-      "Head, AI and ML — Consulting Club of Lagos",
+      "Founder & AI/ML Engineer, AidCare",
+      "Software Engineer, HabariPay (GTCO's fintech subsidiary)",
+      "Head of AI and ML, Consulting Club of Lagos",
     ],
   },
   {
     label: "Research & Community",
     items: [
-      "Independent ML Researcher — ML Collective",
-      "Project Lead — Unilag Data Community (trained 250+ students)",
+      "Independent ML Researcher, ML Collective",
+      "Project Lead, Unilag Data Community (trained 250+ students)",
     ],
   },
   {
     label: "Education",
-    items: ["B.Sc. Computer Science — University of Lagos (in progress)"],
+    items: ["B.Sc. Computer Science, University of Lagos (in progress)"],
   },
 ];
 
@@ -254,14 +254,14 @@ export const speakerTalks = [
     title: "When Retrieval Makes AI Worse",
     hook: "How retrieval-augmented systems fail, why semantic similarity is not the same thing as relevance, and what our experiments with medical vision-language models reveal about designing safer RAG systems.",
     abstract:
-      "Retrieval-augmented generation is supposed to ground models in evidence. In medical vision-language models it can do the opposite. This talk walks through ongoing research on retrieval-induced hallucination in chest X-ray reporting: 95% of retrieval-augmented reports copied text verbatim from another patient's report (0% without retrieval), and the cause traced to embedding similarity tracking anatomy rather than disease. Retrieval doubled clinical accuracy when the retrieved case was relevant (CheXbert F1 0.201 → 0.402) and collapsed it to 0.043 when it wasn't. We cover the full pipeline — BioMedCLIP retrieval, LLaVA-1.5-7B generation, CheXbert evaluation — plus the patient-level leakage and coincidental-overlap controls that rule out chance, and what this means for anyone deploying RAG in a high-stakes domain.",
+      "Retrieval-augmented generation is supposed to ground models in evidence. In medical vision-language models it can do the opposite. This talk walks through ongoing research on retrieval-induced hallucination in chest X-ray reporting: 95% of retrieval-augmented reports copied text verbatim from another patient's report (0% without retrieval), and the cause traced to embedding similarity tracking anatomy rather than disease. Retrieval doubled clinical accuracy when the retrieved case was relevant (CheXbert F1 0.201 → 0.402) and collapsed it to 0.043 when it wasn't. We cover the full pipeline (BioMedCLIP retrieval, LLaVA-1.5-7B generation, CheXbert evaluation), plus the patient-level leakage and coincidental-overlap controls that rule out chance, and what this means for anyone deploying RAG in a high-stakes domain.",
     audience: "ML engineers, AI researchers, teams shipping RAG in high-stakes domains",
     level: "Intermediate → Advanced",
     formats: "Conference talk · Research presentation",
     duration: "25–45 min",
     tracks: ["AI", "Research", "Healthcare"],
     takeaways: [
-      "Why similarity search can silently retrieve the wrong evidence — and how to detect it",
+      "Why similarity search can silently retrieve the wrong evidence, and how to detect it",
       "A reproducible evaluation harness for grounding failures in medical VLMs",
       "Concrete gating strategies for when retrieval should be trusted, and when it shouldn't",
     ],
@@ -290,7 +290,7 @@ export const speakerTalks = [
     title: "Beyond the Multi-Agent Demo",
     hook: "What building an agentic intelligence platform over hundreds of healthcare facilities taught us about supervisors, routing, tool boundaries, confidence, and observability.",
     abstract:
-      "Multi-agent systems are easy to demo and hard to make useful. This talk dissects a platform built for the Virtue Foundation that analyzes 797 healthcare facilities across Ghana's 16 regions: a LangGraph supervisor routes natural-language questions to six specialized sub-agents backed by a FAISS vector store, and an intelligent document-processing pipeline (GPT-4o-mini) extracts structured capability data from unstructured facility records with per-field confidence scores. It surfaced 10 medical deserts and 43 data anomalies — and took 2nd place at the Databricks × Hack-Nation Global AI Hackathon. We focus on routing design, when to split agents versus tools, confidence scoring for extraction, and how to keep an agentic pipeline debuggable.",
+      "Multi-agent systems are easy to demo and hard to make useful. This talk dissects a platform built for the Virtue Foundation that analyzes 797 healthcare facilities across Ghana's 16 regions: a LangGraph supervisor routes natural-language questions to six specialized sub-agents backed by a FAISS vector store, and an intelligent document-processing pipeline (GPT-4o-mini) extracts structured capability data from unstructured facility records with per-field confidence scores. It surfaced 10 medical deserts and 43 data anomalies, and took 2nd place at the Databricks × Hack-Nation Global AI Hackathon. We focus on routing design, when to split agents versus tools, confidence scoring for extraction, and how to keep an agentic pipeline debuggable.",
     audience: "Engineers building agent systems, AI platform teams",
     level: "Intermediate",
     formats: "Conference talk",
@@ -308,7 +308,7 @@ export const speakerTalks = [
     title: "Does Better-Looking Imagery Produce Better Models?",
     hook: "A task-aware investigation of super-resolution, hallucinated structure, and downstream flood segmentation.",
     abstract:
-      "Super-resolution looks better. Does it work better? Built in a three-person team at the ACVSS 2026 research hackathon, this project treats enhancement as an intermediate representation whose value must be proven on a downstream task: a three-phase pipeline (conditioned latent-diffusion SR → flood-aware fine-tuning → U-Net segmentation → per-tile risk ranking) on a SpaceNet-8 subset. Controlled experiments against degraded-LR and bicubic baselines showed diffusion SR improved every downstream metric (mean IoU +24%, flood mIoU +11%) — while an earlier SR run hurt segmentation, isolating semantic fidelity versus hallucinated structure as the condition under which enhancement helps. A talk about experimental discipline as much as about models.",
+      "Super-resolution looks better. Does it work better? Built in a three-person team at the ACVSS 2026 research hackathon, this project treats enhancement as an intermediate representation whose value must be proven on a downstream task: a three-phase pipeline (conditioned latent-diffusion SR → flood-aware fine-tuning → U-Net segmentation → per-tile risk ranking) on a SpaceNet-8 subset. Controlled experiments against degraded-LR and bicubic baselines showed diffusion SR improved every downstream metric (mean IoU +24%, flood mIoU +11%), while an earlier SR run hurt segmentation, isolating semantic fidelity versus hallucinated structure as the condition under which enhancement helps. A talk about experimental discipline as much as about models.",
     audience: "Computer-vision researchers, ML engineers, data scientists",
     level: "Intermediate",
     formats: "Conference talk · Research presentation",
@@ -316,7 +316,7 @@ export const speakerTalks = [
     tracks: ["Research", "AI"],
     takeaways: [
       "How to set up controlled comparisons that isolate what actually helps",
-      "When generative enhancement hallucinates structure — and how to catch it",
+      "When generative enhancement hallucinates structure, and how to catch it",
       "A template for “does this preprocessing step earn its place?” experiments",
     ],
     related: { label: "Related research", href: "/research" },
@@ -326,7 +326,7 @@ export const speakerTalks = [
     title: "Preserving What Matters: Structure-Aware Medical Image Enhancement",
     hook: "Lessons from SharpXR on evaluating image enhancement by the downstream clinical task rather than visual quality alone.",
     abstract:
-      "Pediatric chest X-rays are acquired at low dose, so they're noisy — and denoising that blurs fine structure can hurt the downstream diagnosis it was meant to help. SharpXR, published at the MIRASOL Workshop at MICCAI 2025, benchmarks seven denoising baselines (REDCNN, DnCNN, HFormer, ResUNet++, Attention U-Net, Sharp U-Net, BM3D) and shows that structure-preserving denoising raises downstream pneumonia-classification accuracy from 88.8% to 92.5%. This talk covers the evaluation design — judging denoisers by task performance rather than pixel metrics — the architectural choices that preserve edges, and lessons from presenting the work at MIRG-ICAIR 2025 and the African Computer Vision Summer School.",
+      "Pediatric chest X-rays are acquired at low dose, so they're noisy, and denoising that blurs fine structure can hurt the downstream diagnosis it was meant to help. SharpXR, published at the MIRASOL Workshop at MICCAI 2025, benchmarks seven denoising baselines (REDCNN, DnCNN, HFormer, ResUNet++, Attention U-Net, Sharp U-Net, BM3D) and shows that structure-preserving denoising raises downstream pneumonia-classification accuracy from 88.8% to 92.5%. This talk covers the evaluation design (judging denoisers by task performance rather than pixel metrics), the architectural choices that preserve edges, and lessons from presenting the work at MIRG-ICAIR 2025 and the African Computer Vision Summer School.",
     audience: "Medical-imaging researchers, ML engineers, health-tech teams",
     level: "Intermediate → Advanced",
     formats: "Conference talk · Poster · Research presentation",
@@ -342,9 +342,9 @@ export const speakerTalks = [
   {
     category: "Research Education",
     title: "Reading “Attention Is All You Need” Like a Researcher",
-    hook: "An accessible but technically grounded walkthrough of Transformers — and a framework for learning how to read difficult machine-learning papers.",
+    hook: "An accessible but technically grounded walkthrough of Transformers, and a framework for learning how to read difficult machine-learning papers.",
     abstract:
-      "A walkthrough of the paper that started the Transformer era, built for students and early researchers reading their first landmark paper. We break down self-attention, multi-head attention, and positional encoding with intuitive explanations and small worked examples — and, just as importantly, model how to read a dense ML paper: what to skim, what to slow down on, which assumptions to question, and how to check your understanding. Previously delivered to a student researchers session; slides available.",
+      "A walkthrough of the paper that started the Transformer era, built for students and early researchers reading their first landmark paper. We break down self-attention, multi-head attention, and positional encoding with intuitive explanations and small worked examples. Just as importantly, we model how to read a dense ML paper: what to skim, what to slow down on, which assumptions to question, and how to check your understanding. Previously delivered to a student researchers session; slides available.",
     audience: "Students, early researchers, developers new to ML",
     level: "Introductory",
     formats: "Session · Workshop · Guest lecture",
@@ -362,7 +362,7 @@ export const speakerTalks = [
     title: "What 20+ Hackathons Taught Me About Shipping Software",
     hook: "How short deadlines expose engineering priorities: scope, risk, architecture, teamwork, storytelling, and the difference between an idea and a working product.",
     abstract:
-      "Twenty-plus hackathons with wins and podiums on three continents — HackZurich's Hybrid Team Award, GDG Lagos' ₦2M winner-takes-all Amala Hackathon, 1st runner-up among 800+ at HackLab Nigeria, 2nd at the Databricks × Hack-Nation Global AI Hackathon. This talk distills what actually transfers from a 48-hour build to a real product: scoping ruthlessly, choosing the boring stack, demoing the risky part first, and turning judges' questions into a roadmap. Practical, story-driven, and honest about the projects that didn't work.",
+      "Twenty-plus hackathons with wins and podiums on three continents: HackZurich's Hybrid Team Award, GDG Lagos' ₦2M winner-takes-all Amala Hackathon, 1st runner-up among 800+ at HackLab Nigeria, 2nd at the Databricks × Hack-Nation Global AI Hackathon. This talk distills what actually transfers from a 48-hour build to a real product: scoping ruthlessly, choosing the boring stack, demoing the risky part first, and turning judges' questions into a roadmap. Practical, story-driven, and honest about the projects that didn't work.",
     audience: "Developers, students, startup and community audiences",
     level: "All levels",
     formats: "Conference talk · Panel · Community session",
@@ -370,7 +370,7 @@ export const speakerTalks = [
     tracks: ["Software", "Career", "Community"],
     takeaways: [
       "A scoping method that produces a working demo every time",
-      "How to pick problems that judges — and users — care about",
+      "How to pick problems that judges and users care about",
       "The path from a weekend prototype to something people rely on",
     ],
     related: { label: "Hackathon record", href: "/awards" },
@@ -395,7 +395,7 @@ export const audiences = [
 
 export const formats = [
   "Conference talk",
-  "Keynote / featured session — enquiries welcome",
+  "Keynote / featured session · enquiries welcome",
   "Technical workshop",
   "Research presentation",
   "University seminar / guest lecture",
@@ -425,25 +425,25 @@ export const engineeringAreas =
 // Downloadable headshot assets.
 export const headshots = [
   {
-    label: "Studio — square",
+    label: "Studio · square",
     note: "1200 × 1200 · JPG",
     bestFor: "Conference sites, speaker cards, CFP platforms, badges",
     href: "/speaker/emmanuel-idoko-headshot-square.jpg",
   },
   {
-    label: "Studio — portrait",
+    label: "Studio · portrait",
     note: "1066 × 1600 · JPG",
     bestFor: "Posters, programmes, banners, editorial profiles",
     href: "/speaker/emmanuel-idoko-headshot-portrait.jpg",
   },
   {
-    label: "Professional — square",
+    label: "Professional · square",
     note: "1200 × 1200 · JPG",
     bestFor: "Community events, podcasts, meetups, interviews",
     href: "/speaker/emmanuel-idoko-headshot-professional-square.jpg",
   },
   {
-    label: "Professional — portrait",
+    label: "Professional · portrait",
     note: "1500 × 2000 · JPG",
     bestFor: "Less formal promotional materials",
     href: "/speaker/emmanuel-idoko-headshot-professional-portrait.jpg",
@@ -455,10 +455,10 @@ export const headshotUsageNote =
 
 // Every URL an organizer or CFP form might ask for.
 export const speakerLinks = [
-  { label: "Website", href: "https://pidoxy.com" },
-  { label: "Speaker kit", href: "https://pidoxy.com/speaking" },
-  { label: "Research & publications", href: "https://pidoxy.com/research" },
-  { label: "Talks & recordings", href: "https://pidoxy.com/talks" },
+  { label: "Website", href: "https://www.pidoxy.com" },
+  { label: "Speaker kit", href: "https://www.pidoxy.com/speaking" },
+  { label: "Research & publications", href: "https://www.pidoxy.com/research" },
+  { label: "Talks & recordings", href: "https://www.pidoxy.com/talks" },
   { label: "Google Scholar", href: "https://scholar.google.com/citations?hl=en&user=hHEK0h0AAAAJ" },
   { label: "GitHub", href: "https://github.com/pidoxy" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/emmanuelidoko/" },

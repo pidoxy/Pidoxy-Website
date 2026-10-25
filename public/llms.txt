@@ -1,0 +1,84 @@
+# Emmanuel Idoko (Pidoxy)
+
+> I'm Emmanuel Idoko: software engineer, AI researcher and founder. I publish research in medical imaging and reliable AI, build production software at HabariPay (GTCO), founded AidCare, and teach what I learn along the way. Based in Lagos, Nigeria. Online handle: Pidoxy (@pidoxy on GitHub, YouTube and Devpost; @pidoxy_ on X).
+
+I'm Emmanuel Idoko. I build software for a living, research AI because I want to know why it fails, and teach because explaining something is the best test of understanding it.
+
+I'm a software engineer at HabariPay, GTCO's fintech subsidiary. I founded AidCare, a clinical decision-support platform for frontline care in Nigeria, and I lead AI and ML at the Consulting Club of Lagos.
+
+My research, with ML Collective and collaborators, covers medical imaging, computer vision and reliable AI: SharpXR (MIRASOL Workshop, MICCAI 2025), VAMAE (ICPR 2026) and When Retrieval Hurts (Africa at NeurIPS 2026), which I led as first author.
+
+I teach AI for Software Engineering at The AI Colony and AI literacy at NITHub, and help run communities at GDSC UNILAG and Data Community UNILAG. I've built at 23 hackathons, and mentored a student team through building AccessLearn, which placed second at AFRETEC. I'm completing a B.Sc. in Computer Science at the University of Lagos.
+
+## Key pages
+
+- [Home](https://www.pidoxy.com/): overview, current work and recognition
+- [About](https://www.pidoxy.com/about): experience, leadership, honours and press
+- [Research](https://www.pidoxy.com/research): publications in medical imaging, computer vision and reliable AI
+- [Engineering](https://www.pidoxy.com/engineering): products, production systems and hackathon builds
+- [Talks](https://www.pidoxy.com/talks): talks, workshops and teaching
+- [Speaker kit](https://www.pidoxy.com/speaking): bios, headshots and talk abstracts for organisers
+- [CV](https://www.pidoxy.com/cv): full curriculum vitae with research and engineering résumés
+
+## Publications
+
+- [When Retrieval Hurts: Measuring and Explaining Retrieval-Induced Hallucination in Chest X-ray Report Generation](https://www.pidoxy.com/research/when-retrieval-hurts): Africa at NeurIPS 2026, 2026. Accepted. When does retrieval make a radiology report worse? We measure it, and trace the cause.
+- [VAMAE: Vessel-Aware Masked Autoencoders for OCT Angiography](https://www.pidoxy.com/research/vamae): 28th International Conference on Pattern Recognition (ICPR 2026), 2026. Presented. Teaching masked autoencoders where the vessels are: vesselness and skeleton priors guide pre-training for OCT angiography.
+- [SharpXR: Structure-Aware Denoising for Pediatric Chest X-Rays](https://www.pidoxy.com/research/sharpxr): MIRASOL Workshop, MICCAI 2025, pp. 83–92, 2025. Published. Structure-preserving denoising that lifts downstream pneumonia classification from 88.8% to 92.5%.
+
+## Current roles
+
+- Instructor, AI for Software Engineering, The AI Colony (Jul 2026 – Present)
+- Head, AI and ML, Consulting Club of Lagos (Mar 2026 – Present)
+- Founder & AI/ML Engineer, AidCare (May 2025 – Present)
+- Software Engineer, HabariPay – GTCO (Sep 2024 – Present)
+- Independent ML Researcher, ML Collective (Sep 2024 – Present)
+- Software Engineer & AI Researcher, NitHub (UNILAG Innovation Hub) (Feb 2023 – Present)
+
+## Selected work
+
+- [AidCare](https://www.pidoxy.com/engineering/aidcare): Know how urgent it is, and where to go. A clinical AI platform for Nigerian frontline care: safer triage, clearer referrals and clinician review for community health workers, with public triage and training for everyone else.
+- Virtue Foundation Intelligence Platform (MIT Hack-Nation × Databricks · 2nd Place): End-to-end agentic AI platform analyzing 797 Ghana healthcare facilities across 16 regions. A LangGraph supervisor routes queries to 6 specialized sub-agents backed by a FAISS vector store, identifying 10 medical deserts and 43 data anomalies.
+- Amala Atlas (Amala Hackathon Winner · ₦2M): Winner of GDG Lagos' Amala Hackathon (₦2,000,000, winner-takes-all) as Team PRL lead. A crowdsourced global map for discovering authentic Amala spots, with an autonomous agent that scans food blogs daily. It has user reviews with Google auth, Google Maps integration, and an admin moderation panel. Open-sourced for the community.
+- Amebo (AFRETEC Assistive Technology Workshop · 3rd Place · ₦1M): A crowdsourced accessibility layer over the Lagos map for pedestrians with disabilities. Users report accessible infrastructure (ramps, wheelchair-friendly bus stops) and live hazards (open gutters, broken pavement); the app answers with voice guidance for visually impaired users and text alerts for deaf and hard-of-hearing users.
+- AccessLearn (AFRETEC Inclusion Challenge · 2nd Place · Mentor & builder): An accessible learning platform built with a student team I mentored: text-to-speech in English, major Nigerian languages and Pidgin, AI translation, a fingerspelling tool, accessibility profiles and an AI tutor for document-based questions.
+- PheraCAM (Hackathon 2nd Place): Real-time facial-recognition camera that distinguishes registered faces from unregistered ones on the edge, for bank branches, schools, homes, and even car anti-theft. Built with OpenCV and Azure, >95% accuracy at <150ms. 1st runner-up among 800+ participants from all 36 states at HackLab Nigeria 2022.
+
+## Honours
+
+- African Computer Vision Summer School (ACVSS) 2026: Full-Grant Recipient (2026)
+- Nigerian Higher Education Foundation (NHEF) Scholar: Scholar (2026)
+- MIT Hack-Nation × Databricks Challenge: 2nd Place (2026)
+- Pan-African Assistive Technology Workshop (AFRETEC): 3rd Place · ₦1,000,000 (2026)
+- AFRETEC UNILAG Inclusion Team Innovation Challenge: Mentor & builder · AccessLearn, 2nd Place (2026)
+- GDG Lagos Amala Agentic Hackathon: Winner · ₦2,000,000 (2025)
+- Jim Ovia Foundation Scholar: Scholar (2025–2027)
+- GTCO Squad Hackademy Undergraduate Scholar: Scholar (2024–2027)
+- Take On Squad Hackathon: 5th Place (2024)
+- Wolfstation Data Structures and Algorithms Program: Top 3 Student (2024)
+- AWS AI & ML Scholar: Scholar (2023–2024)
+- GitHub Campus Expert DevSprint, UNILAG: Top Ten (2023)
+- HackLab Edge AI Nigeria Hackathon: First Runner-Up · ₦300,000 grant (2022)
+- HackZurich 2021: Hybrid Team Award (2021)
+- HackOR Hackathon: Finalist (2021)
+- HNG i8 Internship: Finalist (2021)
+
+## Talks and teaching
+
+- AI for Software Engineering, The AI Colony · Cohort One (Jul 2026 – present), Instructor
+- From Senses to Systems, SysConf 2026 (Oct 2026), Speaker
+- Introduction to AI and Prompting, Nithub AI Literacy Day · University of Lagos (Sep 2026), Beginner Track Facilitator
+- M.A.R.K Internship Initiative, CISA UNILAG × NACOS UNILAG (May 2026), Host & Moderator
+- Introduction to AI in Business, AI/ML Track Session (Apr 2026), Track Coach · AI/ML
+- Attention Is All You Need: Paper Walkthrough, Student Researchers Session (2026), Speaker
+
+## Contact and profiles
+
+- Email: eemmanuel.idoko@gmail.com
+- Google Scholar: https://scholar.google.com/citations?hl=en&user=hHEK0h0AAAAJ
+- GitHub: https://github.com/pidoxy
+- LinkedIn: https://www.linkedin.com/in/emmanuelidoko/
+- X (Twitter): https://x.com/pidoxy_
+- Devpost: https://devpost.com/pidoxy
+- Hugging Face: https://huggingface.co/Pidoxy
+- YouTube: https://www.youtube.com/@pidoxy

@@ -43,7 +43,12 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
-    if (!ARTIFACT_AVAILABLE) return [];
+    // Press and awards now live on About (redesign, 2026-10).
+    const retired = [
+      { source: "/press", destination: "/about#press", permanent: true },
+      { source: "/awards", destination: "/about#honours", permanent: true },
+    ];
+    if (!ARTIFACT_AVAILABLE) return retired;
     return [
       {
         source: "/:path*",
@@ -51,6 +56,7 @@ const nextConfig: NextConfig = {
         destination: LEAK_DESK_ARTIFACT,
         permanent: false,
       },
+      ...retired,
     ];
   },
   async rewrites() {

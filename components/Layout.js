@@ -1,25 +1,149 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Icon from "./Icon";
+import { Button } from "./ui";
+import useCopy from "../lib/useCopy";
 import { profile } from "../data/profile";
+import { eventForClick, track } from "../lib/track";
 import styles from "../styles/Layout.module.css";
 
 const NAV = [
-  { label: "About", href: "/about" },
   { label: "Research", href: "/research" },
   { label: "Engineering", href: "/engineering" },
   { label: "Talks", href: "/talks" },
-  { label: "Press", href: "/press" },
-  { label: "Awards", href: "/awards" },
+  { label: "About", href: "/about" },
+];
+
+const MENU_EXTRA = [
+  { label: "Speaker kit", href: "/speaking" },
+  { label: "CV", href: "/cv" },
   { label: "Moments", href: "/moments" },
 ];
+
+const ELSEWHERE = [
+  { label: "Google Scholar", href: profile.scholar },
+  { label: "GitHub", href: profile.github },
+  { label: "LinkedIn", href: profile.linkedin },
+  { label: "X", href: profile.twitter },
+  { label: "YouTube", href: profile.youtube },
+  { label: "Devpost", href: profile.devpost },
+  { label: "Hugging Face", href: profile.huggingface },
+];
+
+const SITE = [
+  { label: "Research", href: "/research" },
+  { label: "Engineering", href: "/engineering" },
+  { label: "Talks", href: "/talks" },
+  { label: "About", href: "/about" },
+  { label: "Speaker kit", href: "/speaking" },
+  { label: "CV", href: "/cv" },
+  { label: "Moments", href: "/moments" },
+];
+
+// Lagos local time, ticking each minute. Rendered client-side only so the
+// server and client HTML never disagree; the slot keeps its width meanwhile.
+const timeFmt = typeof Intl !== "undefined" ? new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Lagos", hour: "2-digit", minute: "2-digit" }) : null;
+
+function LagosClock({ className }) {
+  const [time, setTime] = useState(null);
+  useEffect(() => {
+    const update = () => setTime(timeFmt.format(new Date()));
+    update();
+    const id = setInterval(update, 20000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <span className={className}>
+      Lagos <time suppressHydrationWarning>{time ?? "--:--"}</time>
+    </span>
+  );
+}
+
+// The theme lives on <html data-theme>, set before paint by _document.js.
+// CSS picks which icon shows, so the button needs no React state and never
+// renders the wrong icon during hydration.
+function ThemeToggle() {
+  const toggle = () => {
+    const root = document.documentElement;
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem("theme", next);
+    } catch {
+      /* private mode: the choice just won't persist */
+    }
+  };
+  return (
+    <button type="button" className={`${styles.iconButton} ${styles.themeToggle}`} onClick={toggle} data-track="theme_toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <Icon kind="moon" className={`${styles.icon} ${styles.moon}`} />
+      <Icon kind="sun" className={`${styles.icon} ${styles.sun}`} />
+    </button>
+  );
+}
+
+function CopyEmail() {
+  const [state, copy] = useCopy(profile.email);
+  return (
+    <Button onClick={copy} data-track="copy_email" variant="secondary" icon={state === "copied" ? "check" : "copy"} aria-live="polite">
+      {state === "copied" ? "Copied" : state === "failed" ? "Select & copy" : "Copy email"}
+    </Button>
+  );
+}
+
+// Adds .is-in to [data-reveal] elements the first time they enter the
+// viewport. One shared observer per page; re-scans after client navigation
+// and picks up elements mounted later (filters, toggles).
+function useReveal(key) {
+  useEffect(() => {
+    const scan = () => document.querySelectorAll("[data-reveal]:not(.is-in)");
+    if (!("IntersectionObserver" in window)) {
+      scan().forEach((el) => el.classList.add("is-in"));
+      return undefined;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-in");
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+    );
+    scan().forEach((el) => io.observe(el));
+    const mo = new MutationObserver(() => scan().forEach((el) => io.observe(el)));
+    const main = document.getElementById("main");
+    if (main) mo.observe(main, { childList: true, subtree: true });
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
+  }, [key]);
+}
 
 export default function Layout({ children }) {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef(null);
+  const burgerRef = useRef(null);
 
-  // Close the mobile menu on navigation and lock scroll while it's open.
+  useReveal(router.asPath);
+
+  // One delegated listener sends every meaningful click to analytics:
+  // downloads, email, outbound links, and anything tagged data-track.
+  useEffect(() => {
+    const onClick = (e) => {
+      if (!(e.target instanceof Element)) return;
+      const ev = eventForClick(e.target);
+      if (ev) track(ev.name, { ...ev.props, page: window.location.pathname });
+    };
+    document.addEventListener("click", onClick, { capture: true });
+    return () => document.removeEventListener("click", onClick, { capture: true });
+  }, []);
+
   useEffect(() => {
     const close = () => setMenuOpen(false);
     router.events.on("routeChangeStart", close);
@@ -27,13 +151,33 @@ export default function Layout({ children }) {
   }, [router.events]);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Lock scroll, close on Escape, and move focus into the menu while open.
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const burger = burgerRef.current;
+    document.body.style.overflow = "hidden";
+    menuRef.current?.querySelector("a")?.focus();
+    const onKey = (e) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+      burger?.focus();
     };
   }, [menuOpen]);
 
-  const isActive = (href) => router.pathname === href;
+  const isActive = useCallback(
+    (href) => (href === "/" ? router.pathname === "/" : router.pathname === href || router.pathname.startsWith(`${href}/`)),
+    [router.pathname]
+  );
 
   return (
     <div className={styles.shell}>
@@ -41,9 +185,9 @@ export default function Layout({ children }) {
         Skip to content
       </a>
 
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href="/" className={styles.wordmark}>
+      <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ""}`}>
+        <div className={`container ${styles.headerInner}`}>
+          <Link href="/" className={styles.wordmark} aria-label="Emmanuel Idoko, home">
             Emmanuel Idoko
           </Link>
 
@@ -60,92 +204,108 @@ export default function Layout({ children }) {
             ))}
           </nav>
 
-          <div className={styles.headerActions}>
-            <a href={`mailto:${profile.email}`} className={styles.contactPill}>
-              Contact
+          <div className={styles.actions}>
+            <LagosClock className={`mono ${styles.clock}`} />
+            <ThemeToggle />
+            <a href="#contact" className={styles.talk} data-track="cta_lets_talk">
+              Let&rsquo;s talk
             </a>
             <button
+              ref={burgerRef}
               type="button"
-              className={styles.burger}
+              className={`${styles.iconButton} ${styles.burger}`}
               onClick={() => setMenuOpen((v) => !v)}
               aria-expanded={menuOpen}
+              aria-controls="site-menu"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
-              <Icon kind={menuOpen ? "close" : "menu"} className={styles.burgerIcon} />
+              <Icon kind={menuOpen ? "close" : "menu"} className={styles.icon} />
             </button>
           </div>
         </div>
       </header>
 
-      {menuOpen && (
-        <div className={styles.mobileMenu}>
-          <nav className={styles.mobileNav} aria-label="Mobile">
-            {NAV.map((item, i) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`${styles.mobileLink} ${isActive(item.href) ? styles.mobileLinkActive : ""}`}
-                style={{ transitionDelay: `${40 + i * 25}ms` }}
-              >
+      <div id="site-menu" ref={menuRef} className={`${styles.menu} ${menuOpen ? styles.menuOpen : ""}`} hidden={!menuOpen}>
+        <nav aria-label="Site menu" className={styles.menuNav}>
+          <ol className={styles.menuList}>
+            {[{ label: "Home", href: "/" }, ...NAV].map((item, i) => (
+              <li key={item.href} style={{ "--i": i }}>
+                <Link href={item.href} className={styles.menuLink} aria-current={isActive(item.href) ? "page" : undefined}>
+                  <span className={`mono ${styles.menuNum}`}>{String(i + 1).padStart(2, "0")}</span>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ol>
+          <div className={styles.menuExtra}>
+            {MENU_EXTRA.map((item) => (
+              <Link key={item.href} href={item.href}>
                 {item.label}
               </Link>
             ))}
-            <a href={`mailto:${profile.email}`} className={styles.mobileContact}>
-              Contact
-            </a>
-          </nav>
+          </div>
+        </nav>
+        <div className={styles.menuFoot}>
+          <Button href={`mailto:${profile.email}`} icon={null} className={styles.menuEmail}>
+            {profile.email}
+          </Button>
+          <LagosClock className="mono" />
         </div>
-      )}
+      </div>
 
       <main id="main" className={styles.main}>
         {children}
       </main>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerInner}>
-          <p className={styles.footerLine}>
-            Software engineer, AI/ML engineer, and researcher — clinical AI, medical imaging, computer vision, RAG, and agentic systems.
-          </p>
-          <nav className={styles.footerNav} aria-label="Footer">
-            {NAV.map((item) => (
-              <Link key={item.href} href={item.href} className={styles.footerLink}>
-                {item.label}
-              </Link>
-            ))}
-            <Link href="/speaking" className={styles.footerLink}>
-              Speaker Kit
-            </Link>
-            <Link href="/cv" className={styles.footerLink}>
-              CV
-            </Link>
-          </nav>
-          <div className={styles.footerSocials}>
-            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-              <Icon kind="github" className={styles.socialIcon} />
-            </a>
-            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <Icon kind="linkedin" className={styles.socialIcon} />
-            </a>
-            <a href={profile.scholar} target="_blank" rel="noreferrer" aria-label="Google Scholar">
-              <Icon kind="document" className={styles.socialIcon} />
-            </a>
-            <a href={profile.twitter} target="_blank" rel="noreferrer" aria-label="X (Twitter)">
-              <Icon kind="twitter" className={styles.socialIcon} />
-            </a>
-            <a href={profile.devpost} target="_blank" rel="noreferrer" aria-label="Devpost">
-              <Icon kind="external" className={styles.socialIcon} />
-            </a>
-            <a href={profile.huggingface} target="_blank" rel="noreferrer" aria-label="Hugging Face">
-              <Icon kind="brain" className={styles.socialIcon} />
-            </a>
-            <a href={profile.youtube} target="_blank" rel="noreferrer" aria-label="YouTube">
-              <Icon kind="youtube" className={styles.socialIcon} />
-            </a>
-            <a href={`mailto:${profile.email}`} aria-label="Email">
-              <Icon kind="mail" className={styles.socialIcon} />
-            </a>
+      <footer id="contact" className={`theme-dark ${styles.footer}`}>
+        <div className={styles.glow} aria-hidden="true" />
+        <div className={`container ${styles.footerInner}`}>
+          <div className={styles.cta}>
+            <p className="eyebrow">Let&rsquo;s talk</p>
+            <h2 className={styles.ctaTitle}>Have a question worth working on?</h2>
+            <p className={styles.ctaBody}>
+              Research collaborations, engineering roles, speaking invitations and ambitious projects. Email is the fastest way to reach me.
+            </p>
+            <div className={styles.ctaActions}>
+              <Button href={`mailto:${profile.email}`} icon={null}>
+                {profile.email}
+              </Button>
+              <CopyEmail />
+            </div>
           </div>
-          <p className={styles.copyright}>© 2026 Emmanuel Idoko. All rights reserved.</p>
+
+          <div className={styles.columns}>
+            <div>
+              <p className={`mono ${styles.colTitle}`}>Contact</p>
+              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              <Link href="/speaking">Speaking enquiries</Link>
+            </div>
+            <div>
+              <p className={`mono ${styles.colTitle}`}>Elsewhere</p>
+              {ELSEWHERE.map((l) => (
+                <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.label}
+                </a>
+              ))}
+            </div>
+            <div>
+              <p className={`mono ${styles.colTitle}`}>Site</p>
+              {SITE.map((l) => (
+                <Link key={l.href} href={l.href}>
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+            <div className={styles.meta}>
+              <LagosClock className="mono" />
+              <span>© 2026 Emmanuel Idoko · Pidoxy</span>
+              <a href="#main">Back to top ↑</a>
+            </div>
+          </div>
+
+          <p className={styles.wordmarkBig} aria-hidden="true" data-reveal>
+            IDOKO
+          </p>
         </div>
       </footer>
     </div>

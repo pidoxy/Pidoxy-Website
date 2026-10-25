@@ -17,7 +17,7 @@ export const profile = {
   youtube: "https://www.youtube.com/@pidoxy",
   huggingface: "https://huggingface.co/Pidoxy",
   scholar: "https://scholar.google.com/citations?hl=en&user=hHEK0h0AAAAJ",
-  siteUrl: "https://pidoxy.com",
+  siteUrl: "https://www.pidoxy.com",
   seoKeywords: [
     "Emmanuel Idoko",
     "Pidoxy",
@@ -36,35 +36,52 @@ export const profile = {
 };
 
 // Credibility anchors for the home proof strip.
+// Home hero. The headline is the one-line positioning from design/copy-deck.md.
+export const hero = {
+  now: { text: "When Retrieval Hurts accepted at Africa at NeurIPS 2026", href: "/research/when-retrieval-hurts" },
+  headline: "I study how intelligent systems work, and build the ones people depend on.",
+  intro:
+    "I'm Emmanuel Idoko: software engineer, AI researcher and founder. I publish research in medical imaging and reliable AI, build production software at HabariPay (GTCO), founded AidCare, and teach what I learn along the way.",
+};
+
+// Credibility anchors for the home proof strip (scrolls as a marquee).
 export const proofStrip = [
-  { lead: "MICCAI & ICPR", rest: "Published and accepted research in medical imaging" },
-  { lead: "ACVSS 2026", rest: "African Computer Vision Summer School — 1 of 31 from 312, full grant" },
-  { lead: "AidCare", rest: "Founder — live clinical decision-support AI" },
-  { lead: "HabariPay (GTCO)", rest: "Software engineer, enterprise events software" },
-  { lead: "NHEF Scholar", rest: "Nigerian Higher Education Foundation — 2026" },
+  "MIRASOL @ MICCAI 2025",
+  "ICPR 2026",
+  "Africa @ NeurIPS 2026",
+  "ACVSS 2026",
+  "HabariPay (GTCO)",
+  "MIT Hack-Nation",
+  "GDG Lagos winner",
+  "AFRETEC",
+  "NHEF Scholar",
+  "ML Collective",
 ];
 
-// The "currently" line on the home page.
-export const currently = [
-  "Founder, AidCare",
-  "Engineer, HabariPay",
-  "Researcher, ML Collective",
-  "B.Sc. CS, University of Lagos (2021–2027)",
+// "Where I'm spending my time" on the home page.
+export const spendingTime = [
+  { org: "AidCare", role: "Founder & AI/ML Engineer", href: "/engineering/aidcare" },
+  { org: "HabariPay (GTCO)", role: "Software Engineer", href: "/about#experience" },
+  { org: "The AI Colony", role: "Instructor, AI for Software Engineering", href: "/talks" },
+  { org: "ML Collective", role: "Independent ML Researcher", href: "/research" },
+  { org: "Consulting Club of Lagos", role: "Head, AI and ML", href: "/about#experience" },
+  { org: "University of Lagos", role: "B.Sc. Computer Science", href: "/about" },
 ];
 
-// First-person prose for the About page.
+// First-person prose for the About page (approved copy, design/copy-deck.md).
+export const aboutHeadline = "A builder, with questions.";
 export const aboutProse = [
-  "I'm Emmanuel Idoko, a software engineer, AI/ML engineer, and researcher based in Lagos, Nigeria. I build practical software and AI systems while pursuing research that connects experimentation with deployment.",
-  "My research interests include clinical AI, medical imaging, computer vision, self-supervised learning, retrieval-augmented generation, and agentic systems. I co-authored SharpXR, published at the MIRASOL Workshop at MICCAI 2025, and VAMAE, accepted at ICPR 2026.",
-  "Alongside research, I work across product engineering, cloud systems, and community-led technical programmes. I am completing a B.Sc. in Computer Science at the University of Lagos (2021–2027).",
+  "I'm Emmanuel Idoko. I build software for a living, research AI because I want to know why it fails, and teach because explaining something is the best test of understanding it.",
+  "I'm a software engineer at HabariPay, GTCO's fintech subsidiary. I founded AidCare, a clinical decision-support platform for frontline care in Nigeria, and I lead AI and ML at the Consulting Club of Lagos.",
+  "My research, with ML Collective and collaborators, covers medical imaging, computer vision and reliable AI: SharpXR (MIRASOL Workshop, MICCAI 2025), VAMAE (ICPR 2026) and When Retrieval Hurts (Africa at NeurIPS 2026), which I led as first author.",
+  "I teach AI for Software Engineering at The AI Colony and AI literacy at NITHub, and help run communities at GDSC UNILAG and Data Community UNILAG. I've built at 23 hackathons, and mentored a student team through building AccessLearn, which placed second at AFRETEC. I'm completing a B.Sc. in Computer Science at the University of Lagos.",
 ];
 
-// Facts sidebar on the About page.
 export const aboutFacts = {
   education: [
-    "B.Sc. Computer Science — University of Lagos (2021–2027)",
-    "AWS AI & ML Scholar — Amazon Web Services",
-    "AI Programming with Python Nanodegree — Udacity",
+    "B.Sc. Computer Science, University of Lagos (2021–2027)",
+    "AWS AI & ML Scholar, Amazon Web Services",
+    "AI Programming with Python Nanodegree, Udacity",
   ],
   location: "Lagos, Nigeria",
   researchInterests: [
