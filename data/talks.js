@@ -2,12 +2,12 @@
 export const talks = [
   {
     title: "AI for Software Engineering",
-    event: "The AI Colony · Cohort One",
+    event: "The AI Colony Academy · Genesis Cohort",
     image: "https://res.cloudinary.com/pidoxy/image/upload/v1792895696/site/talks/ai-for-swe.png",
     role: "Instructor",
     date: "Jul 2026 – present",
     description:
-      "Teaching the AI for Software Engineering module to Cohort One, built around a real two-language service codebase (FastAPI and Express).",
+      "An 8-week programme for developers who want AI built into how they ship software, with two live sessions a week. The curriculum runs from foundations and prompting to in-editor assistance, the agentic shift, context engineering, spec-driven development, shipping responsibly, and a capstone where every student ships a working AI-powered project. Each module is taught on a codebase I built for the course: an orders and payments service in FastAPI and Express that share one API contract, with a checkpoint for every live demo.",
     tags: ["Teaching", "AI for SWE"],
     links: [
       {
@@ -91,8 +91,8 @@ export const talks = [
   },
   {
     title: "Introduction to AI in Business",
-    event: "AI/ML Track Session",
-    role: "Track Coach · AI/ML",
+    event: "Consulting Club of Lagos · AI/ML Track",
+    role: "Head of the AI/ML Track",
     date: "Apr 2026",
     description:
       "An introductory session for the AI/ML track covering practical applications of AI in business: how organizations can leverage AI tools, frameworks, and workflows to drive value and improve decision-making.",
