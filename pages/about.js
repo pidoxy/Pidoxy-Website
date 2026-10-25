@@ -82,7 +82,7 @@ export default function About() {
 
       <section id="experience" className={`container ${s.section}`} aria-labelledby="exp-title">
         <SectionHeader index="01" label="Experience" title="Where I work" id="exp-title" link={{ href: "/cv", label: "Full CV" }} />
-        <Timeline items={experience.map((x) => ({ when: x.period, title: x.role, sub: x.org, detail: x.detail }))} />
+        <Timeline items={experience.map((x) => ({ when: x.period, title: x.role, sub: x.org, detail: x.detail, links: x.links }))} />
         <div className={a.leadership}>
           <p className="mono" style={{ color: "var(--secondary)", margin: 0 }}>
             Leadership & community

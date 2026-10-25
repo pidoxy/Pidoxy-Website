@@ -28,8 +28,8 @@ I teach AI for Software Engineering at The AI Colony and AI literacy at NITHub, 
 
 ## Current roles
 
-- Instructor, AI for Software Engineering, The AI Colony (Jul 2026 – Present)
-- Head, AI and ML, Consulting Club of Lagos (Mar 2026 – Present)
+- Instructor, AI for Software Engineering, The AI Colony Academy (Jul 2026 – Present)
+- Head of the AI/ML Track, Consulting Club of Lagos (Mar 2026 – Present)
 - Founder & AI/ML Engineer, AidCare (May 2025 – Present)
 - Software Engineer, HabariPay – GTCO (Sep 2024 – Present)
 - Independent ML Researcher, ML Collective (Sep 2024 – Present)
@@ -66,6 +66,7 @@ I teach AI for Software Engineering at The AI Colony and AI literacy at NITHub, 
 ## Talks and teaching
 
 - AI for Software Engineering, The AI Colony Academy · Genesis Cohort (Jul 2026 – present), Instructor
+- AI & ML Track: Fall 2026, Consulting Club of Lagos (Oct 2026 – Jan 2027), Track Lead · Instructor
 - From Senses to Systems, SysConf 2026 (Oct 2026), Speaker
 - Introduction to AI and Prompting, Nithub AI Literacy Day · University of Lagos (Sep 2026), Beginner Track Facilitator
 - M.A.R.K Internship Initiative, CISA UNILAG × NACOS UNILAG (May 2026), Host & Moderator
