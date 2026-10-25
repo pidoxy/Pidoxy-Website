@@ -41,11 +41,13 @@ export const moments = [
   },
   {
     slug: "ai-tools-secondary-school-girls",
-    title: "Introducing AI Tools to Secondary School Girls",
-    date: "Community outreach",
-    role: "AI tools facilitator",
+    title: "Digital Generation: Design Thinking and AI for Secondary School Girls",
+    date: "Aug 2025",
+    role: "Facilitator · OWSD UNILAG Branch",
     writeup: [
-      "I led an introductory session for secondary school girls on using AI tools.",
+      "I spoke to a group of girls aged 13 to 16 at an outreach organised by Dr. Omolola Ogbolumani under the Organization for Women in Science for the Developing World (OWSD), part of its International Day of the Girl Child 2025 programme, themed \"Digital Generation: Our Generation.\"",
+      "My session covered design thinking and what artificial intelligence makes possible, with one aim: for them to see themselves as future innovators. To make the process stick, I designed a comic booklet with ChatGPT's Sora and Google's Whisk that turns the design-thinking process into a story they could follow page by page.",
+      "The girls then built their own projects in MIT App Inventor, guided by a handbook that takes them from design thinking to a working app and a judged competition. I worked alongside a team of student tutors to support them through it.",
     ],
     links: [
       {
