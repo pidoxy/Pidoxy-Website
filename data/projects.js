@@ -10,6 +10,7 @@ export const projectGroups = [
 export const projects = [
   {
     title: "Task-Aware Super-Resolution for Flood Mapping",
+    image: "https://res.cloudinary.com/pidoxy/image/upload/v1792895689/site/work/flood-mapping.jpg",
     group: "agentic",
     status: "ACVSS 2026 Research Hackathon",
     summary:
@@ -227,6 +228,7 @@ export const projects = [
   {
     title: "AccessLearn",
     slug: "accesslearn",
+    image: "https://res.cloudinary.com/pidoxy/image/upload/v1792895686/site/work/accesslearn.jpg",
     group: "products",
     status: "AFRETEC Inclusion Challenge · 2nd Place · Mentor & builder",
     summary:

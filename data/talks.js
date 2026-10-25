@@ -3,6 +3,7 @@ export const talks = [
   {
     title: "AI for Software Engineering",
     event: "The AI Colony · Cohort One",
+    image: "https://res.cloudinary.com/pidoxy/image/upload/v1792895696/site/talks/ai-for-swe.png",
     role: "Instructor",
     date: "Jul 2026 – present",
     description:
@@ -107,6 +108,7 @@ export const talks = [
   },
   {
     title: "Attention Is All You Need: Paper Walkthrough",
+    image: "https://res.cloudinary.com/pidoxy/image/upload/v1792895692/site/talks/attention-walkthrough.jpg",
     event: "Student Researchers Session",
     role: "Speaker",
     date: "2026",
