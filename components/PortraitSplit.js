@@ -16,11 +16,8 @@ export default function PortraitSplit({ src, alt, caption, priority = true }) {
 
   // Drift the seam open on load so it's obvious it moves.
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setSeam(43);
-      return undefined;
-    }
-    const t = setTimeout(() => setSeam(43), 350);
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const t = setTimeout(() => setSeam(43), reduced ? 0 : 350);
     return () => clearTimeout(t);
   }, []);
 

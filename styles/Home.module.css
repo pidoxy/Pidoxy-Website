@@ -9,10 +9,12 @@
   padding-bottom: clamp(56px, 7vw, 96px);
 }
 .heroText {
+  grid-template-columns: minmax(0, 1fr);
   display: grid;
   gap: 28px;
   justify-items: start;
   max-width: 800px;
+  min-width: 0;
 }
 .heroActions {
   display: flex;
@@ -41,7 +43,7 @@
 
 @media (max-width: 900px) {
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .heroFigure {
     max-width: 440px;

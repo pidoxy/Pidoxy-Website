@@ -59,23 +59,24 @@ function LagosClock({ className }) {
   );
 }
 
+// The theme lives on <html data-theme>, set before paint by _document.js.
+// CSS picks which icon shows, so the button needs no React state and never
+// renders the wrong icon during hydration.
 function ThemeToggle() {
-  const [theme, setTheme] = useState(null);
-  useEffect(() => setTheme(document.documentElement.dataset.theme || "light"), []);
   const toggle = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
+    const root = document.documentElement;
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
     try {
       localStorage.setItem("theme", next);
     } catch {
       /* private mode: the choice just won't persist */
     }
-    setTheme(next);
   };
-  const label = theme === "dark" ? "Switch to light theme" : "Switch to dark theme";
   return (
-    <button type="button" className={styles.iconButton} onClick={toggle} aria-label={label} title={label}>
-      <Icon kind={theme === "dark" ? "sun" : "moon"} className={styles.icon} />
+    <button type="button" className={`${styles.iconButton} ${styles.themeToggle}`} onClick={toggle} aria-label="Toggle dark mode" title="Toggle dark mode">
+      <Icon kind="moon" className={`${styles.icon} ${styles.moon}`} />
+      <Icon kind="sun" className={`${styles.icon} ${styles.sun}`} />
     </button>
   );
 }
@@ -90,12 +91,13 @@ function CopyEmail() {
 }
 
 // Adds .is-in to [data-reveal] elements the first time they enter the
-// viewport. One shared observer per page; re-scans after client navigation.
+// viewport. One shared observer per page; re-scans after client navigation
+// and picks up elements mounted later (filters, toggles).
 function useReveal(key) {
   useEffect(() => {
-    const els = document.querySelectorAll("[data-reveal]:not(.is-in)");
+    const scan = () => document.querySelectorAll("[data-reveal]:not(.is-in)");
     if (!("IntersectionObserver" in window)) {
-      els.forEach((el) => el.classList.add("is-in"));
+      scan().forEach((el) => el.classList.add("is-in"));
       return undefined;
     }
     const io = new IntersectionObserver(
@@ -109,8 +111,14 @@ function useReveal(key) {
       },
       { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    scan().forEach((el) => io.observe(el));
+    const mo = new MutationObserver(() => scan().forEach((el) => io.observe(el)));
+    const main = document.getElementById("main");
+    if (main) mo.observe(main, { childList: true, subtree: true });
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
   }, [key]);
 }
 
@@ -139,6 +147,7 @@ export default function Layout({ children }) {
   // Lock scroll, close on Escape, and move focus into the menu while open.
   useEffect(() => {
     if (!menuOpen) return undefined;
+    const burger = burgerRef.current;
     document.body.style.overflow = "hidden";
     menuRef.current?.querySelector("a")?.focus();
     const onKey = (e) => {
@@ -148,7 +157,7 @@ export default function Layout({ children }) {
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
-      burgerRef.current?.focus();
+      burger?.focus();
     };
   }, [menuOpen]);
 

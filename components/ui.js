@@ -148,10 +148,13 @@ export function Readout({ label, value, caption }) {
       },
       { threshold: 0.6 }
     );
-    setDisplay(before + fmt(0) + after);
+    // Reset to zero on the next frame (not synchronously in the effect), so
+    // the server-rendered final value is what crawlers and no-JS users get.
+    const reset = requestAnimationFrame(() => setDisplay(before + fmt(0) + after));
     io.observe(ref.current);
     return () => {
       io.disconnect();
+      cancelAnimationFrame(reset);
       cancelAnimationFrame(raf);
     };
   }, [value]);

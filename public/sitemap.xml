@@ -31,22 +31,32 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://pidoxy.com/press</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://pidoxy.com/awards</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://pidoxy.com/moments</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pidoxy.com/cv</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pidoxy.com/research/when-retrieval-hurts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pidoxy.com/research/vamae</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pidoxy.com/research/sharpxr</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pidoxy.com/engineering/aidcare</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

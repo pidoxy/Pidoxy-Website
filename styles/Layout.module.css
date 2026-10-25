@@ -125,6 +125,13 @@
   width: 17px;
   height: 17px;
 }
+.themeToggle .sun,
+:global(:root[data-theme="dark"]) .themeToggle .moon {
+  display: none;
+}
+:global(:root[data-theme="dark"]) .themeToggle .sun {
+  display: block;
+}
 
 .talk {
   display: inline-flex;
