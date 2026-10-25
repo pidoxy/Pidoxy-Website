@@ -10,10 +10,9 @@ export const talks = [
     tags: ["Teaching", "AI for SWE"],
     links: [
       {
-        label: "Course starter repo",
-        href: "https://github.com/pidoxy/ai-for-se-starter",
+        label: "Course page",
+        href: "https://www.theaicolonyacademy.com/courses/ai-for-swe",
         external: true,
-        type: "code",
       },
     ],
   },

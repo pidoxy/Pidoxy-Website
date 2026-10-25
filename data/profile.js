@@ -62,7 +62,7 @@ export const proofStrip = [
 export const spendingTime = [
   { org: "AidCare", role: "Founder & AI/ML Engineer", href: "/engineering/aidcare" },
   { org: "HabariPay (GTCO)", role: "Software Engineer", href: "/about#experience" },
-  { org: "The AI Colony", role: "Instructor, AI for Software Engineering", href: "/talks" },
+  { org: "The AI Colony", role: "Instructor, AI for Software Engineering", href: "https://www.theaicolonyacademy.com/courses/ai-for-swe" },
   { org: "ML Collective", role: "Independent ML Researcher", href: "/research" },
   { org: "Consulting Club of Lagos", role: "Head, AI and ML", href: "/about#experience" },
   { org: "University of Lagos", role: "B.Sc. Computer Science", href: "/about" },
