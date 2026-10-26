@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" fill="none">
+  <title>GTCO Summer Program Portal workflow</title>
+  <desc>Administrators publish tasks, interns submit their work, reviewers give feedback, and progress is recorded. Requests for changes return to the intern for revision and resubmission. Curriculum, schedules, mentorship and scoring support the workflow.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#FFFFFF" stroke-opacity=".04"/>
+    </pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1 1L6 4L1 7" stroke="#C9A55A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1440" height="860" fill="#111214"/>
+  <rect width="1440" height="860" fill="url(#grid)"/>
+  <rect x="48" y="48" width="1344" height="764" rx="20" stroke="#FFFFFF" stroke-opacity=".14"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" letter-spacing="2" fill="#C9A55A">
+    <text x="88" y="110">GTCO / SUMMER PROGRAM PORTAL</text>
+    <text x="1352" y="110" text-anchor="end">PROGRAM OPERATIONS</text>
+  </g>
+  <text x="88" y="202" font-family="Georgia, serif" font-size="56" fill="#F6F4EF">Work, feedback, and a way forward.</text>
+  <text x="88" y="246" font-family="Arial, sans-serif" font-size="23" fill="#A4A3A0">A shared workflow for interns, reviewers and the people running the program.</text>
+  <g stroke="#C9A55A" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M370 432H407"/>
+    <path d="M700 432H737"/>
+    <path d="M1030 432H1067"/>
+  </g>
+  <g fill="#1D1E20" stroke="#3C3C3D">
+    <rect x="88" y="326" width="282" height="210" rx="14"/>
+    <rect x="418" y="326" width="282" height="210" rx="14"/>
+    <rect x="748" y="326" width="282" height="210" rx="14"/>
+    <rect x="1078" y="326" width="274" height="210" rx="14"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#C9A55A">
+    <text x="114" y="368">01 / ADMIN</text>
+    <text x="444" y="368">02 / INTERN</text>
+    <text x="774" y="368">03 / REVIEWER</text>
+    <text x="1104" y="368">04 / SHARED VIEW</text>
+  </g>
+  <g font-family="Georgia, serif" font-size="34" fill="#F6F4EF">
+    <text x="114" y="423">Publish tasks</text>
+    <text x="444" y="423">Submit work</text>
+    <text x="774" y="423">Review</text>
+    <text x="1104" y="423">Record progress</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#A4A3A0">
+    <text x="114" y="467">Dates, requirements</text>
+    <text x="114" y="497">and submission fields</text>
+    <text x="444" y="467">Answers and</text>
+    <text x="444" y="497">stored attachments</text>
+    <text x="774" y="467">Feedback and</text>
+    <text x="774" y="497">requests for changes</text>
+    <text x="1104" y="467">Learning journey</text>
+    <text x="1104" y="497">and scoring</text>
+  </g>
+  <path d="M889 536V584Q889 604 869 604H579Q559 604 559 584V550" stroke="#C9A55A" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+  <rect x="602" y="586" width="244" height="34" rx="17" fill="#111214"/>
+  <text x="724" y="609" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#C9A55A">Request changes → resubmit</text>
+  <path d="M88 674H1352" stroke="#3C3C3D"/>
+  <g font-family="Arial, sans-serif" font-size="22" fill="#A4A3A0">
+    <circle cx="98" cy="726" r="5" fill="#C9A55A"/>
+    <text x="116" y="733">Curriculum</text>
+    <circle cx="428" cy="726" r="5" fill="#C9A55A"/>
+    <text x="446" y="733">Schedules</text>
+    <circle cx="758" cy="726" r="5" fill="#C9A55A"/>
+    <text x="776" y="733">Mentorship</text>
+    <circle cx="1088" cy="726" r="5" fill="#C9A55A"/>
+    <text x="1106" y="733">Cohort oversight</text>
+  </g>
+  <text x="88" y="780" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#858583">WORKFLOW ILLUSTRATION / NO INTERN RECORDS SHOWN</text>
+</svg>

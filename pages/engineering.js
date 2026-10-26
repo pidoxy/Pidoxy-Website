@@ -5,6 +5,7 @@ import Meta from "../components/Meta";
 import { Button, Chip, SectionHeader, StatusPill, SmartLink, uiStyles as ui } from "../components/ui";
 import { innerStyles as s } from "../components/inner";
 import { projects, projectGroups, archive, hackathonCount } from "../data/projects";
+import { caseStudies } from "../data/caseStudies";
 import { skills } from "../data/skills";
 import e from "../styles/Engineering.module.css";
 
@@ -15,7 +16,7 @@ const GROUP_ANCHOR = { agentic: "agentic", products: "products", systems: "produ
 const aidcare = projects.find((p) => p.slug === "aidcare");
 
 // A case study exists for these; their cards link inward instead of out.
-const CASE_STUDIES = new Set(["aidcare"]);
+const CASE_STUDIES = new Set(Object.keys(caseStudies));
 
 function ProjectCard({ p, index }) {
   const primary = CASE_STUDIES.has(p.slug) ? `/engineering/${p.slug}` : p.links[0]?.href;

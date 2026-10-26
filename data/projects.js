@@ -312,6 +312,19 @@ export const projects = [
     ],
   },
   {
+    title: "AFM Legacy Archive",
+    slug: "legacy-archive",
+    image: "/images/work/legacy-archive.svg",
+    group: "products",
+    status: "Historical Document Digitisation",
+    summary:
+      "A mobile-to-desktop archive workflow for capturing historical documents, organising pages, reviewing OCR-assisted transcripts and finding approved records. I worked across the FastAPI backend and Next.js frontend, including grouped capture, review, search and transcript exports.",
+    tags: ["Next.js", "FastAPI", "PostgreSQL", "SQLAlchemy", "OCR", "Human review"],
+    links: [
+      { label: "Read case study", href: "/engineering/legacy-archive", external: false },
+    ],
+  },
+  {
     title: "HabariPay (GTCO)",
     group: "systems",
     status: "Sep 2024 – present · day job",
@@ -319,6 +332,19 @@ export const projects = [
       "Full-stack engineering on enterprise events software at Guaranty Trust's fintech subsidiary, including AI-powered product features.",
     tags: ["Full-stack", "Enterprise", "Fintech", "AI features"],
     links: [],
+  },
+  {
+    title: "GTCO Summer Program Portal",
+    slug: "gtco-summer-portal",
+    image: "/images/work/gtco-summer-portal.svg",
+    group: "systems",
+    status: "GTCO · Internship Program Platform",
+    summary:
+      "Built the backend and integrated the team's frontend for GTCO's summer internship portal, connecting curriculum, tasks, submissions, mentorship and scoring. Maintained the review, attachment and scheduling workflows as the program moved into use.",
+    tags: ["NestJS", "Next.js", "Prisma", "PostgreSQL", "TypeScript"],
+    links: [
+      { label: "Read case study", href: "/engineering/gtco-summer-portal", external: false },
+    ],
   },
   {
     title: "Wema Wiki",
@@ -349,12 +375,16 @@ export const projects = [
   },
   {
     title: "AFM WECA Welfare CRM",
+    slug: "welfare-crm",
+    image: "/images/work/welfare-crm.svg",
     group: "systems",
     status: "Production Welfare Operations Platform",
     summary:
-      "A branch-aware welfare CRM that replaces spreadsheet-led newcomer care with live registration, assignment, follow-up, conversion, attendance, blessings, reporting, and audit workflows. Role-based access supports platform admins, pastors, welfare officers, secretaries, and volunteers; production routes were validated across 213 people, 212 newcomers, and 24 branch-team records.",
+      "A branch-aware care platform connecting newcomer registration, caller assignments, contact outcomes and membership review. I worked across the NestJS backend and Next.js frontend to make follow-up ownership, role permissions and branch oversight agree across the system.",
     tags: ["NestJS", "Next.js", "PostgreSQL", "Redis", "JWT", "RBAC"],
-    links: [],
+    links: [
+      { label: "Read case study", href: "/engineering/welfare-crm", external: false },
+    ],
   },
 ];
 

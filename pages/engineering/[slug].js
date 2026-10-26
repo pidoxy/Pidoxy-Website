@@ -38,7 +38,7 @@ export default function CaseStudy({ slug, cs }) {
               about: {
                 "@type": "SoftwareApplication",
                 name: cs.title,
-                url: cs.ctas[0]?.href,
+                url: cs.productUrl || `${profile.siteUrl}/engineering/${slug}`,
                 applicationCategory: cs.kicker.split(" · ")[1] || "Application",
                 creator: { "@id": personId },
               },
@@ -104,7 +104,7 @@ export default function CaseStudy({ slug, cs }) {
               {x.rows ? (
                 <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
                   {x.rows.map((r) => (
-                    <li key={r.t} style={{ display: "grid", gridTemplateColumns: "minmax(0, 220px) 1fr", gap: 24, padding: "16px 0", borderTop: "1px solid var(--rule)" }}>
+                    <li key={r.t} className={s.caseRow}>
                       <span className={ui.headingS}>{r.t}</span>
                       <span style={{ color: "var(--secondary)" }}>{r.d}</span>
                     </li>

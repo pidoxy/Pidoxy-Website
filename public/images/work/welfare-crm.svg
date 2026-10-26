@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" fill="none">
+  <title>Welfare CRM care workflow</title>
+  <desc>Register a newcomer, assign a caller, record the contact outcome and review membership readiness. Unsuccessful contact stays in the retry queue. Access is scoped by branch, permissions and assignment.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#E7E2D8" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1 1L6 4L1 7" stroke="#826622" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1440" height="860" fill="#F0EDE6"/>
+  <rect width="1440" height="860" fill="url(#grid)" opacity=".5"/>
+  <rect x="48" y="48" width="1344" height="764" rx="20" fill="#F9F7F2" stroke="#DED8CB"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" letter-spacing="2" fill="#826622">
+    <text x="88" y="110">AFM WECA / WELFARE CRM</text>
+    <text x="1352" y="110" text-anchor="end">CARE OPERATIONS</text>
+  </g>
+  <text x="88" y="202" font-family="Georgia, serif" font-size="56" fill="#0E0D12">Every follow-up has a next step.</text>
+  <text x="88" y="246" font-family="Arial, sans-serif" font-size="23" fill="#5E606B">From a new record to shared care history, with a person responsible for the work.</text>
+  <g stroke="#826622" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M370 432H407"/>
+    <path d="M700 432H737"/>
+    <path d="M1030 432H1067"/>
+  </g>
+  <g fill="#FFFFFF" stroke="#DED8CB">
+    <rect x="88" y="326" width="282" height="210" rx="14"/>
+    <rect x="418" y="326" width="282" height="210" rx="14"/>
+    <rect x="748" y="326" width="282" height="210" rx="14"/>
+    <rect x="1078" y="326" width="274" height="210" rx="14"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#826622">
+    <text x="114" y="368">01 / INTAKE</text>
+    <text x="444" y="368">02 / OWNERSHIP</text>
+    <text x="774" y="368">03 / FOLLOW-UP</text>
+    <text x="1104" y="368">04 / REVIEW</text>
+  </g>
+  <g font-family="Georgia, serif" font-size="34" fill="#0E0D12">
+    <text x="114" y="423">Register</text>
+    <text x="444" y="423">Assign</text>
+    <text x="774" y="423">Record outcome</text>
+    <text x="1104" y="423">Review readiness</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#5E606B">
+    <text x="114" y="467">Newcomer details</text>
+    <text x="114" y="497">and branch</text>
+    <text x="444" y="467">An eligible,</text>
+    <text x="444" y="497">activated caller</text>
+    <text x="774" y="467">Contact history</text>
+    <text x="774" y="497">and next action</text>
+    <text x="1104" y="467">Membership and</text>
+    <text x="1104" y="497">group placement</text>
+  </g>
+  <path d="M889 536V584Q889 604 869 604H579Q559 604 559 584V550" stroke="#826622" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+  <rect x="610" y="586" width="230" height="34" rx="17" fill="#F9F7F2"/>
+  <text x="725" y="609" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#826622">Not reached? Keep in Retry.</text>
+  <path d="M88 674H1352" stroke="#DED8CB"/>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#5E606B">
+    <circle cx="98" cy="726" r="5" fill="#826622"/>
+    <text x="116" y="733">Branch and assignment scope</text>
+    <circle cx="588" cy="726" r="5" fill="#826622"/>
+    <text x="606" y="733">Permission-aware actions</text>
+    <circle cx="1088" cy="726" r="5" fill="#826622"/>
+    <text x="1106" y="733">Reports and audit trail</text>
+  </g>
+  <text x="88" y="780" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#77766F">WORKFLOW ILLUSTRATION / NO PERSONAL RECORDS SHOWN</text>
+</svg>

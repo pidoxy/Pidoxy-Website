@@ -27,8 +27,9 @@ export const experience = [
     role: "Software Engineer",
     org: "HabariPay – GTCO",
     period: "Sep 2024 – Present",
+    links: [{ label: "GTCO Summer Program Portal", href: "/engineering/gtco-summer-portal" }],
     detail:
-      "Full-stack engineering on enterprise events software at the fintech subsidiary of Guaranty Trust, including AI-powered product features.",
+      "Full-stack engineering on enterprise events software at the fintech subsidiary of Guaranty Trust, including AI-powered product features. Built the backend and integrated the frontend for GTCO's Summer Program Portal, with continued feature development and maintenance during the program.",
   },
   {
     role: "Independent ML Researcher",

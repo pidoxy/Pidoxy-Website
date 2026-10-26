@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" fill="none">
+  <title>Legacy Archive workflow</title>
+  <desc>Capture ordered pages, transcribe, review the source and approve a record for archive search and export.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#E7E2D8" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1 1L6 4L1 7" stroke="#826622" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1440" height="860" fill="#F0EDE6"/>
+  <rect width="1440" height="860" fill="url(#grid)" opacity=".5"/>
+  <rect x="48" y="48" width="1344" height="764" rx="20" fill="#F9F7F2" stroke="#DED8CB"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" letter-spacing="2" fill="#826622">
+    <text x="88" y="110">AFM / LEGACY ARCHIVE</text>
+    <text x="1352" y="110" text-anchor="end">DOCUMENT PRESERVATION</text>
+  </g>
+  <text x="88" y="202" font-family="Georgia, serif" font-size="56" fill="#0E0D12">A scan becomes a reviewed record.</text>
+  <text x="88" y="246" font-family="Arial, sans-serif" font-size="23" fill="#5E606B">Preserve page order, reading structure and a path back to the source.</text>
+  <g stroke="#826622" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M370 432H407"/>
+    <path d="M700 432H737"/>
+    <path d="M1030 432H1067"/>
+  </g>
+  <g fill="#FFFFFF" stroke="#DED8CB">
+    <rect x="88" y="326" width="282" height="210" rx="14"/>
+    <rect x="418" y="326" width="282" height="210" rx="14"/>
+    <rect x="748" y="326" width="282" height="210" rx="14"/>
+    <rect x="1078" y="326" width="274" height="210" rx="14"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#826622">
+    <text x="114" y="368">01 / SOURCE</text>
+    <text x="444" y="368">02 / EXTRACTION</text>
+    <text x="774" y="368">03 / EDITORIAL</text>
+    <text x="1104" y="368">04 / ARCHIVE</text>
+  </g>
+  <g font-family="Georgia, serif" font-size="34" fill="#0E0D12">
+    <text x="114" y="423">Capture</text>
+    <text x="444" y="423">Transcribe</text>
+    <text x="774" y="423">Review</text>
+    <text x="1104" y="423">Discover</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#5E606B">
+    <text x="114" y="467">Phone scan or upload</text>
+    <text x="114" y="497">Ordered pages</text>
+    <text x="444" y="467">OCR text and</text>
+    <text x="444" y="497">suggested metadata</text>
+    <text x="774" y="467">Compare, correct</text>
+    <text x="774" y="497">and approve</text>
+    <text x="1104" y="467">Search approved text</text>
+    <text x="1104" y="497">Export the transcript</text>
+  </g>
+  <path d="M889 536V584Q889 604 869 604H579Q559 604 559 584V550" stroke="#826622" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+  <rect x="610" y="586" width="230" height="34" rx="17" fill="#F9F7F2"/>
+  <text x="725" y="609" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#826622">Check source. Refine text.</text>
+  <path d="M88 674H1352" stroke="#DED8CB"/>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#5E606B">
+    <circle cx="98" cy="726" r="5" fill="#826622"/>
+    <text x="116" y="733">Grouped pages</text>
+    <circle cx="588" cy="726" r="5" fill="#826622"/>
+    <text x="606" y="733">Review history and search</text>
+    <circle cx="1088" cy="726" r="5" fill="#826622"/>
+    <text x="1106" y="733">TXT / DOCX / PDF</text>
+  </g>
+  <text x="88" y="780" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#77766F">WORKFLOW ILLUSTRATION / NO ARCHIVAL MATERIAL REPRODUCED</text>
+</svg>
